@@ -1,0 +1,96 @@
+.sticky-container{
+    padding: 0px;
+    margin: 0px;
+    position: fixed;
+    right: -7.6rem;
+    top: 40%;
+    width: 12.5rem;
+  }
+  .sticky-container2{
+  padding: 0px;
+  margin: 0px;
+  position: fixed;
+  top: 12.4%;
+  height: 96vh;
+  border: 1px solid #aba8a8;
+  width: 17.5rem;
+  background: white
+  }
+  
+  .sticky li{
+    list-style-type: none;
+    background: linear-gradient(to right, #ffcc66 0%, #ffff99 100%);
+    color: #efefef;
+    height: 49px;
+    padding: 0px;
+    margin: 0px -16% 1.5% 0px;
+    -webkit-transition:all 0.25s ease-in-out;
+    -moz-transition:all 0.25s ease-in-out;
+    -o-transition:all 0.25s ease-in-out;
+    transition:all 0.25s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .sticky li:hover{
+    margin-left: -100%;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+            -webkit-filter: grayscale(0%);
+  }
+  
+  .sticky li img{
+    float: left;
+    margin: 9px 8px;
+    margin-right: 10px;
+  }
+  
+  .sticky li i{
+    float: left;
+    margin: 9px 8px;
+    margin-right: 10px;
+    color: #3475a7;
+  }
+  
+  .sticky li p{
+    float:left;
+    padding: 0px;
+    margin: 0px;
+    text-transform: uppercase;
+    line-height: 43px;
+    color: #3475a7;
+    font-weight: bold;
+  }
+  
+  a.scrollup {
+    outline: 0;
+    text-align: center;
+  }
+  .scrollup {
+    position: fixed;
+    width: 32px;
+    height: 25px;
+    bottom: 0px;
+    right: 20px;
+    background: #222;
+    -webkit-border-radius: 2px 2px 0 0;
+    -moz-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+  }
+  a {
+    color: black;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+  a {
+    color: #fafafa;
+    text-decoration: none;
+  }
+  
+  .continer2{
+  list-style: none;
+  }
+  @media (max-width: 576px) {
+    .float{
+      display: none !important;
+    }
+  }

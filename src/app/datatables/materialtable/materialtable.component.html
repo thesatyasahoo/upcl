@@ -1,0 +1,53 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>Table with sorting</mat-card-title>
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Domestic" #input>
+    </mat-form-field>
+    <div class="responsive-table">
+      <mat-table #table [dataSource]="dataSource" matSort>
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">ID :</span> {{row.id}}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="progress">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Progress :</span> {{row.progress}}%
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Name :</span> {{row.name}}
+          </mat-cell>
+        </ng-container>
+
+       <!-- Weight Column -->
+       <ng-container matColumnDef="fruit">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Fruit </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <span class="header-label">Fruit :</span> {{row.fruit}}
+        </mat-cell>
+      </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        <mat-row *matNoDataRow>
+          <mat-cell colspan="4">No data matching the filter "{{input.value}}"</mat-cell>
+        </mat-row>
+
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

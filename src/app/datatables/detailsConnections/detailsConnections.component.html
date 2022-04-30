@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title></mat-card-title>	
+    <div class="row mb-4">
+      <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12">
+        Account / Service Number : {{rows[0].accountNumber}} / {{rows[0].serviceConnNumber}}
+      </div>
+      <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 text-end">
+        <div class="border border-warning p-2 w-100 mt-4 mt-md-0 mt-lg-0 mt-xl-0 mt-xxl-0">
+          <span class="text-success">Your last payment made on 26-Jul-2021 was Rs. {{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12">
+        <div class="border border-secondary p-2 cstmWidth w-50">
+          <span class="text-success">There are no dues</span><br>
+          Advance amount paid : <span class="text-warning">{{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
+        </div>
+      </div>
+      <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-0"></div>
+    </div>
+    <!-- <div class="row mb-4">
+      <div class="col">
+        <div class="border border-secondary p-2" style="width: 23rem;">
+          <span class="text-primary">Your Outstanding due amount is ₹ {{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
+        </div>
+      </div>
+    </div> -->
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td>Account Number</td>
+            <td>Service Connection Number</td>
+            <td>Name</td>
+            <td>Bill Date</td>
+            <td>Units</td>
+            <td>Bill Month</td>
+            <td>Arrear</td>
+            <td>Bill Amount</td>
+            <td>TCS Amount</td>
+            <td>Net Payable Amount</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of rows">
+            <td scope="row">{{row.accountNumber}}</td>
+            <td>{{row.serviceConnNumber}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.billDate}}</td>
+            <td>{{row.units}}</td>
+            <td>{{row.billMonth}}</td>
+            <td>{{row.arrear}}</td>
+            <td>{{row.billAmount}}</td>
+            <td>{{row.tcsAmount}}</td>
+            <td><span class="text-danger">{{row.netPaybleAmount}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>

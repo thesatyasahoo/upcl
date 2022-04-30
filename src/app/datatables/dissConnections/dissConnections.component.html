@@ -1,0 +1,90 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>Table with sorting</mat-card-title>
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Domestic" #input>
+    </mat-form-field>
+    <div class="responsive-table">
+      <mat-table #table [dataSource]="dataSource" matSort>
+        <!-- Name Column -->
+        <ng-container matColumnDef="accountNumber">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Account No. </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Account No :</span> <a class="text-primary" (click)="onRowClick(row)" style="cursor: pointer;">{{row.accountNumber}}</a>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="serviceConnNumber">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Service Account No. </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Service Account No. :</span> {{row.serviceConnNumber}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Name :</span> {{row.name}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="address">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Address :</span> {{row.address}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="serviceStatus">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Service Status </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Service Status :</span> {{row.serviceStatus}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dueDate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Due Date :</span> {{row.dueDate}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="netPaybleAmount">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Net Payble Amount </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Net Payble Amount :</span> {{row.netPaybleAmount}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="paymentStatus">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Payment Status </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Payment Status :</span> 
+            <div class="">
+              <span class="badge rounded-pill w-100 pt-2" [ngClass]="{'bg-success': row.paymentStatus === 'Paid', 'bg-warning': row.paymentStatus === 'Over Due', 'bg-danger': row.paymentStatus === 'Disconnected'}" style="height: 1.5rem;width: 4.5rem !important;
+              padding-top: 0.6rem;">{{row.paymentStatus}}</span>
+            </div>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="connectionType">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Connection Type </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Connection Type :</span> {{row.connectionType}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="billLink">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Bill Link </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="header-label">Bill Link :</span>
+            <span *ngIf="row.paymentStatus === 'Paid'"><a class="link" style="cursor: pointer;">View Link</a><br><a class="link" style="cursor: pointer;">View Receipt Links</a></span>
+            <span *ngIf="row.paymentStatus === 'Over Due'"><a class="link" style="cursor: pointer;">Pay Bill Links</a></span>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        <mat-row *matNoDataRow>
+          <mat-cell colspan="4">No data matching the filter "{{input.value}}"</mat-cell>
+        </mat-row>
+
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>
