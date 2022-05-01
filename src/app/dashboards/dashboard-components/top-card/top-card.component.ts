@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-top-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./top-card.component.scss'],
 })
 export class TopCardComponent {
-  constructor() {}
+  constructor(private translate: TranslateService) {}
 }

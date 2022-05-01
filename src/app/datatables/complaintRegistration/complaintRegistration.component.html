@@ -1,0 +1,81 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title></mat-card-title>	
+    <div class="row mb-4">
+      <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12">
+        <span class="">{{'Account' | translate}} : {{rows[0].accountNumber}}</span>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12">
+        <span class="">{{'SCNo' | translate}} : {{rows[0].serviceConnNumber}}</span>
+      </div>
+    </div>
+    <div fxLayout="row wrap">
+      <div fxFlex.gt-sm="100" fxFlex="100">
+        <mat-card>
+          <mat-card-content>
+            <!-- <mat-card-title>Form with grid</mat-card-title> -->
+            <!-- <mat-card-subtitle
+              >use this class <code>.row</code> to the fxLayout="row" and <code>p-10</code> to the
+              fxFlex div</mat-card-subtitle -->
+            <!-- > -->
+            <!-- ============================================================== -->
+            <!-- column -->
+            <!-- ============================================================== -->
+            <form class="basic-form" [formGroup]="options">
+              <div fxLayout="row wrap" fxFlexAlign="center" class="row">
+                <!-- column -->
+                <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10">
+                  <mat-form-field>
+                    <mat-select placeholder="{{'Select Complaint Type' | translate}}" formControlName="complaintType" (selectionChange)="changeComplaint($event)">
+                      <mat-option value="POWER_SUPPLY_FAILURE">{{'POWER SUPPLY FAILURE' | translate}}</mat-option>
+                      <mat-option value="VOLTAGE_FLUCTUATION">{{'VOLTAGE FLUCTUATION' | translate}}</mat-option>
+                      <mat-option value="meter_no_display">{{'meter no display' | translate}}</mat-option>
+                      <mat-option value="ONLINE_PAYMENT_COMPLAINT">{{'ONLINE PAYMENT COMPLAINT' | translate}}</mat-option>
+                      <mat-option value="DISCONNECTION/RECONNECTION_OF_SUPPLY">{{'DISCONNECTION/RECONNECTION OF SUPPLY' | translate}}</mat-option>
+                      <mat-option value="WSS_RELATED_COMPLAINTS">{{'WSS RELATED COMPLAINTS' | translate}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="complaintType.invalid">{{ getErrorMessagecomplaintType() | translate}}</mat-error>
+                  </mat-form-field>
+                </div>
+                <!-- column -->
+                <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10">
+                  <mat-form-field>
+                    <mat-select placeholder="{{'Select Complaint' | translate}}" formControlName="complaint">
+                      <mat-option *ngFor="let item of complaintsData" [value]="item.value">
+                        {{item.name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="complaint.invalid">{{ getErrorMessagecomplaint() | translate}}</mat-error>
+                  </mat-form-field>
+                </div>
+                <!-- column -->
+                <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10">
+                  <mat-form-field>
+                    <mat-select placeholder="{{'Select Substation' | translate}}" formControlName="subdtation">
+                      <mat-option *ngFor="let item of complaintsData" [value]="item.value">
+                        {{item.name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="subdtation.invalid">{{ getErrorMessagesubdtation() | translate}}</mat-error>
+                  </mat-form-field>
+                </div>
+                <!-- column -->
+                <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10">
+                  <mat-form-field>
+                    <textarea matInput placeholder="{{'Enter Description Here' | translate}}" formControlName="complaint_Details"></textarea>
+                    <mat-error *ngIf="complaint_Details.invalid">{{ getErrorMessagecomplaint_Details() | translate}}</mat-error>
+                  </mat-form-field>
+                </div>
+                <div fxFlex.gt-sm="100" fxFlex="100" class="p-10">
+                  <button mat-raised-button color="primary" [disabled]="!options.valid">{{'Submit' | translate}}</button>
+                </div>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

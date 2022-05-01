@@ -1,0 +1,70 @@
+<mat-card>
+  <mat-card-content>
+    <!-- <mat-card-title></mat-card-title>	 -->
+    <div class="row mb-4">
+      <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 text-end">
+        <button mat-raised-button color="accent">{{'Delete My Account' | translate}}</button>
+      </div>
+    </div>
+    <div fxLayout="row wrap">
+      <div fxFlex.gt-sm="100" fxFlex="100">
+        <mat-card>
+          <mat-card-content>
+            <!-- <mat-card-title>Form with grid</mat-card-title> -->
+            <!-- <mat-card-subtitle
+              >use this class <code>.row</code> to the fxLayout="row" and <code>p-10</code> to the
+              fxFlex div</mat-card-subtitle -->
+            <!-- > -->
+            <!-- ============================================================== -->
+            <!-- column -->
+            <!-- ============================================================== -->
+            <form class="basic-form" [formGroup]="options">
+              <div fxLayout="row wrap" fxFlexAlign="center" class="row">
+                <!-- column -->
+                <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10">
+                  <mat-form-field>
+                    <input matInput placeholder="{{'Enter your mobile' | translate}}" [formControl]="mobile" required />
+                    <mat-error *ngIf="mobile.invalid">{{ getErrorMessagemobile() | translate}}</mat-error>
+                  </mat-form-field>
+                </div>
+                <!-- column -->
+                <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10">
+                  <mat-form-field>
+                    <input matInput placeholder="{{'Enter your primary email' | translate}}" [formControl]="primaryemail" required />
+                    <mat-error *ngIf="primaryemail.invalid">{{ getErrorMessageprimaryemail() | translate}}</mat-error>
+                  </mat-form-field>
+                </div>
+                <!-- column -->
+                <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10">
+                  <mat-form-field>
+                    <mat-select placeholder="{{'Select Secret Question' | translate}}" formControlName="secretQuestion">
+                      <mat-option *ngFor="let item of secretAnswerData" [value]="item.value">
+                        {{item.name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="secretQuestion.invalid">{{ getErrorMessagesecretQuestion() | translate}}</mat-error>
+                  </mat-form-field>
+                </div>
+                <!-- column -->
+                <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10">
+                  <mat-form-field>
+                    <input matInput placeholder="{{'Enter your secret answer' | translate}}" [formControl]="secretAnswer" required />
+                    <mat-error *ngIf="secretAnswer.invalid">{{ getErrorMessagesecretAnswer() | translate}}</mat-error>
+                  </mat-form-field>
+                </div>
+                <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10"></div>
+                <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10"></div>
+                <div fxFlex.gt-sm="100" fxFlex="100" class="p-10">
+                  <div class="row">
+                    <div class="col"><button mat-raised-button color="primary" [disabled]="!options.valid">{{'Submit' | translate}}</button></div>
+                    <div class="col text-end"><button mat-raised-button color="accent">{{'Back' | translate}}</button></div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

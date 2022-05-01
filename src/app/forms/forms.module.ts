@@ -26,6 +26,7 @@ import { FormValidationComponent } from './form-validation/form-validation.compo
 import { UploadComponent } from './file-upload/upload.component';
 import { WizardComponent } from './wizard/wizard.component';
 import { MultiselectComponent } from './multiselect/multiselect.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { MultiselectComponent } from './multiselect/multiselect.component';
     QuillModule.forRoot(),
     ReactiveFormsModule,
     MatDatepickerModule,
+    MatFormFieldModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
   declarations: [

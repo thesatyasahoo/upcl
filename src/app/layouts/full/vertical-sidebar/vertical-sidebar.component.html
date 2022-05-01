@@ -35,7 +35,7 @@
       (click)="handleNotify()"
     >
       <mat-icon>{{ menuitem.icon }}</mat-icon>
-      <span title="{{ menuitem.name }}">{{ menuitem.name | translate }}</span>
+      <span title="{{ menuitem.name | translate }}">{{ menuitem.name | translate }}</span>
       <span fxFlex></span>
       <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{
         badge.value
@@ -44,7 +44,7 @@
 
     <a class="" appAccordionToggle href="{{ menuitem.state }}" *ngIf="menuitem.type === 'extLink'">
       <mat-icon>{{ menuitem.icon }}</mat-icon>
-      <span title="{{ menuitem.name }}">{{ menuitem.name | translate }}</span>
+      <span title="{{ menuitem.name | translate  }}">{{ menuitem.name | translate }}</span>
       <span fxFlex></span>
       <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{
         badge.value
@@ -59,7 +59,7 @@
       *ngIf="menuitem.type === 'extTabLink'"
     >
       <mat-icon>{{ menuitem.icon }}</mat-icon>
-      <span title="{{ menuitem.name }}">{{ menuitem.name | translate }}</span>
+      <span title="{{ menuitem.name | translate }}">{{ menuitem.name | translate }}</span>
       <span fxFlex></span>
       <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{
         badge.value
@@ -68,7 +68,7 @@
 
     <a class="" appAccordionToggle href="javascript:;" *ngIf="menuitem.type === 'sub'">
       <mat-icon>{{ menuitem.icon }}</mat-icon>
-      <span title="{{ menuitem.name }}">{{ menuitem.name | translate }}</span>
+      <span title="{{ menuitem.name | translate }}">{{ menuitem.name | translate }}</span>
       <span fxFlex></span>
       <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{
         badge.value
@@ -118,7 +118,7 @@
     </mat-nav-list>
 
     <div class="saperator text-muted" *ngIf="menuitem.type === 'saperator'">
-      <span title="{{ menuitem.name }}">{{ menuitem.name | translate }}</span>
+      <span title="{{ menuitem.name | translate }}">{{ menuitem.name | translate }}</span>
     </div>
   </mat-list-item>
   <mat-list-item
@@ -138,7 +138,7 @@
       (click)="handleNotify()"
     >
       <mat-icon>{{item.icon}}</mat-icon>
-      <span title="">{{item.title}}</span>
+      <span title="">{{item.title  | translate }}</span>
       <span fxFlex></span>
       <span class="label label-"></span>
     </a>

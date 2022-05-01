@@ -90,20 +90,25 @@ export class VerticalAppHeaderComponent {
       type: 'US',
       icon: 'us',
     },
+    // {
+    //   language: 'Español',
+    //   code: 'es',
+    //   icon: 'es',
+    // },
+    // {
+    //   language: 'Français',
+    //   code: 'fr',
+    //   icon: 'fr',
+    // },
+    // {
+    //   language: 'German',
+    //   code: 'de',
+    //   icon: 'de',
+    // },
     {
-      language: 'Español',
-      code: 'es',
-      icon: 'es',
-    },
-    {
-      language: 'Français',
-      code: 'fr',
-      icon: 'fr',
-    },
-    {
-      language: 'German',
-      code: 'de',
-      icon: 'de',
+      language: 'Hindi',
+      code: 'in',
+      icon: 'in',
     },
   ];
 
@@ -111,8 +116,10 @@ export class VerticalAppHeaderComponent {
     translate.setDefaultLang('en');
   }
 
-  changeLanguage(lang: any): void {
+  changeLanguage(lang: any) {
     this.translate.use(lang.code);
     this.selectedLanguage = lang;
+    const browserLang = this.translate.getBrowserLang();
+    console.log(browserLang)
   }
 }

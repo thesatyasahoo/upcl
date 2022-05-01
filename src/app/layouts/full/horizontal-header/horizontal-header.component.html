@@ -75,7 +75,6 @@
                 <span class="time">{{ mymessage.time }}</span>
               </div>
             </a>
-            <!-- Message -->
           </perfect-scrollbar>
         </div>
       </li>
@@ -89,7 +88,7 @@
   <img src="assets/images/users/1.jpg" alt="user" class="profile-pic" />
 </button>
 <mat-menu #profile="matMenu" class="mymegamenu">
-  <button mat-menu-item><mat-icon>setting</mat-icon>Edit Profile</button>
-  <button mat-menu-item><mat-icon>account_box</mat-icon>Change Password</button>
-  <button mat-menu-item><mat-icon>exit_to_app</mat-icon>Log Out</button>
+  <button mat-menu-item><mat-icon>setting</mat-icon>{{'Edit Profile' | translate}}</button>
+  <button mat-menu-item><mat-icon>account_box</mat-icon>{{'Change Password' | translate}}</button>
+  <button mat-menu-item><mat-icon>exit_to_app</mat-icon>{{'Log Out' | translate}}</button>
 </mat-menu>

@@ -19,7 +19,9 @@ File: scss
 /******************* 
 Global Styles 
 *******************/
-
+.mat-icon-button {
+  padding: 0.5rem !important;
+}
 * {
   outline: none;
   box-sizing: border-box;
@@ -87,6 +89,9 @@ code {
   .mat-header-cell {
     font-size: 13px !important;
     font-weight: 500;
+  }
+  .mat-icon-button {
+    padding: 0rem !important;
   }
 }
 .mat-header-cell {

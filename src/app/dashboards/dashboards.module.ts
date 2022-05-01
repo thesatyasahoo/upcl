@@ -31,6 +31,7 @@ import {
 } from './dashboard-components';
 import { DashboardEmpComponent } from './dashboard-components/dashboard-emp/dashboard-emp.component';
 import { EmpDialogComponent } from './dashboard-components/dashboard-emp/emp-dialog/emp-dialog.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { EmpDialogComponent } from './dashboard-components/dashboard-emp/emp-dia
     ChartistModule,
     ChartsModule,
     NgApexchartsModule,
+    TranslateModule.forChild(),
     RouterModule.forChild(DashboardsRoutes),
     FormsModule,
     ReactiveFormsModule,

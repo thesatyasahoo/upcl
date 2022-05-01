@@ -14,7 +14,7 @@
           <!-- column -->
           <div>
             <h3 class="m-0"><a [routerLink]="['/pages/table']" routerLinkActive="router-link-active" >6</a></h3>
-            <h6 class="text-muted m-0">Total connections</h6>
+            <h6 class="text-muted m-0">{{'Total connections' | translate}}</h6>
           </div>
         </div>
       </mat-card-content>
@@ -36,7 +36,7 @@
           <!-- column -->
           <div>
             <h3 class="m-0"><a [routerLink]="['/pages/table/pending']" routerLinkActive="router-link-active" >2</a></h3>
-            <h6 class="text-muted m-0">Over Due Connections</h6>
+            <h6 class="text-muted m-0">{{'Over Dues Connections' | translate}}</h6>
           </div>
         </div>
       </mat-card-content>
@@ -58,7 +58,7 @@
           <!-- column -->
           <div>
             <h3 class="m-0"><a [routerLink]="['/pages/table/paid']" routerLinkActive="router-link-active" >2</a></h3>
-            <h6 class="text-muted m-0">Paid Connections</h6>
+            <h6 class="text-muted m-0">{{'Paid Connections' | translate}}</h6>
           </div>
         </div>
       </mat-card-content>
@@ -79,8 +79,68 @@
           </div>
           <!-- column -->
           <div>
-            <h3 class="m-0"><a [routerLink]="['/pages/table/disconnected']" routerLinkActive="router-link-active" >2</a></h3>
-            <h6 class="text-muted m-0">Disconnected Connections</h6>
+            <h3 class="m-0"><a [routerLink]="['/pages/table/domestic']" routerLinkActive="router-link-active" >2</a></h3>
+            <h6 class="text-muted m-0">{{'Domestic Connections' | translate}}</h6>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <!-- Row -->
+        <div class="d-flex no-block">
+          <!-- column -->
+          <div class="m-r-10 no-shrink">
+            <button mat-fab color="warn" mat-card-icon class="shadow-none bg-danger">
+              <mat-icon>content_paste</mat-icon>
+            </button>
+          </div>
+          <!-- column -->
+          <div>
+            <h3 class="m-0"><a [routerLink]="['/pages/table/commercial']" routerLinkActive="router-link-active" >2</a></h3>
+            <h6 class="text-muted m-0">{{'Commercial Connections' | translate}}</h6>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <!-- Row -->
+        <div class="d-flex no-block">
+          <!-- column -->
+          <div class="m-r-10 no-shrink">
+            <button mat-fab color="warn" mat-card-icon class="shadow-none bg-danger">
+              <mat-icon>content_paste</mat-icon>
+            </button>
+          </div>
+          <!-- column -->
+          <div>
+            <h3 class="m-0"><a [routerLink]="['/pages/table/pendingComplaints']" routerLinkActive="router-link-active" >2</a></h3>
+            <h6 class="text-muted m-0">{{'Pending Complaints' | translate}}</h6>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <!-- Row -->
+        <div class="d-flex no-block">
+          <!-- column -->
+          <div class="m-r-10 no-shrink">
+            <button mat-fab color="warn" mat-card-icon class="shadow-none bg-danger">
+              <mat-icon>content_paste</mat-icon>
+            </button>
+          </div>
+          <!-- column -->
+          <div>
+            <h3 class="m-0"><a [routerLink]="['/pages/table/pendingSR']" routerLinkActive="router-link-active" >2</a></h3>
+            <h6 class="text-muted m-0">{{'Pending Service Request' | translate}}</h6>
           </div>
         </div>
       </mat-card-content>

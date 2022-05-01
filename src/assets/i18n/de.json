@@ -1,6 +1,6 @@
 {
   "Personal": "persönlich",
-  "Dashboards": "Dashboards",
+  "Dashboard": "Armaturenbrett",
   "Dashboard 1": "Instrumententafel 1",
   "Dashboard 2": "Instrumententafel 2",
 
@@ -107,5 +107,8 @@
   "Menu Levels": "Menüebenen",
   "Second Level": "Zweites Level",
   "Third Level": "Drittes Level",
-  "aSecond Level": "Zweites Level"
+  "aSecond Level": "Zweites Level",
+  "Welcome User": "Willkommen Benutzer",
+  "Total connections": "Verbindungen insgesamt",
+  "Welcome Admin": "Willkommen Administrator"
 }
