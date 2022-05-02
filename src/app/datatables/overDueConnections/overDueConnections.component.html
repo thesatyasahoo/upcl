@@ -10,7 +10,7 @@
         <!-- Name Column -->
         <ng-container matColumnDef="accountNumber">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Account No. </mat-header-cell>
-          <mat-cell *matCellDef="let row">
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
             <span class="header-label">Account No :</span> <a class="text-primary" (click)="onRowClick(row)" style="cursor: pointer;">{{row.accountNumber}}</a>
           </mat-cell>
         </ng-container>
@@ -18,59 +18,59 @@
         <!-- Weight Column -->
         <ng-container matColumnDef="serviceConnNumber">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Service Account No. </mat-header-cell>
-          <mat-cell *matCellDef="let row">
+          <mat-cell *matCellDef="let row" class="bg-cstmLigtblue w-100 border">
             <span class="header-label">Service Account No. :</span> {{row.serviceConnNumber}}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-          <mat-cell *matCellDef="let row">
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
             <span class="header-label">Name :</span> {{row.name}}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="address">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
-          <mat-cell *matCellDef="let row">
+          <mat-cell *matCellDef="let row" class="bg-cstmLigtblue w-100 border">
             <span class="header-label">Address :</span> {{row.address}}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="serviceStatus">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Service Status </mat-header-cell>
-          <mat-cell *matCellDef="let row">
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
             <span class="header-label">Service Status :</span> {{row.serviceStatus}}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="dueDate">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </mat-header-cell>
-          <mat-cell *matCellDef="let row">
+          <mat-cell *matCellDef="let row" class="bg-cstmLigtblue w-100 border">
             <span class="header-label">Due Date :</span> {{row.dueDate}}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="netPaybleAmount">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Net Payble Amount </mat-header-cell>
-          <mat-cell *matCellDef="let row">
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
             <span class="header-label">Net Payble Amount :</span> {{row.netPaybleAmount}}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="paymentStatus">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Payment Status </mat-header-cell>
-          <mat-cell *matCellDef="let row">
+          <mat-cell *matCellDef="let row" class="bg-cstmLigtblue w-100 border">
             <span class="header-label">Payment Status :</span> 
             <div class="">
-              <span class="badge rounded-pill w-100" [ngClass]="{'bg-success': row.paymentStatus === 'Paid', 'bg-warning': row.paymentStatus === 'Over Due', 'bg-danger': row.paymentStatus === 'Disconnected'}" style="height: 1.5rem;width: 4.5rem !important;
+              <span class="badge rounded-pill w-100" [ngClass]="{'bg-success': row.paymentStatus === 'Paid', 'bg-warning': row.paymentStatus === 'Over Due', 'bg-danger': row.paymentStatus === 'Disconnected'}" style="height: 1.5rem;width: 5.5rem !important;
               padding-top: 0.6rem;">{{row.paymentStatus}}</span>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="connectionType">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Connection Type </mat-header-cell>
-          <mat-cell *matCellDef="let row">
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
             <span class="header-label">Connection Type :</span> {{row.connectionType}}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="billLink">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Bill Link </mat-header-cell>
-          <mat-cell *matCellDef="let row">
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
             <span class="header-label">Bill Link :</span>
             <span *ngIf="row.paymentStatus === 'Paid'"><a class="link" style="cursor: pointer;">View Link</a><br><a class="link" style="cursor: pointer;">View Receipt Links</a></span>
             <span *ngIf="row.paymentStatus === 'Over Due'"><a class="link" style="cursor: pointer;">Pay Bill Links</a></span>

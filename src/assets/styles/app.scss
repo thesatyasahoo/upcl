@@ -19,6 +19,12 @@ File: scss
 /******************* 
 Global Styles 
 *******************/
+// body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-detailsconnections > mat-card > mat-card-content > div.responsive-table > mat-table > mat-header-row > mat-header-cell > div,
+// body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-detailsconnections > mat-card > mat-card-content > div.responsive-table > mat-table > mat-row > mat-cell > div
+
+// {
+// padding-left: 2.5rem !important;
+// }
 .mat-icon-button {
   padding: 0.5rem !important;
 }
@@ -70,6 +76,7 @@ html body .mdi:before,
 html body .mdi-set {
   line-height: initial;
 }
+
 code {
   padding: 0.2rem 0.4rem;
   font-size: 90%;
@@ -85,6 +92,13 @@ code {
   .mat-cell,
   .mat-footer-cell {
     font-size: 13px !important;
+  }
+  .bg-cstmLigtblue {
+    background-color: rgb(240, 238, 142);
+  }
+  
+  .bg-cstmOrange {
+    background-color: rgb(172, 211, 243);
   }
   .mat-header-cell {
     font-size: 13px !important;

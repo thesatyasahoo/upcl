@@ -27,37 +27,87 @@
         </div>
       </div>
     </div> -->
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <td>Account Number</td>
-            <td>Service Connection Number</td>
-            <td>Name</td>
-            <td>Bill Date</td>
-            <td>Units</td>
-            <td>Bill Month</td>
-            <td>Arrear</td>
-            <td>Bill Amount</td>
-            <td>TCS Amount</td>
-            <td>Net Payable Amount</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let row of rows">
-            <td scope="row">{{row.accountNumber}}</td>
-            <td>{{row.serviceConnNumber}}</td>
-            <td>{{row.name}}</td>
-            <td>{{row.billDate}}</td>
-            <td>{{row.units}}</td>
-            <td>{{row.billMonth}}</td>
-            <td>{{row.arrear}}</td>
-            <td>{{row.billAmount}}</td>
-            <td>{{row.tcsAmount}}</td>
-            <td><span class="text-danger">{{row.netPaybleAmount}}</span></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="responsive-table">
+      <mat-table #table [dataSource]="dataSource" matSort>
+        <!-- Name Column -->
+        <ng-container matColumnDef="accountNumber" class="text-center">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Acc No. </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
+            <span class="header-label">Acc No. :</span> {{row.accountNumber}}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="serviceConnNumber" class="text-center">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="border">ScAcc No. </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmLigtblue w-100 border">
+            <span class="header-label">ScAcc No. :</span> {{row.serviceConnNumber}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name" class="text-center">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Name </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
+            <span class="header-label">Name :</span> {{row.name}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="address" class="text-center">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Address </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmLigtblue w-100 border" >
+            <span class="header-label">Address :</span> {{row.address}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="serviceStatus" class="text-center">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Service Status </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
+            <span class="header-label">Service Status :</span> {{row.serviceStatus}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dueDate" class="text-center">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Due Date </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmLigtblue w-100 border" >
+            <span class="header-label">Due Date :</span> {{row.dueDate}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="netPaybleAmount" class="text-center">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Net Amount </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
+            <span class="header-label">Net Amount :</span> {{row.netPaybleAmount}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="paymentStatus" class="text-center">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Payment Status </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmLigtblue w-100 border" >
+            <span class="header-label">Payment Status :</span> 
+            <div class="">
+              <span class="badge rounded-pill w-100" [ngClass]="{'bg-success': row.paymentStatus === 'Paid', 'bg-warning': row.paymentStatus === 'Over Due', 'bg-danger': row.paymentStatus === 'Disconnected'}" style="height: 1.5rem;width: 4.5rem !important;
+              padding-top: 0.6rem;">{{row.paymentStatus}}</span>
+            </div>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="connectionType" class="text-center">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Connection Type </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange">
+            <span class="header-label">Connection Type :</span> {{row.connectionType}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="billLink" class="text-center">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Bill Link </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmLigtblue">
+            <span class="header-label">Bill Link :</span>
+            <span *ngIf="row.paymentStatus === 'Paid'"><a class="link" style="cursor: pointer;">View Link</a><br><a class="link" style="cursor: pointer;">View Receipt Links</a></span>
+            <span *ngIf="row.paymentStatus === 'Over Due'"><a class="link" style="cursor: pointer;">Pay Bill Links</a></span>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        <!-- <mat-row *matNoDataRow>
+          <mat-cell colspan="4">No data matching the filter "{{input.value}}"</mat-cell>
+        </mat-row> -->
+
+      </mat-table>
+      <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
     </div>
   </mat-card-content>
 </mat-card>
