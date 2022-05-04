@@ -23,8 +23,8 @@
                 <!-- column -->
                 <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10">
                   <mat-form-field>
-                    <input matInput placeholder="{{'Enter your mobile' | translate}}" [formControl]="mobile" required />
-                    <mat-error *ngIf="mobile.invalid">{{ getErrorMessagemobile() | translate}}</mat-error>
+                    <input matInput placeholder="{{'Enter your mobile' | translate}}" readonly [formControl]="mobile" required />
+                    <!-- <mat-error *ngIf="mobile.invalid">{{ getErrorMessagemobile() | translate}}</mat-error> -->
                   </mat-form-field>
                 </div>
                 <!-- column -->
@@ -56,8 +56,8 @@
                 <div fxFlex.gt-sm="33.3" fxFlex="100" class="p-10"></div>
                 <div fxFlex.gt-sm="100" fxFlex="100" class="p-10">
                   <div class="row">
-                    <div class="col"><button mat-raised-button color="primary" [disabled]="!options.valid">{{'Submit' | translate}}</button></div>
-                    <div class="col text-end"><button mat-raised-button color="accent">{{'Back' | translate}}</button></div>
+                    <div class="col"><button mat-raised-button color="primary" [disabled]="!options.valid">{{'Update' | translate}}</button></div>
+                    <!-- <div class="col text-end"><button mat-raised-button color="accent">{{'Back' | translate}}</button></div> -->
                   </div>
                 </div>
               </div>

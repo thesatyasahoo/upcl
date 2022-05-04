@@ -37,10 +37,10 @@ export class PendingServiceRequestComponent {
     'name',
     'address',
     'serviceStatus',
+    'connectionType',
     'dueDate',
     'netPaybleAmount',
     'paymentStatus',
-    'connectionType',
   ];
   dataSource: MatTableDataSource<UserData> | any;
 

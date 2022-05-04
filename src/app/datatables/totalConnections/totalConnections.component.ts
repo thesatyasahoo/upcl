@@ -39,10 +39,10 @@ export class TotalConnectionsComponent {
     'name',
     'address',
     'serviceStatus',
+    'connectionType',
     'dueDate',
     'netPaybleAmount',
     'paymentStatus',
-    'connectionType',
     "billLink"
   ];
   dataSource: MatTableDataSource<UserData> | any;

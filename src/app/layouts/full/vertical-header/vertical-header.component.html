@@ -1,5 +1,5 @@
-<a [matMenuTriggerFor]="flags" class="m-r-5">
-  <span style="font-size: small; color: rgb(102, 98, 98);">{{ selectedLanguage.language | translate}}</span>
+<a [matMenuTriggerFor]="flags" class="m-r-7">
+  <span style="font-size: small; color: rgb(102, 98, 98);">{{ selectedLanguage.language | translate}} </span>
 </a>
 <mat-menu #flags="matMenu" class="mymegamenu">
   <button mat-menu-item *ngFor="let lang of languages" (click)="changeLanguage(lang)">
@@ -7,7 +7,9 @@
     <span>{{ lang.language }}</span>
   </button>
 </mat-menu>
-<span class="d-sm-none d-md-none d-lg-inline d-xl-inline d-xxl-inline" style="font-size: medium;">{{'Welcome Admin' | translate}} 9015263540</span>
+<div class="block-ellipsis">
+  <span>{{'Welcome' | translate}} <br> {{'Admin' | translate}} 9015263540</span>
+</div>
 <!-- <span>{{'Welcome 4170231026541 / 9015263540' | translate}}</span> -->
 
 <!-- ============================================================== -->
@@ -85,7 +87,7 @@
 <!-- Profile - style you can find in header.scss -->
 <!-- ============================================================== -->
 <button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5">
-  <img src="../../../../assets/img/user.png" alt="user" class="profile-pic" />
+  <img src="../../../../assets/img/user.png" alt="user" class="profile-pic"/>
 </button>
 <mat-menu #profile="matMenu" class="mymegamenu">
  <a mat-menu-item [routerLink]="['/pages/table/updateProfile']" routerLinkActive="router-link-active" ><mat-icon>settings</mat-icon>{{'Update Profile' | translate}}</a>

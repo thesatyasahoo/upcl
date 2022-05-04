@@ -60,7 +60,7 @@ export class UpdateProfileComponent implements OnInit{
       floatLabel: 'auto',
     });
     this.options = this.fb.group({
-      "mobile": ["", Validators.required],
+      "mobile": ["9015263540", Validators.required],
       "primaryemail ": ["", Validators.required],
       "secretQuestion": ["", Validators.required],
       "secretAnswer": ["", Validators.required],
@@ -92,7 +92,7 @@ export class UpdateProfileComponent implements OnInit{
       }
     ];
   }
-  mobile = new FormControl('', [Validators.required]);
+  mobile = new FormControl('9015263540', [Validators.required]);
   primaryemail = new FormControl('', [Validators.required]);
   secretQuestion = new FormControl('', [Validators.required]);
   secretAnswer = new FormControl('', [Validators.required]);

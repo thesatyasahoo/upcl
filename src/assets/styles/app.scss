@@ -25,6 +25,15 @@ Global Styles
 // {
 // padding-left: 2.5rem !important;
 // }
+table {
+  width: 100%;
+}
+
+mat-header-cell,
+mat-cell {
+  justify-content: center;
+  border: 1px solid lightgray;
+}
 .mat-icon-button {
   padding: 0.5rem !important;
 }
@@ -86,20 +95,290 @@ code {
 }
 .mat-cell,
 .mat-footer-cell {
-  font-size: 9px !important;
+  font-size: 12px !important;
+}
+.mDisplay {
+  display: inline-block !important;
+}
+.block-ellipsis {
+  display: inline-block;
+  max-width: 100%;
+  height: 27px;
+  /* margin: 0 auto; */
+  margin-right: 0.8rem;
+  font-size: 13px;
+  line-height: 1;
+  /* -webkit-line-clamp: 3; */
+  /* -webkit-box-orient: vertical; */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
 }
 @media (max-width: 576px) {
+  mat-cell{
+    border: none !important;
+  }
+  .block-ellipsis {
+    display: inline-block;
+    max-width: 100%;
+    height: 27px;
+    /* margin: 0 auto; */
+    margin-right: 0.8rem;
+    font-size: 13px;
+    line-height: 1;
+    /* -webkit-line-clamp: 3; */
+    /* -webkit-box-orient: vertical; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+}
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-totalconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(odd),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-overdueconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(odd),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-paidconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(odd),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-domesticconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(odd),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-commercialconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(odd),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-pendingcomplaints
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(odd),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-pendingservicerequest
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(odd),
+    body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-detailsconnections > mat-card > mat-card-content > div.responsive-table > mat-table > mat-row {
+      margin-bottom: 1rem;
+      background-image: radial-gradient( circle 674px at 18.3% 77%,  rgba(139,186,244,1) 3.4%, rgba(15,51,92,1) 56.6% );
+      border-radius: 15px;
+      mat-cell{
+        border: none !important;
+        color: white;
+        div>div>a, div>div>span>a {
+          color: white;
+        }
+      }
+  }
+  body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-detailsconnections > mat-card > mat-card-content>div.row{
+    .col>.border{
+      border:none !important;
+    }
+  }
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-totalconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(even),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-overdueconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(even),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-paidconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(even),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-domesticconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(even),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-commercialconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(even),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-pendingcomplaints
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(even),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-pendingservicerequest
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row:nth-child(even) {
+      margin-bottom: 1rem;
+      background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
+      border-radius: 15px;
+  }
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-toolbar
+    > div
+    > div.ng-star-inserted
+    > app-vertical-header
+    > div
+    > div:nth-child(3)
+    > button
+    > span.mat-button-wrapper
+    > img {
+    margin-top: 0rem;
+  }
+  .mDisplay {
+    display: none !important;
+  }
   .mat-cell,
   .mat-footer-cell {
     font-size: 13px !important;
   }
-  .bg-cstmLigtblue {
-    background-color: rgb(240, 238, 142);
+  mat-row, mat-header-row, mat-footer-row {
+    border-bottom-width: 0 !important;
   }
-  
-  .bg-cstmOrange {
-    background-color: rgb(172, 211, 243);
-  }
+  // .bg-cstmLigtblue {
+  //   background-color: rgb(240, 238, 142);
+  // }
+
+  // .bg-cstmOrange {
+  //   background-color: rgb(172, 211, 243);
+  // }
   .mat-header-cell {
     font-size: 13px !important;
     font-weight: 500;
@@ -109,7 +388,7 @@ code {
   }
 }
 .mat-header-cell {
-  font-size: 11px !important;
+  font-size: 13px !important;
   font-weight: 500;
 }
 .shadow-none {
@@ -123,6 +402,10 @@ code {
 }
 .mr-auto {
   margin-right: auto;
+}
+.mat-sidenav {
+  width: 13rem;
+  padding-top: 0;
 }
 .rounded {
   border-radius: $radius;
@@ -440,6 +723,10 @@ html body {
 
   .m-r-5 {
     margin-right: 5px;
+  }
+
+  .m-r-7 {
+    margin-right: 7px;
   }
 
   .m-r-10 {
@@ -1234,10 +1521,26 @@ ul.list-style-none {
   .d-md-flex {
     display: flex;
   }
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-toolbar
+    > div
+    > div.ng-star-inserted
+    > app-vertical-header
+    > div
+    > div:nth-child(3)
+    > button
+    > span.mat-button-wrapper
+    > img {
+    margin-top: -2rem;
+  }
 }
 
-@media (max-width: 767px) {
-}
+// @media (max-width: 767px) {
+  
+// }
 
 .input-file-button {
   input::-webkit-file-upload-button {
