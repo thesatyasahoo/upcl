@@ -8,4 +8,9 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class TopCardComponent {
   constructor(private translate: TranslateService) {}
+
+  setTable(e: string) {
+    localStorage.removeItem('tableName');
+    localStorage.setItem('tableName', e)
+  }
 }

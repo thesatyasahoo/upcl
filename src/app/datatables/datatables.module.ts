@@ -11,14 +11,7 @@ import { MaterialTableComponent } from './materialtable/materialtable.component'
 import { TableEditingComponent } from './table-editing/table-editing.component';
 import { TableFilterComponent } from './table-filter/table-filter.component';
 import { TotalConnectionsComponent } from './totalConnections/totalConnections.component';
-import { OverDueConnectionsComponent } from './overDueConnections/overDueConnections.component';
-import { PaidConnectionsComponent } from './paidConnections/paidConnections.component';
-import { DisconConnectionsComponent } from './dissConnections/dissConnections.component';
 import { DetailsConnectionsComponent } from './detailsConnections/detailsConnections.component';
-import { DomesticConnectionsComponent } from './domesticConnections/domesticConnections.component';
-import { CommercialConnectionsComponent } from './commercialConnections/commercialConnections.component';
-import { PendingComplaintsComponent } from './pendingComplaints/pendingComplaints.component';
-import { PendingServiceRequestComponent } from './pendingServiceRequest/pendingServiceRequest.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComplaintRegistrationComponent } from './complaintRegistration/complaintRegistration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,8 +21,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { QuillModule } from 'ngx-quill';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { ServiceRequestComponent } from './serviceRequest/serviceRequest.component';
 import { UpdateProfileComponent } from './updateProfile/updateProfile.component';
+import {CdkColumnDef, CdkTableModule} from '@angular/cdk/table';
 
 @NgModule({
   imports: [
@@ -54,17 +47,10 @@ import { UpdateProfileComponent } from './updateProfile/updateProfile.component'
     TableFilterComponent,
     MaterialTableComponent,
     TotalConnectionsComponent,
-    OverDueConnectionsComponent,
-    PaidConnectionsComponent,
-    DisconConnectionsComponent,
     DetailsConnectionsComponent,
-    DomesticConnectionsComponent,
-    CommercialConnectionsComponent,
-    PendingComplaintsComponent,
-    PendingServiceRequestComponent,
     ComplaintRegistrationComponent,
-    ServiceRequestComponent,
     UpdateProfileComponent,
   ],
+  providers:[CdkColumnDef]
 })
 export class DataTablesModule {}

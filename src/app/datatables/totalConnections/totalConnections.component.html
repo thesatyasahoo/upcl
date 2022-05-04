@@ -1,15 +1,15 @@
 <mat-card>
   <mat-card-content>
-    <!-- <mat-card-title>Table with sorting</mat-card-title> -->
+    <mat-card-title class="text-info text-center">{{title}}</mat-card-title>
     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Domestic" #input>
     </mat-form-field>
     <div class="responsive-table">
-      <mat-table #table [dataSource]="dataSource" matSort>
+      <mat-table #table [dataSource]="dataSource">
         <!-- Name Column -->
         <ng-container matColumnDef="accountNumber">
-          <mat-header-cell *matHeaderCellDef mat-sort-header ali> Account No. </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Account No. </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">Account No :</span></div>
@@ -20,7 +20,7 @@
 
         <!-- Weight Column -->
         <ng-container matColumnDef="serviceConnNumber">
-          <mat-header-cell *matHeaderCellDef mat-sort-header ali> Service Acc No. </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Service Acc No. </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">Service Acc No. :</span></div>
@@ -29,7 +29,7 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef mat-sort-header ali> Name </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">Name :</span></div>
@@ -38,7 +38,7 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="address">
-          <mat-header-cell *matHeaderCellDef mat-sort-header ali> Address </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">Address :</span></div>
@@ -47,7 +47,7 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="serviceStatus">
-          <mat-header-cell *matHeaderCellDef mat-sort-header ali> Service Status </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Service Status </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">Service Status :</span></div>
@@ -56,7 +56,7 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="connectionType">
-          <mat-header-cell *matHeaderCellDef mat-sort-header ali> Connection Type </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Connection Type </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">Connection Type :</span></div>
@@ -65,7 +65,7 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="dueDate">
-          <mat-header-cell *matHeaderCellDef mat-sort-header ali> Due Date </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Due Date </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">Due Date :</span></div>
@@ -74,7 +74,7 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="netPaybleAmount">
-          <mat-header-cell *matHeaderCellDef mat-sort-header ali> Net Payble Amount </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Net Payble Amount </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">Net Payble Amount :</span></div>
@@ -83,13 +83,13 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="paymentStatus">
-          <mat-header-cell *matHeaderCellDef mat-sort-header ali> Payment Status </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Payment Status </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">Payment Status :</span></div>
               <div class="col p-0 text-center">
                 <div class="mt-2">
-                  <span class="badge rounded-pill w-100" [ngClass]="{'bg-success': row.paymentStatus === 'Paid', 'bg-warning': row.paymentStatus === 'Over Due', 'bg-danger': row.paymentStatus === 'Disconnected'}" style="height: 1.5rem;width: 5.5rem !important;
+                  <span class="badge rounded-pill w-100" [ngClass]="{'bg-success': row.paymentStatus === 'Paid', 'bg-warning': row.paymentStatus === 'Over Due', 'bg-danger': row.paymentStatus === 'Disconnected', 'bg-warning1': row.paymentStatus === 'Pending SR', 'bg-warning2': row.paymentStatus === 'Pending Complain'}" style="height: 1.5rem;width: 5.5rem !important;
                   padding-top: 0.5rem;">{{row.paymentStatus}}</span>
                 </div>
               </div>
@@ -97,12 +97,12 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="billLink">
-          <mat-header-cell *matHeaderCellDef mat-sort-header ali> Action </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">Action :</span></div>
-              <div class="col p-0 text-center"><span *ngIf="row.paymentStatus === 'Paid'"><a class="link text-center" style="cursor: pointer;">View Bill</a><br><a class="link" style="cursor: pointer;">View Receipt</a></span>
-            <span *ngIf="row.paymentStatus === 'Over Due'"><a class="link text-center" style="cursor: pointer;">Pay Bill</a></span>
+              <div class="col p-0 text-center"><span *ngIf="row.paymentStatus === 'Paid'"><a class="link text-center text-primary" style="cursor: pointer;">View Bill</a><br><a class="link text-primary" style="cursor: pointer;">View Receipt</a></span>
+            <span *ngIf="row.paymentStatus === 'Over Due'"><a class="link text-center text-primary" style="cursor: pointer;">Pay Bill</a></span>
               </div>
             </div>
           </mat-cell>
@@ -111,9 +111,9 @@
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
-        <mat-row *matNoDataRow>
-          <mat-cell colspan="4">No data matching the filter "{{input.value}}"</mat-cell>
-        </mat-row>
+        <div class="mat-row" *matNoDataRow>
+          <p class="mat-cell"colspan="10">No data matching the filter "{{input.value}}"</p>
+        </div>
 
       </mat-table>
       <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>

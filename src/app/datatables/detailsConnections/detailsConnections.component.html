@@ -1,38 +1,39 @@
 <mat-card>
   <mat-card-content>
-    <!-- <mat-card-title></mat-card-title>	 -->
-    <div class="row mb-4">
-      <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12">
-        Account / Service Number : {{rows[0].accountNumber}} / {{rows[0].serviceConnNumber}}
-      </div>
-      <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 text-end">
-        <div class="border border-warning p-2 w-100 mt-4 mt-md-0 mt-lg-0 mt-xl-0 mt-xxl-0">
-          <span class="text-success">Your last payment made on 26-Jul-2021 was Rs. {{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
-        </div>
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12">
-        <div class="border border-secondary p-2 cstmWidth w-50">
-          <span class="text-success">There are no dues</span><br>
-          Advance amount paid : <span class="text-warning">{{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
-        </div>
-      </div>
-      <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-0"></div>
-    </div>
-    <!-- <div class="row mb-4">
+    <div class="row mb-4 bg-gray">
       <div class="col">
-        <div class="border border-secondary p-2" style="width: 23rem;">
-          <span class="text-primary">Your Outstanding due amount is ₹ {{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
+        <div class="row">
+          <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12">
+            <span>Account / Service Number : {{rows[0].accountNumber}} / {{rows[0].serviceConnNumber}}</span>
+          </div>
+          <!-- <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 text-end">
+            <div class="p-2 w-100 mt-4 mt-md-0 mt-lg-0 mt-xl-0 mt-xxl-0">
+              
+            </div>
+          </div> -->
+        </div>
+        <div class="row">
+          <div class="col mb-4">
+            <span class="text-success">Your last payment made on 26-Jul-2021 was Rs. {{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12">
+            <div class="p-2 cstmWidth w-50">
+              <span class="text-success">There are no dues</span><br>
+              Advance amount paid : <span class="text-warning">{{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
+            </div>
+          </div>
+          <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-0"></div>
         </div>
       </div>
-    </div> -->
+    </div>
     <div class="responsive-table">
-      <mat-table #table [dataSource]="dataSource" matSort>
+      <mat-table #table [dataSource]="dataSource">
         <!-- Name Column -->
         <ng-container matColumnDef="accountNumber" class="text-center">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Acc No. </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
+          <mat-header-cell *matHeaderCellDef class=""> Acc No. </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 ">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label w-100">Acc No. :</span></div>
               <div class="col p-0 text-center"><span>{{row.accountNumber}}</span></div>
@@ -42,8 +43,8 @@
 
         <!-- Weight Column -->
         <ng-container matColumnDef="serviceConnNumber" class="text-center">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="border">ScAcc No. </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
+          <mat-header-cell *matHeaderCellDef class="">ScAcc No. </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 ">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label w-100">ScAcc No. :</span></div>
               <div class="col p-0 text-center"><span>{{row.serviceConnNumber}}</span></div>
@@ -51,8 +52,8 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="name" class="text-center">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Name </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
+          <mat-header-cell *matHeaderCellDef class=""> Name </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 ">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label w-100">Name :</span></div>
               <div class="col p-0 text-center">{{row.name}}</div>
@@ -60,8 +61,8 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="address" class="text-center">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Address </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border" >
+          <mat-header-cell *matHeaderCellDef class=""> Address </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 " >
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label w-100">Address :</span></div>
               <div class="col p-0 text-center"><span>{{row.address}}</span></div>
@@ -69,8 +70,8 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="serviceStatus" class="text-center">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Service Status </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
+          <mat-header-cell *matHeaderCellDef class=""> Service Status </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 ">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label w-100">Service Status :</span></div>
               <div class="col p-0 text-center"><span>{{row.serviceStatus}}</span></div>
@@ -78,8 +79,8 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="dueDate" class="text-center">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Due Date </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border" >
+          <mat-header-cell *matHeaderCellDef class=""> Due Date </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 " >
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label w-100">Due Date :</span></div>
               <div class="col p-0 text-center"><span>{{row.dueDate}}</span></div>
@@ -87,8 +88,8 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="netPaybleAmount" class="text-center">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Net Amount </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border">
+          <mat-header-cell *matHeaderCellDef class=""> Net Amount </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 ">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label w-100">Net Amount :</span></div>
               <div class="col p-0 text-center"><span>{{row.netPaybleAmount}}</span></div>
@@ -96,8 +97,8 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="paymentStatus" class="text-center">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Payment Status </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 border" >
+          <mat-header-cell *matHeaderCellDef class=""> Payment Status </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 " >
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label w-100">Payment Status :</span></div>
               <div class="col p-0 text-center"><div class="mt-2">
@@ -109,7 +110,7 @@
         </ng-container>
         
         <ng-container matColumnDef="billLink" class="text-center">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Bill Link </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class=""> Bill Link </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label w-100">Bill Link :</span></div>

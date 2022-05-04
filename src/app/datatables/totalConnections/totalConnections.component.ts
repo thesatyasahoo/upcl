@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 
 declare var require: any;
-const Data: any = require('./total.json');
+
 // Start For 1
 export interface UserData {
   id: string;
@@ -25,13 +25,14 @@ export interface UserData {
   paymentStatus: string;
   connectionType: string;
 }
-
+const Data: UserData[] = require('./total.json');
 @Component({
   selector: 'app-totalConnections',
   templateUrl: './totalConnections.component.html',
   styleUrls: ['./totalConnections.component.scss'],
 })
 export class TotalConnectionsComponent {
+  title: any = localStorage.getItem('tableName');
   nameData: string[] = []
   displayedColumns: string[] = [
     'accountNumber',
@@ -45,19 +46,51 @@ export class TotalConnectionsComponent {
     'paymentStatus',
     "billLink"
   ];
-  dataSource: MatTableDataSource<UserData> | any;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  @ViewChild(MatSort) sort: MatSort | undefined;
+  dataSource: any;
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort)
+  sort!: MatSort;
   constructor(private route: Router) {
     // Create 100 users
     // const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(Data);
+    // this.dataSource = new MatTableDataSource(Data);
   }
   ngOnInit(): void {
+    this.getData();
     // throw new Error('Method not implemented.');
+  }
+
+  getData() {
+    let filteredData: any[] = [];
+    Data.map(e => {
+      if(e.paymentStatus === 'Paid' && this.title === 'Paid Connections') {
+        filteredData.push(e);
+        this.dataSource = new MatTableDataSource(filteredData);  
+      }else if(e.paymentStatus === 'Over Due' && this.title === 'Over Dues Connections') {
+        filteredData.push(e);
+        this.dataSource = new MatTableDataSource(filteredData);  
+      }else if(this.title === 'Total Connections') {
+        filteredData.push(e);
+        this.dataSource = new MatTableDataSource(filteredData);  
+      }else if(this.title === 'Domestic Connections' && e.connectionType === 'Domestic') {
+        filteredData.push(e);
+        this.dataSource = new MatTableDataSource(filteredData);  
+      }else if(this.title === 'Commercial Connections' && e.connectionType === 'Commercial') {
+        filteredData.push(e);
+        this.dataSource = new MatTableDataSource(filteredData);  
+      }else if(this.title === 'Pending Service Request' && e.paymentStatus === 'Pending SR') {
+        filteredData.push(e);
+        this.dataSource = new MatTableDataSource(filteredData);  
+      }else if(this.title === 'Pending Complaints' && e.paymentStatus === 'Pending Complain') {
+        filteredData.push(e);
+        this.dataSource = new MatTableDataSource(filteredData);  
+      }
+    })
   }
 
   ngAfterViewInit() {
@@ -65,25 +98,26 @@ export class TotalConnectionsComponent {
     this.dataSource.sort = this.sort;
   }
 
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    // console.log(filterValue)
+    // if (this.dataSource.paginator) {
+    //   this.dataSource.paginator.firstPage();
+    // }
   }
   valuesIn(e: any) {
     if(e.value === 'Paid') {
       return ' text-ctmclr';
      } else if(e.value === 'Disconnected') {
       return ' text-danger';
-     } else if(e.value === 'Pending') {
+     } else if(e.value === 'Over Due') {
       return ' text-warning';
      }
   }
   onRowClick(event: any) {
-    console.log(event.row);
+    // console.log(event.row);
     this.route.navigate([`pages/table/detail/${event.accountNumber}`])
   }
 }

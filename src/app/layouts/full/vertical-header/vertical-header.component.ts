@@ -106,7 +106,7 @@ export class VerticalAppHeaderComponent {
     //   icon: 'de',
     // },
     {
-      language: 'Hindi',
+      language: 'हिन्दी',
       code: 'in',
       icon: 'in',
     },

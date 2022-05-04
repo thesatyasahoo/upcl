@@ -1,5 +1,6 @@
-<a [matMenuTriggerFor]="flags" class="m-r-7">
-  <span style="font-size: small; color: rgb(102, 98, 98);">{{ selectedLanguage.language | translate}} </span>
+<a [matMenuTriggerFor]="flags" class="m-r-7" style="position: relative;top: 0.2rem;">
+  <span class="text-primary" style="cursor:pointer;font-size: small; color: rgb(102, 98, 98);">{{ selectedLanguage.language | translate}} </span>
+  <mat-icon style="position: relative;top: 0.3rem;">keyboard_arrow_down</mat-icon>
 </a>
 <mat-menu #flags="matMenu" class="mymegamenu">
   <button mat-menu-item *ngFor="let lang of languages" (click)="changeLanguage(lang)">
@@ -8,7 +9,7 @@
   </button>
 </mat-menu>
 <div class="block-ellipsis">
-  <span>{{'Welcome' | translate}} <br> {{'Admin' | translate}} 9015263540</span>
+  <span style="top: 0.5rem;position: relative;">{{'Welcome' | translate}} <br> {{'Admin' | translate}} 9015263540</span>
 </div>
 <!-- <span>{{'Welcome 4170231026541 / 9015263540' | translate}}</span> -->
 

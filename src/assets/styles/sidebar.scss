@@ -11,7 +11,7 @@ Main sidebar
 ******************/
 
 .mat-sidenav {
-  width: 15rem;
+  width: 13.5rem;
   padding-top: 0px;
 }
 
@@ -48,7 +48,7 @@ Main sidebar
       margin-bottom: 5px;
       align-items: center;
       display: block;
-      font-size: 13px;
+      font-size: 11px;
       white-space: nowrap;
       color: $sidebar-text;
       overflow: hidden;
@@ -252,7 +252,7 @@ use profile section
 
 @media (min-width: 1024px) {
   #snav.mat-sidenav.mat-drawer-opened ~ .mat-drawer-content {
-    margin-left: 15rem !important;
+    margin-left: 13.5rem !important;
   }
   #snav.mat-sidenav.mat-drawer-opened ~ .mat-drawer-content.minitoggle {
     margin-left: 0px !important;
