@@ -2,14 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
-import { DemoMaterialModule } from '../demo-material-module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { DataTablesRoutes } from './datatables.routing';
-import { DataTableComponent } from './data-table/data-table.component';
-import { MaterialTableComponent } from './materialtable/materialtable.component';
-import { TableEditingComponent } from './table-editing/table-editing.component';
-import { TableFilterComponent } from './table-filter/table-filter.component';
 import { TotalConnectionsComponent } from './totalConnections/totalConnections.component';
 import { DetailsConnectionsComponent } from './detailsConnections/detailsConnections.component';
 import { TranslateModule } from '@ngx-translate/core';
@@ -22,7 +17,14 @@ import { QuillModule } from 'ngx-quill';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { UpdateProfileComponent } from './updateProfile/updateProfile.component';
-import {CdkColumnDef, CdkTableModule} from '@angular/cdk/table';
+import {CdkColumnDef} from '@angular/cdk/table';
+import { ChangePasswordComponent } from './changePassword/changePassword.component';
+import { PassowordStrengthBarComponent } from './password-strength-bar/password-strength-bar.component';
+import { ServiceRequestComponent } from './serviceRequest/serviceRequest.component';
+import { ConsumptionbillHistoryComponent } from './consumptionbillHistory/consumptionbillHistory.component';
+import { PaymentHistoryComponent } from './paymentHistory/paymentHistory.component';
+import { ViewStatusComponent } from './viewStatus/viewStatus.component';
+import { MaterialModule } from '../material-module';
 
 @NgModule({
   imports: [
@@ -30,7 +32,7 @@ import {CdkColumnDef, CdkTableModule} from '@angular/cdk/table';
     TranslateModule.forChild(),
     RouterModule.forChild(DataTablesRoutes),
     NgxDatatableModule,
-    DemoMaterialModule,
+    MaterialModule,
     FlexLayoutModule,
     FormsModule,
     QuillModule.forRoot(),
@@ -42,14 +44,16 @@ import {CdkColumnDef, CdkTableModule} from '@angular/cdk/table';
     NgMultiSelectDropDownModule.forRoot(),
   ],
   declarations: [
-    DataTableComponent,
-    TableEditingComponent,
-    TableFilterComponent,
-    MaterialTableComponent,
     TotalConnectionsComponent,
     DetailsConnectionsComponent,
     ComplaintRegistrationComponent,
     UpdateProfileComponent,
+    ChangePasswordComponent,
+    PassowordStrengthBarComponent,
+    ServiceRequestComponent,
+    ConsumptionbillHistoryComponent,
+    PaymentHistoryComponent,
+    ViewStatusComponent,
   ],
   providers:[CdkColumnDef]
 })

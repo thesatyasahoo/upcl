@@ -92,7 +92,7 @@
 </button>
 <mat-menu #profile="matMenu" class="mymegamenu">
  <a mat-menu-item [routerLink]="['/pages/table/updateProfile']" routerLinkActive="router-link-active" ><mat-icon>settings</mat-icon>{{'Update Profile' | translate}}</a>
-  <a mat-menu-item><mat-icon>account_box</mat-icon>{{'Change Password' | translate}}</a>
+  <a mat-menu-item [routerLink]="['/pages/table/changePassword']" routerLinkActive="router-link-active" ><mat-icon>account_box</mat-icon>{{'Change Password' | translate}}</a>
   <a mat-menu-item><mat-icon>exit_to_app</mat-icon>{{'Log Out' | translate}}</a>
 </mat-menu>
 

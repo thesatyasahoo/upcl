@@ -1,41 +1,158 @@
 <mat-card>
   <mat-card-content>
-    <div class="row mb-4 bg-gray">
+    <div class="row">
       <div class="col">
-        <div class="row">
+        <div class="row mb-5">
           <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12">
-            <span>Account / Service Number : {{rows[0].accountNumber}} / {{rows[0].serviceConnNumber}}</span>
+            <div class="row">
+              <div class="col">
+                <mat-accordion>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <span>{{'Account' | translate}} / {{'Service Number' | translate}} : {{rows[0].accountNumber}} / {{rows[0].serviceConnNumber}}</span>
+                      </mat-panel-title>
+                      <!-- <mat-panel-description>
+                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                      </mat-panel-description> -->
+                    </mat-expansion-panel-header>
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <td>SCNO</td>
+                          <td>SD69999012220</td>
+                          <td>Account Number</td>
+                          <td>42100082009</td>
+                        </tr>
+                        <tr>
+                          <td>Name</td>
+                          <td>Mr.NIKHIL DEOPA</td>
+                          <td>Address</td>
+                          <td>DOON UNIVERSITY ROADRAM KRISHNA PURAMDEHRADUN100-1</td>
+                        </tr>
+                        <tr>
+                          <td>Category</td>
+                          <td>NEW RTS-9 DOMESTIC UPTO 4KW</td>
+                          <td>Office</td>
+                          <td>TURNEROAD</td>
+                        </tr>
+                        <tr>
+                          <td>PhoneNumber</td>
+                          <td>-</td>
+                          <td>Area Name</td>
+                          <td>9999</td>
+                        </tr>
+                        <tr>
+                          <td>Connected Load</td>
+                          <td>1.0</td>
+                          <td>Contracted Load</td>
+                          <td>1.0</td>
+                        </tr>
+                        <tr>
+                          <td>Supply Released On</td>
+                          <td>18-Jan-2021</td>
+                          <td>Phase</td>
+                          <td>1</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="row">
+                      <div class="col">
+                        <table class="table">
+                          <tbody>
+                            <tr>
+                              <td>SCNO</td>
+                              <td>SD69999012220</td>
+                            </tr>
+                            <tr>
+                              <td>Name</td>
+                              <td>Mr.NIKHIL DEOPA</td>
+                            </tr>
+                            <tr>
+                              <td>Category</td>
+                              <td>NEW RTS-9 DOMESTIC UPTO 4KW</td>
+                            </tr>
+                            <tr>
+                              <td>PhoneNumber</td>
+                              <td>-</td>
+                            </tr>
+                            <tr>
+                              <td>Connected Load</td>
+                              <td>1.0</td>
+                            </tr>
+                            <tr>
+                              <td>Supply Released On</td>
+                              <td>18-Jan-2021</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="col">
+                        <table class="table">
+                          <tbody>
+                            <tr>
+                              <td>Account Number</td>
+                              <td>42100082009</td>
+                            </tr>
+                            <tr>
+                              <td>Address</td>
+                              <td>DOON UNIVERSITY ROADRAM KRISHNA PURAMDEHRADUN100-1</td>
+                            </tr>
+                            <tr>
+                              <td>Office</td>
+                              <td>TURNEROAD</td>
+                            </tr>
+                            <tr>
+                              <td>Area Name</td>
+                              <td>9999</td>
+                            </tr>
+                            <tr>
+                              <td>Contracted Load</td>
+                              <td>1.0</td>
+                            </tr>
+                            <tr>
+                              <td>Phase</td>
+                              <td>1</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+            </div>
           </div>
-          <!-- <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 text-end">
-            <div class="p-2 w-100 mt-4 mt-md-0 mt-lg-0 mt-xl-0 mt-xxl-0">
-              
+          <!-- <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 text-center">
+            <div *ngIf="panelOpenState === false">
+              <mat-icon mat-mini-fab color="primary" (click)="panelOpenState = true" style="cursor: pointer; background-color: lightgray; border-radius: 50%;">expand_less</mat-icon>
+            </div>
+            <div *ngIf="panelOpenState === true">
+              <mat-icon mat-mini-fab color="primary" (click)="panelOpenState = false" style="cursor: pointer; background-color: lightgray; border-radius: 50%;">expand_more</mat-icon>
             </div>
           </div> -->
         </div>
-        <div class="row">
-          <div class="col mb-4">
-            <span class="text-success">Your last payment made on 26-Jul-2021 was Rs. {{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
+        <div class="row mb-2">
+          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <span class="text-success">{{'Your last payment made' | translate}} on 26-Jul-2021 was Rs. {{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
           </div>
-        </div>
-        <div class="row mb-4">
-          <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12">
-            <div class="p-2 cstmWidth w-50">
-              <span class="text-success">There are no dues</span><br>
-              Advance amount paid : <span class="text-warning">{{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span>
-            </div>
+          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-end">
+            <span class="text-success">{{'Advance amount paid' | translate}} : <span class="text-warning">{{rows[0].netPaybleAmount > 0 ? rows[0].netPaybleAmount : 500}}</span></span>
           </div>
-          <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-0"></div>
         </div>
       </div>
     </div>
     <div class="responsive-table">
+      <div class="text-center border latestBill">
+        <span>{{'Latest Bill' | translate}}</span>
+      </div>
       <mat-table #table [dataSource]="dataSource">
         <!-- Name Column -->
         <ng-container matColumnDef="accountNumber" class="text-center">
-          <mat-header-cell *matHeaderCellDef class=""> Acc No. </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class=""> {{'Acc No' | translate}}. </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 ">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label w-100">Acc No. :</span></div>
+              <div class="col d-lg-none"><span class="header-label w-100">{{'Acc No' | translate}}. :</span></div>
               <div class="col p-0 text-center"><span>{{row.accountNumber}}</span></div>
             </div>
           </mat-cell>
@@ -43,79 +160,78 @@
 
         <!-- Weight Column -->
         <ng-container matColumnDef="serviceConnNumber" class="text-center">
-          <mat-header-cell *matHeaderCellDef class="">ScAcc No. </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class="">{{'Service Acc No' | translate}}. </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 ">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label w-100">ScAcc No. :</span></div>
+              <div class="col d-lg-none"><span class="header-label w-100">{{'Service Acc No' | translate}}. :</span></div>
               <div class="col p-0 text-center"><span>{{row.serviceConnNumber}}</span></div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="name" class="text-center">
-          <mat-header-cell *matHeaderCellDef class=""> Name </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class=""> {{'Name' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 ">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label w-100">Name :</span></div>
+              <div class="col d-lg-none"><span class="header-label w-100">{{'Name' | translate}} :</span></div>
               <div class="col p-0 text-center">{{row.name}}</div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="address" class="text-center">
-          <mat-header-cell *matHeaderCellDef class=""> Address </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class=""> {{'Address' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 " >
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label w-100">Address :</span></div>
+              <div class="col d-lg-none"><span class="header-label w-100">{{'Address' | translate}} :</span></div>
               <div class="col p-0 text-center"><span>{{row.address}}</span></div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="serviceStatus" class="text-center">
-          <mat-header-cell *matHeaderCellDef class=""> Service Status </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class=""> {{'Service Status' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 ">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label w-100">Service Status :</span></div>
+              <div class="col d-lg-none"><span class="header-label w-100">{{'Service Status' | translate}} :</span></div>
               <div class="col p-0 text-center"><span>{{row.serviceStatus}}</span></div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="dueDate" class="text-center">
-          <mat-header-cell *matHeaderCellDef class=""> Due Date </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class=""> {{'Due Date' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 " >
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label w-100">Due Date :</span></div>
+              <div class="col d-lg-none"><span class="header-label w-100">{{'Due Date' | translate}} :</span></div>
               <div class="col p-0 text-center"><span>{{row.dueDate}}</span></div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="netPaybleAmount" class="text-center">
-          <mat-header-cell *matHeaderCellDef class=""> Net Amount </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class=""> {{'Net Amount' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 ">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label w-100">Net Amount :</span></div>
+              <div class="col d-lg-none"><span class="header-label w-100">{{'Net Amount' | translate}} :</span></div>
               <div class="col p-0 text-center"><span>{{row.netPaybleAmount}}</span></div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="paymentStatus" class="text-center">
-          <mat-header-cell *matHeaderCellDef class=""> Payment Status </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class=""> {{'Payment Status' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 " >
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label w-100">Payment Status :</span></div>
-              <div class="col p-0 text-center"><div class="mt-2">
-                <span class="badge rounded-pill w-100" [ngClass]="{'bg-success': row.paymentStatus === 'Paid', 'bg-warning': row.paymentStatus === 'Over Due', 'bg-danger': row.paymentStatus === 'Disconnected'}" style="height: 1.5rem;width: 4.5rem !important;
-                padding-top: 0.5rem;">{{row.paymentStatus}}</span>
+              <div class="col d-lg-none"><span class="header-label w-100">{{'Payment Status' | translate}} :</span></div>
+              <div class="col p-0 text-center"><div>
+                <span class="label w-100"[ngClass]="{'label-light-success': row.paymentStatus === 'Paid', 'label-light-warning': row.paymentStatus === 'Over Due', 'label-light-danger': row.paymentStatus === 'Disconnected', 'label-light-warning1': row.paymentStatus === 'Pending SR', 'label-light-warning2': row.paymentStatus === 'Pending Complain'}" style="height: 1.5rem;width: 5.5rem !important;">{{row.paymentStatus}}</span>
               </div></div>
             </div>
           </mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="billLink" class="text-center">
-          <mat-header-cell *matHeaderCellDef class=""> Bill Link </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class=""> {{'View Bill/Receipt' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label w-100">Bill Link :</span></div>
-              <div class="col p-0 text-center"><span *ngIf="row.paymentStatus === 'Paid'"><a class="link" style="cursor: pointer;">View Link</a><br><a class="link" style="cursor: pointer;">View Receipt Links</a></span>
-                <span *ngIf="row.paymentStatus === 'Over Due'"><a class="link" style="cursor: pointer;">Pay Bill Links</a></span></div>
+              <div class="col d-lg-none"><span class="header-label w-100">{{'View Bill/Receipt' | translate}} :</span></div>
+              <div class="col p-0 text-center"><span *ngIf="row.paymentStatus === 'Paid'"><a class="link" style="cursor: pointer;">{{'View Bill' | translate}}</a><br><a class="link" style="cursor: pointer;">{{'View Receipt' | translate}}</a></span>
+                <span *ngIf="row.paymentStatus === 'Over Due'"><a class="link" style="cursor: pointer;">{{'Pay Bill' | translate}}</a></span></div>
             </div>
           </mat-cell>
         </ng-container>

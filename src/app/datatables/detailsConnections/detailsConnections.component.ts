@@ -35,6 +35,7 @@ export class DetailsConnectionsComponent implements OnInit{
   temp = [...Data];
   id: any;
   totalData: any[] = [];
+  panelOpenState: boolean = false;
 
   loadingIndicator = true;
   reorderable = true;

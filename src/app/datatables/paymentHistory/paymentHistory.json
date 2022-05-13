@@ -1,0 +1,77 @@
+{
+  "status": "SUCCESS",
+  "PaymentDetails": [{
+          "paymentMode": "EBPP Payment",
+          "accountNumber": "41701026541",
+          "amountPaid": "1960.00000",
+          "paymentReceiptNumber": "13477211121WS000123",
+          "collectionDate": "2021-NOV-21"
+  }, {
+          "paymentMode": "Credit\/Debit Card",
+          "accountNumber": "41701026541",
+          "amountPaid": "1577.00000",
+          "paymentReceiptNumber": "13477130521WS000270",
+          "collectionDate": "2021-MAY-13"
+  }, {
+          "paymentMode": "Credit\/Debit Card",
+          "accountNumber": "41701026541",
+          "amountPaid": "2560.00000",
+          "paymentReceiptNumber": "13477291020WS000191",
+          "collectionDate": "2020-OCT-29"
+  }, {
+          "paymentMode": "hjvhj",
+          "accountNumber": "41701026541",
+          "amountPaid": "1387.00000",
+          "paymentReceiptNumber": "13477180320WS000297",
+          "collectionDate": "2020-MAR-18"
+  }, {
+          "paymentMode": "Net Banking",
+          "accountNumber": "41701026541",
+          "amountPaid": "1177.00000",
+          "paymentReceiptNumber": "13477080720WS000175",
+          "collectionDate": "2020-JUL-08"
+  }, {
+          "paymentMode": "Net Banking",
+          "accountNumber": "41701026541",
+          "amountPaid": "1442.00000",
+          "paymentReceiptNumber": "13477190919WS000097",
+          "collectionDate": "2019-SEP-19"
+  }, {
+          "paymentMode": "Net Banking",
+          "accountNumber": "41701026541",
+          "amountPaid": "551.00000",
+          "paymentReceiptNumber": "13477211119WS000082",
+          "collectionDate": "2019-NOV-21"
+  }, {
+          "paymentMode": "Net Banking",
+          "accountNumber": "41701026541",
+          "amountPaid": "3265.00000",
+          "paymentReceiptNumber": "13477300319WS000118",
+          "collectionDate": "2019-MAR-30"
+  }, {
+          "paymentMode": "Net Banking",
+          "accountNumber": "41701026541",
+          "amountPaid": "4532.00000",
+          "paymentReceiptNumber": "13477190619WS000050",
+          "collectionDate": "2019-JUN-19"
+  }, {
+          "paymentMode": "Net Banking",
+          "accountNumber": "41701026541",
+          "amountPaid": "547.00000",
+          "paymentReceiptNumber": "13477040219WS000051",
+          "collectionDate": "2019-FEB-04"
+  }, {
+          "paymentMode": "hjvhj",
+          "accountNumber": "41701026541",
+          "amountPaid": "354.00000",
+          "paymentReceiptNumber": "13477211219WS000074",
+          "collectionDate": "2019-DEC-21"
+  }, {
+          "paymentMode": "Net Banking",
+          "accountNumber": "41701026541",
+          "amountPaid": "1410.00000",
+          "paymentReceiptNumber": "13477220819WS000128",
+          "collectionDate": "2019-AUG-22"
+  }],
+  "statusMessage": "SUCCESS"
+}

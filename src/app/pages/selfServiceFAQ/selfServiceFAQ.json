@@ -1,0 +1,62 @@
+{
+  "FAQs": [
+    {
+      "id": 1,
+      "rowStatus": 1,
+      "insertDate": "2022-02-25",
+      "updateDate": null,
+      "fquestion": " How to shift meter from its current location ?",
+      "fanswer": "Submit application to the concerned Sub Divisional Officer on plain paper enclosing therewith a copy of last paid bill. Be present on a prescheduled date and time when inspection will be carried out by UPCL for ascertaining involvement of work. Make payment against the bill to be handed over to you by UPCL at the earliest."
+    },
+    {
+      "id": 2,
+      "rowStatus": 1,
+      "insertDate": "2022-02-25",
+      "updateDate": null,
+      "fquestion": "How to increase sanctioned load ?",
+      "fanswer": "For increasing the sanctioned load the Domestic, Commercial and Industrial (LT) consumers should apply to the concerned Sub-divisional Officer. The HT consumers should apply to the Executive Engineer. After confirming the feasibility, the load is sanctioned and the quotation is issued which includes additional Service Line Charges, Security deposit and so on."
+    },
+    {
+      "id": 3,
+      "rowStatus": 1,
+      "insertDate": "2022-02-25",
+      "updateDate": null,
+      "fquestion": " How to check the consumption ?",
+      "fanswer": "The consumption depends on the capacity of appliance and period for which it is in use."
+    },
+    {
+      "id": 4,
+      "rowStatus": 1,
+      "insertDate": "2022-02-25",
+      "updateDate": null,
+      "fquestion": "How do I make payment when I have not received the electricity consumption bill ?",
+      "fanswer": "If you have not received the electricity consumption bill, you can avail a copy of bill from the concerned Sub Division Office upon production of the service connection number or you may download the duplicate bill from the www.upcl.org. You can also deposit payment within the due date specified in the bill at the Electricity Business/Billing Centre."
+    },
+    {
+      "id": 5,
+      "rowStatus": 1,
+      "insertDate": "2022-02-25",
+      "updateDate": null,
+      "fquestion": "How are bills prepared if the meter is not read ?",
+      "fanswer": "If meter is not read for whatever reason, provisional bill is raised which subjected to adjustment on receipt of actual meter reading in the subsequent months. Provisional bills are required to be paid within the due dates like normal bills raised on actual consumption."
+    },
+    {
+      "id": 6,
+      "rowStatus": 1,
+      "insertDate": "2022-02-25",
+      "updateDate": null,
+      "fquestion": "What is the procedure of Billing ?",
+      "fanswer": "After installation, the billing section is supplied with data containing Meter details, initial meter reading. As per the predetermined cyclic order the first bill is issued. The bills are issued monthly, bimonthly for different categories of consumers i.e. Domestic, Non-Domestic, Industrial consumers. The payment of bills is to be made as per the last due date shown on the bill."
+    },
+    {
+      "id": 7,
+      "rowStatus": 1,
+      "insertDate": "2022-02-25",
+      "updateDate": null,
+      "fquestion": "What is the prevailing Electricity Tariff ?",
+      "fanswer": "Please see the Electricity Tariff details provided on the home page of UPCL’s Website."
+    }
+  ],
+  "statusMessage": "SUCCESS",
+  "status": "SUCCESS"
+}

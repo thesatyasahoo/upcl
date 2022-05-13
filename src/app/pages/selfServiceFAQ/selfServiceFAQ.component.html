@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-card-content>
+    <div class="row">
+      <div class="col">
+        <table class="mb-2 p-3">
+          <tr>
+            <td class=""><h3><b>FAQ'S</b></h3></td>
+            <td style="width: 10%;" class="text-end"><button mat-button color="primary" (click)="expandAll = true">Expand All</button></td>
+            <td style="width: 10%;" class="text-center"><button mat-button color="primary" (click)="collapseall(); expandAll = false">Collapse All</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-accordion *ngFor="let item of faqsData;index as i">
+          <mat-expansion-panel class="mb-2" [expanded]="step === i || expandAll === true" (opened)="open(i)">
+            <mat-expansion-panel-header>
+              <mat-panel-title> {{ item.fquestion }} </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p class="text-justify">
+              {{ item.fanswer }}
+            </p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <a mat-button color="primary" href="../../../assets/doc/prepaidFaqs.pdf" target="_blank">Click here to download  Faq's Document Regarding Prepaid Meters</a>
+      </div>
+    </div> 
+  </mat-card-content>
+</mat-card>

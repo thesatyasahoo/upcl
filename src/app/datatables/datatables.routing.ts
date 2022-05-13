@@ -1,13 +1,14 @@
 import { Routes } from '@angular/router';
 
-import { DataTableComponent } from './data-table/data-table.component';
-import { TableEditingComponent } from './table-editing/table-editing.component';
-import { TableFilterComponent } from './table-filter/table-filter.component';
-import { MaterialTableComponent } from './materialtable/materialtable.component';
 import { TotalConnectionsComponent } from './totalConnections/totalConnections.component';
 import { DetailsConnectionsComponent } from './detailsConnections/detailsConnections.component';
 import { ComplaintRegistrationComponent } from './complaintRegistration/complaintRegistration.component';
 import { UpdateProfileComponent } from './updateProfile/updateProfile.component';
+import { ChangePasswordComponent } from './changePassword/changePassword.component';
+import { ServiceRequestComponent } from './serviceRequest/serviceRequest.component';
+import { ConsumptionbillHistoryComponent } from './consumptionbillHistory/consumptionbillHistory.component';
+import { PaymentHistoryComponent } from './paymentHistory/paymentHistory.component';
+import { ViewStatusComponent } from './viewStatus/viewStatus.component';
 export const DataTablesRoutes: Routes = [
   {
     path: '',
@@ -23,6 +24,14 @@ export const DataTablesRoutes: Routes = [
         data: {
           title: 'Connections',
           urls: [{ title: 'Dashboard', url: '/pages' }, { title: 'Connections' }],
+        },
+      },
+      {
+        path: 'viewStatus/',
+        component: ViewStatusComponent,
+        data: {
+          title: 'View Status',
+          urls: [{ title: 'Dashboard', url: '/pages' }, { title: 'View Status' }],
         },
       },
       {
@@ -42,6 +51,30 @@ export const DataTablesRoutes: Routes = [
         },
       },
       {
+        path: 'consumptionbillHistory/:id',
+        component: ConsumptionbillHistoryComponent,
+        data: {
+          title: 'Consumption & Bill History',
+          urls: [{ title: 'Dashboard', url: '/pages' }, { title: 'Consumption & Bill History' }],
+        },
+      },
+      {
+        path: 'serviceRequest/:id',
+        component: ServiceRequestComponent,
+        data: {
+          title: 'Service Request',
+          urls: [{ title: 'Dashboard', url: '/pages' }, { title: 'Service Request' }],
+        },
+      },
+      {
+        path: 'paymentHistory/:id',
+        component: PaymentHistoryComponent,
+        data: {
+          title: 'Payment History',
+          urls: [{ title: 'Dashboard', url: '/pages' }, { title: 'Payment History' }],
+        },
+      },
+      {
         path: 'updateProfile',
         component: UpdateProfileComponent,
         data: {
@@ -50,35 +83,11 @@ export const DataTablesRoutes: Routes = [
         },
       },
       {
-        path: 'table1',
-        component: DataTableComponent,
+        path: 'changePassword',
+        component: ChangePasswordComponent,
         data: {
-          title: 'Total Connections',
-          urls: [{ title: 'Dashboard', url: '/pages' }, { title: 'Total Connections' }],
-        },
-      },
-      {
-        path: 'editing',
-        component: TableEditingComponent,
-        data: {
-          title: 'Editing Table',
-          urls: [{ title: 'Dashboard', url: '/pages' }, { title: 'Editing Table' }],
-        },
-      },
-      {
-        path: 'filter',
-        component: TableFilterComponent,
-        data: {
-          title: 'Filter Table',
-          urls: [{ title: 'Dashboard', url: '/pages' }, { title: 'Filter Table' }],
-        },
-      },
-      {
-        path: 'materialtable',
-        component: MaterialTableComponent,
-        data: {
-          title: 'Material Table',
-          urls: [{ title: 'Dashboard', url: '/pages' }, { title: 'Material Table' }],
+          title: 'Change Password',
+          urls: [{ title: 'Dashboard', url: '/pages' }, { title: 'Change Password' }],
         },
       },
     ],

@@ -1,0 +1,18 @@
+.datatable,
+.datatable > div,
+.datatable.fixed-header .datatable-header .datatable-header-inner {
+  height: 100%;
+}
+@media (max-width: 576px) {
+  .cstmWidth{
+    width: 100% !important;
+  }
+}
+.mat-raised-button {
+  min-width: 57px !important;
+  line-height: 28px !important;
+  padding: 0 0px !important;
+}
+mat-row, mat-footer-row {
+  min-height: 35px;
+}

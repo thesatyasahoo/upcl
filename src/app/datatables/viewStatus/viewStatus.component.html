@@ -1,0 +1,236 @@
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Complaints Status">
+        <mat-card-title class="text-info text-center">{{ '' | translate }}</mat-card-title>
+        <mat-form-field appearance="standard">
+          <mat-label>{{ 'Filter' | translate }}</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Ex. {{ 'Domestic' | translate }}"
+            #input
+          />
+        </mat-form-field>
+        <div class="responsive-table">
+          <mat-table #table [dataSource]="dataSource">
+            <!-- Name Column -->
+            <ng-container matColumnDef="complaintNo">
+              <mat-header-cell *matHeaderCellDef> {{ 'Complaint No' | translate }}.</mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Complaint No' | translate }} :</span>
+                  </div>
+                  <div class="col p-0 text-center">
+                    <a
+                      mat-button
+                      class="text-primary"
+                      (click)="onRowClick(row)"
+                      style="cursor: pointer"
+                      >{{ row.complaintNo }}</a
+                    >
+                  </div>
+                </div>
+              </mat-cell>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="complaintDate">
+              <mat-header-cell *matHeaderCellDef>
+                {{ 'Complaint Date' | translate }}.
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Complaint Date' | translate }}. :</span>
+                  </div>
+                  <div class="col p-0 text-center">{{ row.complaintDate }}</div>
+                </div>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="description">
+              <mat-header-cell *matHeaderCellDef> {{ 'Description' | translate }} </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Description' | translate }} :</span>
+                  </div>
+                  <div class="col p-0 text-center">{{ row.description }}</div>
+                </div>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="status">
+              <mat-header-cell *matHeaderCellDef>
+                {{ 'Status' | translate }}
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Status' | translate }} :</span>
+                  </div>
+                  <div class="col p-0 text-center">
+                    <div class="">
+                      <span
+                        class="label w-100"
+                        [ngClass]="{
+                          'label-light-success': row.status === 'Paid',
+                          'label-light-warning': row.status === 'Over Due',
+                          'label-light-danger': row.status === 'Disconnected',
+                          'label-light-warning1': row.status === 'Pending SR',
+                          'label-light-warning2': row.status === 'Pending Complain'
+                        }"
+                        style="height: 1.5rem; width: 5.5rem !important"
+                        >{{ row.status }}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="links">
+              <mat-header-cell *matHeaderCellDef> {{ 'Links' | translate }} </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Links' | translate }} :</span>
+                  </div>
+                  <div class="col p-0 text-center">
+                    <button mat-button color="primary">{{ row.links ? 'Print' : 'loading...'}}</button>
+                  </div>
+                </div>
+              </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+            <div class="mat-row" *matNoDataRow>
+              <p class="mat-cell" colspan="10">
+                {{ 'No data matching the filter' | translate }} "{{ input.value }}"
+              </p>
+            </div>
+          </mat-table>
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page of users"
+          ></mat-paginator>
+        </div>
+      </mat-tab>
+      <mat-tab label="Service Request Status">
+        <mat-card-title class="text-info text-center">{{ '' | translate }}</mat-card-title>
+        <mat-form-field appearance="standard">
+          <mat-label>{{ 'Filter' | translate }}</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter1($event)"
+            placeholder="Ex. {{ 'Domestic' | translate }}"
+            #input
+          />
+        </mat-form-field>
+        <div class="responsive-table">
+          <mat-table #table1 [dataSource]="dataSource1">
+            <!-- Name Column -->
+            <ng-container matColumnDef="complaintNo">
+              <mat-header-cell *matHeaderCellDef> {{ 'Service Request Number' | translate }}.</mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Service Request Number' | translate }} :</span>
+                  </div>
+                  <div class="col p-0 text-center">
+                    <a
+                      mat-button
+                      class="text-primary"
+                      (click)="onRowClick(row)"
+                      style="cursor: pointer"
+                      >{{ row.complaintNo }}</a
+                    >
+                  </div>
+                </div>
+              </mat-cell>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="complaintDate">
+              <mat-header-cell *matHeaderCellDef>
+                {{ 'Service Request Date' | translate }}.
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Service Request Date' | translate }}. :</span>
+                  </div>
+                  <div class="col p-0 text-center">{{ row.complaintDate }}</div>
+                </div>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="description">
+              <mat-header-cell *matHeaderCellDef> {{ 'Description' | translate }} </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Description' | translate }} :</span>
+                  </div>
+                  <div class="col p-0 text-center">{{ row.description }}</div>
+                </div>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="status">
+              <mat-header-cell *matHeaderCellDef>
+                {{ 'Status' | translate }}
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Status' | translate }} :</span>
+                  </div>
+                  <div class="col p-0 text-center">
+                    <div class="">
+                      <span
+                        class="label w-100"
+                        [ngClass]="{
+                          'label-light-success': row.status === 'Paid',
+                          'label-light-warning': row.status === 'Over Due',
+                          'label-light-danger': row.status === 'Disconnected',
+                          'label-light-warning1': row.status === 'Pending SR',
+                          'label-light-warning2': row.status === 'Pending Complain'
+                        }"
+                        style="height: 1.5rem; width: 5.5rem !important"
+                        >{{ row.status }}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="links">
+              <mat-header-cell *matHeaderCellDef> {{ 'Links' | translate }} </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Links' | translate }} :</span>
+                  </div>
+                  <div class="col p-0 text-center">
+                    <button mat-button color="primary">{{ row.links ? 'Print' : 'loading...'}}</button>
+                  </div>
+                </div>
+              </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns1"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns1"></mat-row>
+
+            <div class="mat-row" *matNoDataRow>
+              <p class="mat-cell" colspan="10">
+                {{ 'No data matching the filter' | translate }} "{{ input.value }}"
+              </p>
+            </div>
+          </mat-table>
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page of users"
+          ></mat-paginator>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

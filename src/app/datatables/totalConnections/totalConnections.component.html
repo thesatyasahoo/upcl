@@ -1,108 +1,108 @@
 <mat-card>
   <mat-card-content>
-    <mat-card-title class="text-info text-center">{{title}}</mat-card-title>
+    <mat-card-title class="text-info text-center">{{title | translate}}</mat-card-title>
     <mat-form-field appearance="standard">
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Domestic" #input>
+      <mat-label>{{'Filter' | translate}}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. {{'Domestic' | translate}}" #input>
     </mat-form-field>
     <div class="responsive-table">
       <mat-table #table [dataSource]="dataSource">
         <!-- Name Column -->
         <ng-container matColumnDef="accountNumber">
-          <mat-header-cell *matHeaderCellDef> Account No. </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{'Account No' | translate}}.</mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label">Account No :</span></div>
-              <div class="col p-0 text-center"><a class="text-primary" (click)="onRowClick(row)" style="cursor: pointer;">{{row.accountNumber}}</a></div>
+              <div class="col d-lg-none"><span class="header-label">{{'Account No' | translate}} :</span></div>
+              <div class="col p-0 text-center"><a mat-button class="text-primary" (click)="onRowClick(row)" style="cursor: pointer;">{{row.accountNumber}}</a></div>
             </div>
           </mat-cell>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="serviceConnNumber">
-          <mat-header-cell *matHeaderCellDef> Service Acc No. </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{'Service Acc No' | translate}}. </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label">Service Acc No. :</span></div>
+              <div class="col d-lg-none"><span class="header-label">{{'Service Acc No' | translate}}. :</span></div>
               <div class="col p-0 text-center">{{row.serviceConnNumber}}</div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{'Name' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label">Name :</span></div>
+              <div class="col d-lg-none"><span class="header-label">{{'Name' | translate}} :</span></div>
               <div class="col p-0 text-center">{{row.name}}</div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="address">
-          <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{'Address' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label">Address :</span></div>
+              <div class="col d-lg-none"><span class="header-label">{{'Address' | translate}} :</span></div>
               <div class="col p-0 text-center">{{row.address}}</div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="serviceStatus">
-          <mat-header-cell *matHeaderCellDef> Service Status </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+          <mat-header-cell *matHeaderCellDef> {{'Service Status' | translate}} </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 d-sm-none">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label">Service Status :</span></div>
+              <div class="col d-lg-none"><span class="header-label">{{'Service Status' | translate}} :</span></div>
               <div class="col p-0 text-center">{{row.serviceStatus}}</div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="connectionType">
-          <mat-header-cell *matHeaderCellDef> Connection Type </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{'Connection Type' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label">Connection Type :</span></div>
+              <div class="col d-lg-none"><span class="header-label">{{'Connection Type' | translate}} :</span></div>
               <div class="col p-0 text-center">{{row.connectionType}}</div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="dueDate">
-          <mat-header-cell *matHeaderCellDef> Due Date </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{'Due Date' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label">Due Date :</span></div>
+              <div class="col d-lg-none"><span class="header-label">{{'Due Date' | translate}} :</span></div>
               <div class="col p-0 text-center">{{row.dueDate}}</div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="netPaybleAmount">
-          <mat-header-cell *matHeaderCellDef> Net Payble Amount </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{'Net Payble Amount' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label">Net Payble Amount :</span></div>
+              <div class="col d-lg-none"><span class="header-label">{{'Net Payble Amount' | translate}} :</span></div>
               <div class="col p-0 text-center">{{row.netPaybleAmount}}</div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="paymentStatus">
-          <mat-header-cell *matHeaderCellDef> Payment Status </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{'Payment Status' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label">Payment Status :</span></div>
+              <div class="col d-lg-none"><span class="header-label">{{'Payment Status' | translate}} :</span></div>
               <div class="col p-0 text-center">
-                <div class="mt-2">
-                  <span class="badge rounded-pill w-100" [ngClass]="{'bg-success': row.paymentStatus === 'Paid', 'bg-warning': row.paymentStatus === 'Over Due', 'bg-danger': row.paymentStatus === 'Disconnected', 'bg-warning1': row.paymentStatus === 'Pending SR', 'bg-warning2': row.paymentStatus === 'Pending Complain'}" style="height: 1.5rem;width: 5.5rem !important;
-                  padding-top: 0.5rem;">{{row.paymentStatus}}</span>
+                <div class="">
+                  <span class="label w-100"[ngClass]="{'label-light-success': row.paymentStatus === 'Paid', 'label-light-warning': row.paymentStatus === 'Over Due', 'label-light-danger': row.paymentStatus === 'Disconnected', 'label-light-warning1': row.paymentStatus === 'Pending SR', 'label-light-warning2': row.paymentStatus === 'Pending Complain'}" style="height: 1.5rem;width: 5.5rem !important;">{{row.paymentStatus}}</span>
                 </div>
               </div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="billLink">
-          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{'View Bill/Receipt' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
-              <div class="col d-lg-none"><span class="header-label">Action :</span></div>
-              <div class="col p-0 text-center"><span *ngIf="row.paymentStatus === 'Paid'"><a class="link text-center text-primary" style="cursor: pointer;">View Bill</a><br><a class="link text-primary" style="cursor: pointer;">View Receipt</a></span>
-            <span *ngIf="row.paymentStatus === 'Over Due'"><a class="link text-center text-primary" style="cursor: pointer;">Pay Bill</a></span>
+              <div class="col d-lg-none"><span class="header-label">{{'View Bill/Receipt' | translate}} :</span></div>
+              <!-- <span _ngcontent-rqw-c332="" class="float-left label label-light-info">Pending</span> -->
+              <div class="col p-0 text-center"><span *ngIf="row.paymentStatus === 'Paid'"><a mat-button class="link text-center text-primary" style="cursor: pointer;">{{'View Bill' | translate}}</a><br><a mat-button class="link text-primary" style="cursor: pointer;">{{'View Receipt' | translate}}</a></span>
+            <span *ngIf="row.paymentStatus === 'Over Due'"><a mat-button class="link text-center text-primary" style="cursor: pointer;">{{'Pay Bill' | translate}}</a></span>
               </div>
             </div>
           </mat-cell>
@@ -112,7 +112,7 @@
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
         <div class="mat-row" *matNoDataRow>
-          <p class="mat-cell"colspan="10">No data matching the filter "{{input.value}}"</p>
+          <p class="mat-cell"colspan="10">{{'No data matching the filter' | translate}} "{{input.value}}"</p>
         </div>
 
       </mat-table>

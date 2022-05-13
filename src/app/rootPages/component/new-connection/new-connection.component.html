@@ -1,0 +1,596 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <mat-card>
+        <div class="row">
+          <div class="col text-center">
+            <h2 style="font-size: 1.3rem;">HT NEW SERVICE REGISTRATION FORM</h2>
+          </div>
+        </div>
+        <mat-stepper #stepper>
+          <mat-step [stepControl]="firstFormGroup" errorMessage="Please fill required fields">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>Office Details</ng-template>
+              <div class="row">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col--sm-12 p-3">
+                  <p>Request Type <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="requestType">
+                      <!-- <mat-option value="" selected></mat-option> -->
+                      <mat-option *ngFor="let item of requestType" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col--sm-12 p-3">
+                  <p>Service <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="service">
+                      <!-- <mat-option value="" selected></mat-option> -->
+                      <mat-option *ngFor="let item of services" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row p-2">
+                <div class="col">
+                  <h4>Office Details</h4>
+                  <div class="row p-3">
+                    <div class="col">
+                      <section class="example-section">
+                        <mat-checkbox class="example-margin" [(ngModel)]="ofcDetails" formControlName="ofcDetail">Know Your Nearest Office Details</mat-checkbox>
+                      </section>
+                    </div>
+                  </div>
+                  <div class="row pt-4" *ngIf="ofcDetails === true">
+                    <div class="col">
+                      <h5>Enter the Nearest Pole No / Neighbor service no. to get Office Details</h5>
+                      <div class="row p-1">
+                        <div class="col-lg-3 pt-4">
+                          <p>Type of Landmark <sup style="color:red">*</sup>:</p>
+                        </div>
+                        <div class="col">
+                          <mat-form-field appearance="outline">
+                            <mat-label>Choose an option</mat-label>
+                            <mat-select [(ngModel)]="selectLendmark" formControlName="lendmark">
+                              <!-- <mat-option value="" selected></mat-option> -->
+                              <mat-option *ngFor="let item of lendmarks" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                        <div class="col" *ngIf="selectLendmark !== 'POLE'"></div>
+                        <div class="col" *ngIf="selectLendmark !== 'POLE'"></div>
+                        <div class="col-lg-2 pt-4" *ngIf="selectLendmark === 'POLE'">
+                          <p>Pole No <sup style="color:red">*</sup>:</p>
+                        </div>
+                        <div class="col" *ngIf="selectLendmark === 'POLE'">
+                          <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Company</mat-label>
+                            <input matInput formControlName="poleNo" [(ngModel)]="poleNumber">
+                          </mat-form-field>
+                        </div>
+                        <div class="col pt-3" *ngIf="selectLendmark === 'POLE'">
+                          <button mat-raised-button color="primary" [disabled]="poleNumber === '' || poleNumber === null || poleNumber === undefined">Get Details</button>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <p style="font-size: 11.5px; color: lightsalmon;">NOTE : Contact our customer care no 1800-419-0405 (24 Hrs.) for more help</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col--sm-12 p-3">
+                  <p>Division Office <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="requestType">
+                      <!-- <mat-option value="" selected></mat-option> -->
+                      <mat-option *ngFor="let item of requestType" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-xxl-2 col-xl-2 col--sm-12 p-3">
+                  <p>Sub Division Office <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="service">
+                      <!-- <mat-option value="" selected></mat-option> -->
+                      <mat-option *ngFor="let item of services" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="text-end">
+                <!-- <p>Go to a different step to see the error state</p> -->
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup" errorMessage="Please fill required fields">
+            <form [formGroup]="secondFormGroup">
+              <ng-template matStepLabel>Service Details</ng-template>
+              <div class="row">
+                <div class="col">
+                  <a mat-button color="primary" href="../../../../assets/doc/TariffMar_2506.pdf" target="_blank">Click to view UPCL Retail Tariff Schedule</a>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col--sm-12 p-3">
+                  <p>Main Category<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="mainCategory">
+                      <!-- <mat-option value="" selected></mat-option> -->
+                      <mat-option *ngFor="let item of category" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-xxl-2 col-xl-2 col--sm-12 p-3">
+                </div>
+                <div class="col">
+                  
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Category of Supply <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="suplyCategory">
+                      <!-- <mat-option value="" selected></mat-option> -->
+                      <mat-option *ngFor="let item of suplyCategory" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Contracted Load <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="contractedLoad" [(ngModel)]="contractedLoad">
+                    <mat-hint><a mat-button color="primary" href="#" target="_blank" style="font-size: 8px;">Load Calculator</a></mat-hint>
+                  </mat-form-field>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="unit">
+                      <!-- <mat-option value="" selected></mat-option> -->
+                      <mat-option *ngFor="let item of unit" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Tentative Date by applicant <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker1" formControlName="dateOfApplicant">
+                    <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Supply Voltage <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="voltAmount">
+                      <!-- <mat-option value="" selected></mat-option> -->
+                      <mat-option *ngFor="let item of voltzAmount" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Plot Size <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="plotSize" [(ngModel)]="plotSize">
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Build up Area <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="buildUpArea" [(ngModel)]="buildUpArea">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col--sm-12 p-3">
+                  <p>Purpose<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="purpose">
+                      <!-- <mat-option value="" selected></mat-option> -->
+                      <mat-option *ngFor="let item of purpose" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-xxl-2 col-xl-2 col--sm-12 p-3">
+                </div>
+                <div class="col">
+                  
+                </div>
+              </div>
+              <div class="text-end">
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="thirdFormGroup" errorMessage="Please fill required fields">
+            <form [formGroup]="thirdFormGroup">
+              <ng-template matStepLabel>Personal Details</ng-template>
+              <div class="row mt-2">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Applicant Name <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <!-- <mat-label>Choose an option</mat-label> -->
+                        <mat-select formControlName="title">
+                          <mat-option value="" selected></mat-option>
+                          <mat-option *ngFor="let item of title" [value]="item.value">
+                            {{ item.viewValue }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter a value</mat-label>
+                        <input matInput formControlName="applicantName" [(ngModel)]="applicantName">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Father/Husband <sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <!-- <mat-label>Choose an option</mat-label> -->
+                        <mat-select formControlName="dendOfApplicant">
+                          <mat-option value="" selected></mat-option>
+                          <mat-option *ngFor="let item of dend" [value]="item.value">
+                            {{ item.viewValue }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter a value</mat-label>
+                        <input matInput formControlName="applicantDendName" [(ngModel)]="applicantDendName">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Name Of<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-10">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <!-- <mat-label>Choose an option</mat-label> -->
+                        <mat-select formControlName="dendOf">
+                          <mat-option value="" selected></mat-option>
+                          <mat-option *ngFor="let item of dendOf" [value]="item.value">
+                            {{ item.viewValue }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <!-- <mat-label>Choose an option</mat-label> -->
+                        <mat-select formControlName="ownerTitle">
+                          <mat-option value="" selected></mat-option>
+                          <mat-option *ngFor="let item of ownerTitle" [value]="item.value">
+                            {{ item.viewValue }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter a value</mat-label>
+                        <input matInput formControlName="ownerName" [(ngModel)]="ownerName">
+                      </mat-form-field>
+                    </div>
+                    <div class="col pt-3"><p>(with Contact Details)</p></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>House / Plot<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="houseOrPlot">
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Street Name<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="streetName">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Colony / Area<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="colonyName">
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>District<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select formControlName="district">
+                      <!-- <mat-option value="" selected></mat-option> -->
+                      <mat-option *ngFor="let item of district" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Residence Phone<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="residancePhone">
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Fax Number<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="faxnumber">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Email<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="email">
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Mobile Number<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="mobileNumber">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>Pin Code<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="pincode">
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                  <p>PAN<sup style="color:red">*</sup>:</p>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter a value</mat-label>
+                    <input matInput formControlName="pan">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <section class="example-section">
+                    Full Address of Location (where connection is required/provided) <mat-checkbox class="example-margin" [(ngModel)]="sameAddress" formControlName="sameAddress"> Same as Above</mat-checkbox>
+                  </section>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="row mt-2">
+                    <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                      <p>House / Plot<sup style="color:red">*</sup>:</p>
+                    </div>
+                    <div class="col-lg-4">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter a value</mat-label>
+                        <input matInput formControlName="houseOrPlot">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                      <p>Street Name<sup style="color:red">*</sup>:</p>
+                    </div>
+                    <div class="col-lg-4">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter a value</mat-label>
+                        <input matInput formControlName="streetName">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                      <p>Colony / Area<sup style="color:red">*</sup>:</p>
+                    </div>
+                    <div class="col-lg-4">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter a value</mat-label>
+                        <input matInput formControlName="colonyName">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                      <p>District<sup style="color:red">*</sup>:</p>
+                    </div>
+                    <div class="col-lg-4">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Choose an option</mat-label>
+                        <mat-select formControlName="district">
+                          <!-- <mat-option value="" selected></mat-option> -->
+                          <mat-option *ngFor="let item of district" [value]="item.value">
+                            {{ item.viewValue }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                      <p>Residence Phone<sup style="color:red">*</sup>:</p>
+                    </div>
+                    <div class="col-lg-4">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter a value</mat-label>
+                        <input matInput formControlName="residancePhone">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                      <p>Mobile Number<sup style="color:red">*</sup>:</p>
+                    </div>
+                    <div class="col-lg-4">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter a value</mat-label>
+                        <input matInput formControlName="mobileNumber">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                      <p>Email<sup style="color:red">*</sup>:</p>
+                    </div>
+                    <div class="col-lg-4">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter a value</mat-label>
+                        <input matInput formControlName="email">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                      <p>Date of Birth/ Incorporation	<sup style="color:red">*</sup>:</p>
+                    </div>
+                    <div class="col-lg-4">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker2">
+                        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                      <p>Pin code<sup style="color:red">*</sup>:</p>
+                    </div>
+                    <div class="col-lg-4">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter a value</mat-label>
+                        <input matInput formControlName="pincode">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-2 col-xxl-2 col-xl-2 col-sm-12 p-3">
+                    </div>
+                    <div class="col-lg-4">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="text-end">
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+              <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+            </div>
+            </form>
+          </mat-step>
+        </mat-stepper>
+        
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -119,7 +119,7 @@ export class VerticalAppHeaderComponent {
   changeLanguage(lang: any) {
     this.translate.use(lang.code);
     this.selectedLanguage = lang;
-    const browserLang = this.translate.getBrowserLang();
-    console.log(browserLang)
+    // const browserLang = this.translate.getBrowserLang();
+    // console.log(browserLang)
   }
 }

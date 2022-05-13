@@ -1,0 +1,127 @@
+<mat-card>
+  <mat-card-content>
+    <div class="row">
+      <div class="col">
+        <div class="row mb-5">
+          <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12">
+            <span>{{ 'Account' | translate }}: {{ rows[0].accountNumber }}</span>
+          </div>
+          <!-- <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 text-end">
+            <div class="p-2 w-100 mt-4 mt-md-0 mt-lg-0 mt-xl-0 mt-xxl-0">
+              
+            </div>
+          </div> -->
+        </div>
+        <div class="row mb-2">
+          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="row" style="margin: 0 !important">
+              <div class="col-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>From</mat-label>
+                  <input matInput [matDatepicker]="picker1" [(ngModel)]="fromFdate" (dateChange)="addEvent($event)"/>
+                  <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>To</mat-label>
+                  <input matInput [matDatepicker]="picker2" [(ngModel)]="toFdate" (dateChange)="addEvent1($event)"/>
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="row mt-3">
+              <div class="col text-end">
+                <button mat-raised-button color="primary" style="left: -1rem;" (click)="getDataByDate()" [disabled]="dateForm?.invalid">Submit</button>
+                <button mat-raised-button color="accent" (click)="clear()">Clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="responsive-table">
+      <!-- <div class="text-center border latestBill">
+        <span>{{ 'Latest Bill' | translate }}</span>
+      </div> -->
+      <mat-table #table [dataSource]="dataSource">
+        <!-- Name Column -->
+        <ng-container matColumnDef="paymentReceiptNumber" class="text-center">
+          <mat-header-cell *matHeaderCellDef class="">
+            {{ 'Payment Receipt Number' | translate }}.
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+            <div class="row w-100">
+              <div class="col d-lg-none">
+                <span class="header-label w-100"
+                  >{{ 'Payment Receipt Number' | translate }}. :</span
+                >
+              </div>
+              <div class="col p-0 text-center">
+                <span>{{ row.paymentReceiptNumber }}</span>
+              </div>
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="collectionDate" class="text-center">
+          <mat-header-cell *matHeaderCellDef class=""
+            >{{ 'Collection Days' | translate }}.
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+            <div class="row w-100">
+              <div class="col d-lg-none">
+                <span class="header-label w-100">{{ 'Collection Days' | translate }}. :</span>
+              </div>
+              <div class="col p-0 text-center">
+                <span>{{ row.collectionDate }}</span>
+              </div>
+            </div>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="paymentMode" class="text-center">
+          <mat-header-cell *matHeaderCellDef class="">
+            {{ 'Payment Mode' | translate }}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+            <div class="row w-100">
+              <div class="col d-lg-none">
+                <span class="header-label w-100">{{ 'Payment Mode' | translate }} :</span>
+              </div>
+              <div class="col p-0 text-center">{{ row.paymentMode }}</div>
+            </div>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="amountPaid" class="text-center">
+          <mat-header-cell *matHeaderCellDef class="">
+            {{ 'Amount Paid' | translate }}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+            <div class="row w-100">
+              <div class="col d-lg-none">
+                <span class="header-label w-100">{{ 'Amount Paid' | translate }} :</span>
+              </div>
+              <div class="col p-0 text-center">
+                <span>{{ row.amountPaid }}</span>
+              </div>
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        <!-- <mat-row *matNoDataRow>
+          <mat-cell colspan="4">No data matching the filter "{{input.value}}"</mat-cell>
+        </mat-row> -->
+      </mat-table>
+      <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+    </div>
+  </mat-card-content>
+</mat-card>

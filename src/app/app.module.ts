@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { AppRoutes } from './app.routing';
@@ -19,7 +19,6 @@ import { HorizontalAppSidebarComponent } from './layouts/full/horizontal-sidebar
 import { AppBreadcrumbComponent } from './layouts/full/breadcrumb/breadcrumb.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DemoMaterialModule } from './demo-material-module';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -31,6 +30,8 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { RootPagesModule } from './rootPages/rootPage.module';
+import { SelfServiceFAQComponent } from './pages/selfServiceFAQ/selfServiceFAQ.component';
+import { MaterialModule } from './material-module';
 
 export function HttpLoaderFactory(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -53,11 +54,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppBreadcrumbComponent,
     HorizontalAppHeaderComponent,
     HorizontalAppSidebarComponent,
+    SelfServiceFAQComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    DemoMaterialModule,
+    MaterialModule,
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
@@ -68,7 +70,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     RootPagesModule,
     RouterModule,
-    FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

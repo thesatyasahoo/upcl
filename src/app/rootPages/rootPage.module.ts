@@ -15,6 +15,7 @@ import { HeaderComponent } from '../header/header.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ComponentModule } from './component/component.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   imports: [
     CommonModule,
+    ComponentModule,
     TranslateModule.forChild(),
     RouterModule.forRoot(routes1, { relativeLinkResolution: 'legacy' }),
   ],

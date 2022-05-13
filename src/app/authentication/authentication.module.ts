@@ -11,10 +11,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AuthenticationRoutes } from './authentication.routing';
 import { ErrorComponent } from './error/error.component';
-import { ForgotComponent } from './forgot/forgot.component';
-import { LockscreenComponent } from './lockscreen/lockscreen.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   imports: [
@@ -31,10 +27,6 @@ import { RegisterComponent } from './register/register.component';
   ],
   declarations: [
     ErrorComponent,
-    ForgotComponent,
-    LockscreenComponent,
-    LoginComponent,
-    RegisterComponent,
   ],
 })
 export class AuthenticationModule {}

@@ -8,3 +8,7 @@
     width: 100% !important;
   }
 }
+
+mat-row, mat-footer-row {
+  min-height: 35px;
+}

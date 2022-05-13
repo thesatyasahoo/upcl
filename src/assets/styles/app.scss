@@ -19,12 +19,32 @@ File: scss
 /******************* 
 Global Styles 
 *******************/
-// body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-detailsconnections > mat-card > mat-card-content > div.responsive-table > mat-table > mat-header-row > mat-header-cell > div,
-// body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-detailsconnections > mat-card > mat-card-content > div.responsive-table > mat-table > mat-row > mat-cell > div
 
-// {
-// padding-left: 2.5rem !important;
-// }
+.mat-menu-item {
+  font-size: 0.8rem !important;
+}
+.mat-expansion-panel-content {
+  font: 400 13px / 20px Poppins !important;
+}
+.mat-expansion-panel-header {
+  font-size: 14px !important;
+}
+.mat-button,
+.mat-raised-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button,
+.mat-fab,
+.mat-mini-fab {
+  font-size: 13px !important;
+}
+.mat-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button {
+  line-height: 26px !important;
+  padding: 0 5px !important;
+}
 table {
   width: 100%;
 }
@@ -34,9 +54,11 @@ mat-cell {
   justify-content: center;
   border: none;
 }
+
 .mat-icon-button {
   padding: 0.5rem !important;
 }
+
 * {
   outline: none;
   box-sizing: border-box;
@@ -56,31 +78,38 @@ html {
   min-height: 100%;
   background: $white;
 }
+
 a:hover,
 a:focus,
 a {
   text-decoration: none;
 }
+
 a.link {
   color: $headingtext;
   text-decoration: none;
+
   &:hover,
   &:focus {
     color: $themecolor;
   }
 }
+
 .img-responsive {
   width: 100%;
   height: auto;
   display: inline-block;
 }
+
 .img-fluid {
   max-width: 100%;
   height: auto;
 }
+
 .img-rounded {
   border-radius: $radius;
 }
+
 html body .mdi:before,
 html body .mdi-set {
   line-height: initial;
@@ -93,13 +122,16 @@ code {
   background-color: $light-danger;
   border-radius: 0.25rem;
 }
+
 .mat-cell,
 .mat-footer-cell {
-  font-size: 11px !important;
+  font-size: 10px !important;
 }
+
 .mDisplay {
   display: inline-block !important;
 }
+
 .block-ellipsis {
   display: inline-block;
   max-width: 100%;
@@ -113,14 +145,218 @@ code {
   /* overflow: hidden; */
   /* text-overflow: ellipsis; */
 }
+
+#mat-tab-content-0-0 > div > div > mat-table > mat-row:nth-child(n) > mat-cell > div > div > a > span.mat-button-wrapper,
+#mat-tab-content-0-0 > div > div > mat-table > mat-row:nth-child(n) > mat-cell > div > div > button > span.mat-button-wrapper,
+#mat-tab-content-0-1 > div > div > mat-table > mat-row:nth-child(n) > mat-cell > div > div > a > span.mat-button-wrapper,
+#mat-tab-content-0-1 > div > div > mat-table > mat-row:nth-child(n) > mat-cell > div > div > button > span.mat-button-wrapper,
+body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-totalconnections > mat-card > mat-card-content > div > mat-table > mat-row:nth-child(n)> mat-cell > div > div > a > span.mat-button-wrapper,
+body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-totalconnections > mat-card > mat-card-content > div > mat-table > mat-row:nth-child(n)> mat-cell > div > div > span > a > span.mat-button-wrapper{
+  font-size: 10px !important;
+}
+.latestBill {
+  // background-image: radial-gradient(circle 674px at 18.3% 77%, #8BBAFD 15.4%, #0F3381 59.6%);
+  background-image: radial-gradient(
+    circle farthest-corner at 14% 62%,
+    rgba(88, 264, 260, -29.33) 9.1%,
+    rgba(138, 203, 255, 0.63) 91.1%
+  );
+  border-radius: 4px;
+  color: rgb(12, 12, 12);
+}
+
+body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-selfservicefaq > mat-card > mat-card-content > div.row.mt-3 > div > a > span.mat-button-wrapper{
+  white-space: break-spaces;
+}
+#cdk-accordion-child-0 > div > div{
+  display: none !important;
+}
+@media (max-width: 600px) {
+  .responsive-table .mat-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 15px 15px 8px !important;
+  }
+}
+
 @media (max-width: 576px) {
+  #mat-expansion-panel-header-0 {
+    padding: 3rem 1rem 3rem 1rem !important;
+  }
+  #cdk-accordion-child-0 > div > table{
+    display: none !important;
+  }
+  #cdk-accordion-child-0 > div > div{
+    display: inline-block !important;
+  }
+  body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-selfservicefaq > mat-card > mat-card-content > div:nth-child(2) > div > mat-accordion:nth-child(n) > mat-expansion-panel{
+    padding: 0.5rem 0rem 0.5rem 0rem;
+  }
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-consumptionbillhistory
+    > mat-card
+    > mat-card-content
+    > div.responsive-table
+    > div,
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-paymenthistory
+    > mat-card
+    > mat-card-content
+    > div.responsive-table
+    > div {
+    color: black !important;
+  }
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-totalconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row
+    > mat-cell:nth-child(5),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-totalconnections
+    > mat-card
+    > mat-card-content
+    > div
+    > mat-table
+    > mat-row
+    > mat-cell:nth-child(6) {
+    display: none !important;
+  }
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-detailsconnections
+    > mat-card
+    > mat-card-content
+    > div.responsive-table
+    > div,
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-consumptionbillhistory
+    > mat-card
+    > mat-card-content
+    > div.responsive-table
+    > div,
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-paymenthistory
+    > mat-card
+    > mat-card-content
+    > div.responsive-table
+    > div {
+    bottom: -1.8rem !important;
+    background-image: none;
+    border-radius: 0;
+    color: white;
+    position: relative;
+    border: none !important;
+    body
+      > app-root
+      > app-full-layout
+      > div
+      > mat-sidenav-container
+      > mat-sidenav-content
+      > div
+      > div
+      > app-detailsconnections
+      > mat-card
+      > mat-card-content
+      > div.responsive-table
+      > div
+      > span {
+      font-size: 1.5rem !important;
+    }
+  }
+
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-detailsconnections
+    > mat-card
+    > mat-card-content
+    > div.row
+    > div
+    > div.row.mb-2
+    > div.col-xxl-6.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-xs-12.text-end {
+    text-align: left !important;
+  }
+
   mat-cell {
     border: none !important;
+
+    .row > .col.text-center {
+      text-align: left !important;
+    }
   }
+  #snav
+    > div
+    > perfect-scrollbar
+    > div
+    > div.ps-content
+    > app-vertical-sidebar
+    > mat-nav-list
+    > mat-list-item.mat-list-item.mat-focus-indicator.ng-star-inserted.selected
+    > div
+    > mat-nav-list
+    > mat-list-item:nth-child(2)
+    > div
+    > a,
   .block-ellipsis {
     display: inline-block;
     max-width: 100%;
-    height: 27px;
+    height: 50px;
     /* margin: 0 auto; */
     margin-right: 0.8rem;
     font-size: 13px;
@@ -129,6 +365,50 @@ code {
     /* -webkit-box-orient: vertical; */
     /* overflow: hidden; */
     /* text-overflow: ellipsis; */
+  }
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-detailsconnections
+    > mat-card
+    > mat-card-content
+    > div.responsive-table
+    > div
+    > span {
+    color: black !important;
+  }
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-detailsconnections
+    > mat-card
+    > mat-card-content
+    > div.responsive-table
+    > mat-table
+    > mat-row {
+    background-image: radial-gradient(
+      circle farthest-corner at 14% 62%,
+      rgba(88, 264, 260, -29.33) 9.1%,
+      rgba(138, 203, 255, 0.63) 91.1%
+    ) !important;
+    mat-cell {
+      border: none !important;
+      color: black !important;
+      div > div > a,
+      div > div > span > a {
+        color: black !important;
+      }
+    }
   }
   body
     > app-root
@@ -249,15 +529,18 @@ code {
       rgba(15, 51, 92, 1) 56.6%
     );
     border-radius: 15px;
+
     mat-cell {
       border: none !important;
-      color: white;
+      color: rgb(0, 0, 0);
+
       div > div > a,
       div > div > span > a {
-        color: white;
+        color: rgb(5, 5, 5);
       }
     }
   }
+
   body
     > app-root
     > app-full-layout
@@ -274,6 +557,7 @@ code {
       border: none !important;
     }
   }
+
   body
     > app-root
     > app-full-layout
@@ -371,15 +655,44 @@ code {
     > mat-card-content
     > div
     > mat-table
+    > mat-row:nth-child(even),
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-consumptionbillhistory
+    > mat-card
+    > mat-card-content
+    > div.responsive-table
+    > mat-table
+    > mat-row,
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-paymenthistory
+    > mat-card
+    > mat-card-content
+    > div.responsive-table
+    > mat-table
     > mat-row:nth-child(even) {
     margin-bottom: 1rem;
     background-image: radial-gradient(
-      circle farthest-corner at 10% 20%,
-      rgba(234, 249, 249, 0.67) 0.1%,
-      rgba(239, 249, 251, 0.63) 90.1%
+      circle farthest-corner at 14% 62%,
+      rgba(88, 264, 260, -29.33) 9.1%,
+      rgba(138, 203, 255, 0.63) 91.1%
     );
     border-radius: 15px;
   }
+
   body
     > app-root
     > app-full-layout
@@ -395,18 +708,22 @@ code {
     > img {
     margin-top: 0rem;
   }
+
   .mDisplay {
     display: none !important;
   }
+
   mat-cell,
   mat-footer-cell {
     font-size: 13px !important;
   }
+
   mat-row,
   mat-header-row,
   mat-footer-row {
     border-bottom-width: 0 !important;
   }
+
   // .bg-cstmLigtblue {
   //   background-color: rgb(240, 238, 142);
   // }
@@ -422,6 +739,7 @@ code {
     padding: 0rem !important;
   }
 }
+
 mat-header-cell {
   font-size: 11.5px !important;
   font-weight: 500;
@@ -431,25 +749,36 @@ mat-header-cell {
 .shadow-none {
   box-shadow: none !important;
 }
+
 .mat-row:nth-child(odd) {
-  background-color: lightgray;
+  background-image: radial-gradient(
+    circle farthest-corner at 11% 77%,
+    rgba(88, 264, 260, -29.33) 7.1%,
+    rgba(207, 230, 251, 0.63) 33.1%
+  );
 }
+
 .ml-auto {
   margin-left: auto;
 }
+
 .m-auto {
   margin: auto;
 }
+
 .mr-auto {
   margin-right: auto;
 }
+
 .mat-sidenav {
   width: 13rem;
   padding-top: 0;
 }
+
 .rounded {
   border-radius: $radius;
 }
+
 /*******************
 Headings
 *******************/
@@ -457,9 +786,11 @@ Headings
   height: 16px !important;
   width: 17px !important;
 }
+
 .material-icons {
   font-size: 17px !important;
 }
+
 h1,
 h2,
 h3,
@@ -501,45 +832,56 @@ h6 {
   font-size: 11px;
   font-weight: 400;
 }
+
 html,
 body {
   .display-5 {
     font-size: 3rem;
   }
+
   .display-6 {
     font-size: 36px;
   }
 }
+
 .box {
   border-radius: $radius;
   padding: 10px;
 }
+
 html body {
   .dl {
     display: inline-block;
   }
+
   .db {
     display: block;
   }
+
   .op-5 {
     opacity: 0.5;
   }
+
   .op-3 {
     opacity: 0.3;
   }
 }
+
 .no-wrap {
   td,
   th {
     white-space: nowrap;
   }
 }
+
 .relative {
   position: relative;
 }
+
 .absolute {
   position: absolute;
 }
+
 .d-flex {
   display: flex;
 }
@@ -548,29 +890,37 @@ html body {
   flex-direction: column;
   overflow: hidden;
 }
+
 .justify-content-end {
   justify-content: end;
 }
+
 .justify-content-center {
   justify-content: center;
 }
+
 .no-shrink {
   flex-shrink: 0;
 }
+
 .oh {
   overflow: hidden;
 }
+
 .text-nowrap {
   white-space: nowrap;
 }
+
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
+
 /*******************
 Blockquote
 *******************/
@@ -585,6 +935,7 @@ html body blockquote {
 .clear {
   clear: both;
 }
+
 ol li {
   margin: 5px 0;
 }
@@ -721,6 +1072,7 @@ html body {
     padding-right: 23px;
   }
 }
+
 .text-dark-black {
   color: rgba(0, 0, 0, 0.87);
 }
@@ -862,12 +1214,14 @@ html body {
     vertical-align: bottom;
   }
 }
+
 /*******************
 Opacity
 *******************/
 .op-5 {
   opacity: 0.5;
 }
+
 /*******************
 font weight
 *******************/
@@ -883,28 +1237,36 @@ html body {
   .font-light {
     font-weight: 300;
   }
+
   .font-medium {
     font-weight: 500;
   }
+
   .font-16 {
     font-size: 16px;
   }
+
   .font-14 {
     font-size: 14px;
   }
+
   .font-10 {
     font-size: 10px;
   }
+
   .font-12 {
     font-size: 12px;
   }
+
   .font-18 {
     font-size: 18px;
   }
+
   .font-20 {
     font-size: 20px;
   }
 }
+
 /*******************
 Border
 *******************/
@@ -912,22 +1274,28 @@ html body {
   .b-0 {
     border: none;
   }
+
   .b-r {
     border-right: 1px solid $border;
   }
+
   .b-l {
     border-left: 1px solid $border;
   }
+
   .b-b {
     border-bottom: 1px solid $border;
   }
+
   .b-t {
     border-top: 1px solid $border;
   }
+
   .b-all {
     border: 1px solid $border;
   }
 }
+
 /*******************
 Thumb size
 *******************/
@@ -946,15 +1314,19 @@ Thumb size
   height: 88px;
   width: 88px;
 }
+
 .hide {
   display: none;
 }
+
 .img-circle {
   border-radius: 100%;
 }
+
 .radius {
   border-radius: $radius;
 }
+
 /*******************
 Text Colors
 *******************/
@@ -985,6 +1357,7 @@ Text Colors
 .text-inverse {
   color: $inverse !important;
 }
+
 html body {
   .text-blue {
     color: $blue;
@@ -1005,19 +1378,24 @@ html body {
   .text-dark {
     color: $bodytext;
   }
+
   .text-themecolor {
     color: $themecolor;
   }
+
   .text-center {
     text-align: center;
   }
+
   .text-right {
     text-align: right;
   }
+
   .text-left {
     text-align: left;
   }
 }
+
 /*******************
 Background Colors
 *******************/
@@ -1041,10 +1419,12 @@ Background Colors
 .bg-danger {
   background-color: $danger !important;
 }
+
 html body {
   .bg-megna {
     background-color: $megna;
   }
+
   .bg-theme {
     background-color: $themecolor;
   }
@@ -1068,6 +1448,7 @@ html body {
   .bg-light-info {
     background-color: $light-info;
   }
+
   .bg-light-extra {
     background-color: $extra-light;
   }
@@ -1083,24 +1464,30 @@ html body {
   .bg-light-inverse {
     background-color: $light-inverse;
   }
+
   .bg-light {
     background-color: $light;
   }
+
   .bg-white {
     background-color: $white;
   }
 }
+
 .img-circle {
   border-radius: 100%;
 }
+
 .no-shadow {
   box-shadow: none;
 }
+
 hr {
   border: 0px;
   height: 1px;
   background: $border;
 }
+
 /*******************
 Rounds
 *******************/
@@ -1114,31 +1501,39 @@ Rounds
   text-align: center;
   border-radius: 100%;
   background: $info;
+
   img {
     border-radius: 100%;
   }
 }
+
 .round-lg {
   line-height: 65px;
   width: 60px;
   height: 60px;
   font-size: 30px;
 }
+
 .round.round-info {
   background: $info;
 }
+
 .round.round-warning {
   background: $warning;
 }
+
 .round.round-danger {
   background: $danger;
 }
+
 .round.round-success {
   background: $success;
 }
+
 .round.round-primary {
   background: $primary;
 }
+
 /*******************
 Labels
 *******************/
@@ -1149,7 +1544,7 @@ Labels
   color: $white;
   font-weight: 400;
   border-radius: $radius;
-  font-size: 75%;
+  font-size: 100%;
 }
 
 .label-rounded {
@@ -1247,6 +1642,7 @@ Notify
   position: relative;
   top: -20px;
   right: 0px;
+
   .point {
     width: 6px;
     height: 6px;
@@ -1265,18 +1661,22 @@ Notify
     -moz-transform: scale(0);
     opacity: 0;
   }
+
   25% {
     -moz-transform: scale(0.1);
     opacity: 0.1;
   }
+
   50% {
     -moz-transform: scale(0.5);
     opacity: 0.3;
   }
+
   75% {
     -moz-transform: scale(0.8);
     opacity: 0.5;
   }
+
   100% {
     -moz-transform: scale(1);
     opacity: 0;
@@ -1288,36 +1688,48 @@ Notify
     -webkit-transform: scale(0);
     opacity: 0;
   }
+
   25% {
     -webkit-transform: scale(0.1);
     opacity: 0.1;
   }
+
   50% {
     -webkit-transform: scale(0.5);
     opacity: 0.3;
   }
+
   75% {
     -webkit-transform: scale(0.8);
     opacity: 0.5;
   }
+
   100% {
     -webkit-transform: scale(1);
     opacity: 0;
   }
 }
+
 .btn-block {
   display: block;
   width: 100%;
 }
+
 .btn-lg {
   line-height: 48px !important;
 }
-.bg-warning1,.bg-warning2,.bg-warning3{
-  background-color: #ffb22b!important;
+
+.label-light-warning1,
+.label-light-warning2,
+.label-light-warning3 {
+  background-color: #fff8ec;
+  color: #f3a114;
 }
+
 .w-100 {
   width: 100%;
 }
+
 /*******************
 froms
 *******************/
@@ -1328,12 +1740,15 @@ froms
   width: 100%;
   font-size: $font-16;
 }
+
 .mat-form-field-underline {
   background-color: rgba(0, 0, 0, 0.25);
 }
+
 .mat-form-field {
   width: 100%;
 }
+
 /*******************
 Mat card
 *******************/
@@ -1343,37 +1758,46 @@ Mat card
   margin: 15px;
   padding: 0px !important;
   border-radius: $radius;
+
   &.text-white {
     small {
       color: rgba(255, 255, 255, 0.7) !important;
     }
   }
+
   .mat-fab {
     width: 46px;
     height: 46px;
   }
+
   .mat-card-subtitle {
     font-weight: 400;
   }
+
   .mat-fab .mat-button-wrapper {
     padding: 7px 0;
   }
+
   .mat-card-content {
     font-size: 0.8rem;
     line-height: 20px;
     padding: 10px;
   }
+
   .mat-card-image {
     width: calc(100% + 0px);
     margin: 0 0px 0px 0px;
   }
+
   .mat-card-header {
     padding: 12px;
     border-radius: $radius $radius 0 0;
+
     .mat-card-title {
       margin-bottom: 2px;
       font-size: 20px;
     }
+
     .mat-card-subtitle,
     .mat-card-subtitle:not(:first-child) {
       margin-bottom: 0px;
@@ -1381,23 +1805,28 @@ Mat card
       font-size: 14px;
       font-weight: 400;
     }
+
     &.text-white {
       .mat-card-title {
         color: $white;
       }
+
       small,
       .mat-card-subtitle {
         color: rgba(255, 255, 255, 0.7) !important;
       }
     }
   }
+
   .mat-card-title {
     font-size: 20px;
     margin-bottom: 5px;
   }
+
   .mat-card-subtitle {
     margin-bottom: 20px;
   }
+
   .mat-card-actions {
     margin: 0px !important;
   }
@@ -1409,6 +1838,7 @@ Grid
 .row {
   margin: 0 -10px;
 }
+
 /*******************
 Table
 *******************/
@@ -1416,20 +1846,25 @@ Table
   width: 100%;
   text-align: left;
 }
+
 .table-rasponsive {
   overflow: auto;
+
   .mat-table {
     min-width: 280px;
   }
+
   .mat-header-row {
     .mat-header-cell {
       white-space: nowrap;
     }
   }
+
   .mat-cell {
     white-space: nowrap;
   }
 }
+
 /*******************
 Sparkline chart tooltip
 *******************/
@@ -1442,21 +1877,25 @@ Sparkline chart tooltip
   border: 0px;
   border-radius: 60px;
 }
+
 /*******************
 list inline
 *******************/
 .list-inline {
   margin-left: 0px;
   padding: 0px;
+
   li {
     display: inline-block;
     list-style: none;
     margin-right: 10px;
+
     &:last-child {
       margin-right: 0px;
     }
   }
 }
+
 .button-row button {
   margin-right: 2px;
   margin-left: 2px;
@@ -1473,13 +1912,16 @@ List-style-none
 ul.list-style-none {
   margin: 0px;
   padding: 0px;
+
   li {
     list-style: none;
+
     a {
       color: $themecolor;
       padding: 8px 0px;
       display: block;
       text-decoration: none;
+
       &:hover {
         color: $themecolor;
       }
@@ -1500,16 +1942,20 @@ ul.list-style-none {
     max-width: $page-wrapper-boxed-width;
     margin: 0 auto;
   }
+
   .breadcrumb {
     padding: 0px;
     margin: 0px;
     background: transparent;
+
     .breadcrumb-item {
       font-size: 14px;
     }
+
     .breadcrumb-item a {
       padding-right: 0.5rem;
     }
+
     .breadcrumb-item + .breadcrumb-item::before {
       content: '\e649';
       font-family: themify;
@@ -1517,6 +1963,7 @@ ul.list-style-none {
       font-size: 11px;
       padding-right: 0.5rem;
     }
+
     .breadcrumb-item + .breadcrumb-item.active {
       color: $sidebar-icons;
     }
@@ -1533,10 +1980,12 @@ ul.list-style-none {
     align-items: flex-start;
     padding: 15px 0;
   }
+
   .shrink-none {
     flex-shrink: 0;
   }
 }
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1548,11 +1997,13 @@ ul.list-style-none {
 .apexcharts-text {
   fill: $muted;
 }
+
 .apexcharts-gridline,
 .apexcharts-xaxis-tick,
 .apexcharts-xaxis line {
   stroke: rgba(0, 0, 0, 0.1);
 }
+
 .todo-toggle {
   position: absolute !important;
   z-index: 9;
@@ -1563,6 +2014,7 @@ ul.list-style-none {
   .d-md-flex {
     display: flex;
   }
+
   body
     > app-root
     > app-full-layout
@@ -1610,6 +2062,10 @@ mat-toolbar .profile-pic {
   height: 30px;
   border-radius: 100%;
 }
+
 .text-ctmclr {
   color: #33cf57 !important;
+}
+:root{
+  --bs-body-font-size: 11px !important;
 }

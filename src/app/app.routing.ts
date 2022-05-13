@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 
 import { AppBlankComponent } from './layouts/blank/blank.component';
 import { FullComponent } from './layouts/full/full.component';
+import { SelfServiceFAQComponent } from './pages/selfServiceFAQ/selfServiceFAQ.component';
+import { NewConnectionComponent } from './rootPages/component/new-connection/new-connection.component';
 import { HomePageComponent } from './rootPages/home-page/home-page.component';
 import { LoginComponent } from './rootPages/login/login.component';
 import { SignupComponent } from './rootPages/signup/signup.component';
@@ -29,6 +31,10 @@ export const AppRoutes: Routes = [
         path: 'signup',
         component: SignupComponent,
       },
+      {
+        path: 'newConnection',
+        component: NewConnectionComponent,
+      },
     ]
   },
   {
@@ -45,28 +51,18 @@ export const AppRoutes: Routes = [
         redirectTo: 'home',
         pathMatch: 'full',
       },
-      
+      {
+        path: 'selfServiceFAQ',
+        component: SelfServiceFAQComponent,
+        data: {
+          title: 'Self Service FAQs',
+          urls: [{ title: 'Dashboard', url: '/dashboard' }, { title: 'Self Service FAQs' }],
+        },
+      },
       {
         path: 'dashboard1',
         loadChildren: () =>
           import('./dashboards/dashboards.module').then((m) => m.DashboardsModule),
-      },
-      {
-        path: 'material',
-        loadChildren: () =>
-          import('./material-component/material.module').then((m) => m.MaterialComponentsModule),
-      },
-      {
-        path: 'forms',
-        loadChildren: () => import('./forms/forms.module').then((m) => m.FormModule),
-      },
-      {
-        path: 'Basictables',
-        loadChildren: () => import('./tables/tables.module').then((m) => m.TablesModule),
-      },
-      {
-        path: 'tree',
-        loadChildren: () => import('./tree/tree.module').then((m) => m.TreeModule),
       },
       {
         path: 'table',
@@ -76,18 +72,6 @@ export const AppRoutes: Routes = [
       {
         path: 'pages',
         loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule),
-      },
-      {
-        path: 'widgets',
-        loadChildren: () => import('./widgets/widgets.module').then((m) => m.WidgetsModule),
-      },
-      {
-        path: 'charts',
-        loadChildren: () => import('./charts/chartslib.module').then((m) => m.ChartslibModule),
-      },
-      {
-        path: 'multi',
-        loadChildren: () => import('./multi-dropdown/multi-dd.module').then((m) => m.MultiModule),
       },
     ],
   },
