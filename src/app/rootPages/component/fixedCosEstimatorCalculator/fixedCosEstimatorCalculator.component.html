@@ -1,0 +1,120 @@
+<div class="row cstmBackgroundHeight">
+  <div class="col-lg-4 col-xxl-4 col-xl-4 col-md-4 col-sm-0 col-xs-0"></div>
+  <div class="col-lg-4 col-xxl-4 col-xl-4 col-md-4 col-sm-12 col-xs-12">
+    <mat-card>
+      <mat-card-header>
+        <div class="row w-100">
+          <div class="col">
+            <p class="text-center text-white p-0 m-0">
+              <i class="fa-solid fa-calculator"></i>
+              {{ 'Fixed Cost Estimation For New Connection' | uppercase }}
+            </p>
+          </div>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="p-5 pt-2 pb-1">
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="legacy">
+                <mat-label>Connection type</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let item of connectionType" [value]="item.value">
+                    {{item.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <mat-form-field appearance="legacy">
+                    <mat-label>Load Desired</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+                <div class="col">
+                  <mat-form-field appearance="legacy">
+                    <mat-label>Unit</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let item of units" [value]="item.value">
+                        {{item.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="legacy">
+                <mat-label>Category</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let item of category" [value]="item.value">
+                    {{item.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="legacy">
+                <mat-label>Service Line Desired</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let item of sLdesired" [value]="item.value">
+                    {{item.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="legacy">
+                <mat-label>Length Of Extension In Meters From Desired Connecting Pole</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col text-center">
+              <button mat-raised-button color="primary">Calculate</button>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-lg-4 col-xxl-4 col-xl-4 col-md-4 col-sm-0 col-xs-0"></div>
+</div>
+<div class="footer" style="background-color: #0a66ab">
+  <div class="container-fluid w-100">
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-12">
+        <div class="wow fadeInLeft mt-3" data-wow-delay="0.1s">
+          <div style="text-align: center">
+            <strong style="color: white">
+              <p>
+                <a href="/wss/PrivacyPolicy.jsp" style="color: white">Privacy Policy</a> |
+                <a href="/wss/disclaimer.jsp" style="color: white">Disclaimer</a> |
+                <a href="https://www.upcl.org/contact-us/" target="__blank" style="color: white"
+                  >Contact Us</a
+                >
+                | <a href="/wss/FeedbackM.htm" style="color: white">Online Services Feedback</a>
+              </p>
+            </strong>
+            <p>
+              <strong style="color: white"
+                >©Copyright 2021- Uttarakhand Power Corporation Limited</strong
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

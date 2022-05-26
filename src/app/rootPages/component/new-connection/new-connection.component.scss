@@ -1,0 +1,25 @@
+mat-card {
+  min-height: 65vh;
+  box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%) !important;
+}
+
+
+
+@media (max-width: 576px) {
+  mat-card-content{
+    padding: 0!important;
+  }
+  .mat-step-label{
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  form > div:nth-child(n) > h5 {
+    display: none !important;
+  }
+}
+@media (min-width: 1400px) {
+  form > div:nth-child(n) > h5 {
+    display: none !important;
+  }
+}

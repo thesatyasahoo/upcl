@@ -25,6 +25,7 @@ import { ConsumptionbillHistoryComponent } from './consumptionbillHistory/consum
 import { PaymentHistoryComponent } from './paymentHistory/paymentHistory.component';
 import { ViewStatusComponent } from './viewStatus/viewStatus.component';
 import { MaterialModule } from '../material-module';
+import { MomentDateModule } from '@angular/material-moment-adapter';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { MaterialModule } from '../material-module';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MomentDateModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
   declarations: [

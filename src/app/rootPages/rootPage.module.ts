@@ -16,21 +16,38 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComponentModule } from './component/component.module';
-
+import { ViewBillOrPaymentComponent } from './component/viewBillOrPayment/viewBillOrPayment.component';
+import { MaterialModule } from '../material-module';
+import { BillPaymentReceiptComponent } from './component/billPaymentReceipt/billPaymentReceipt.component';
+import { ForgotPasswordComponent } from './component/forgotPassword/forgotPassword.component';
+import { ViewStatusComponent } from './component/viewStatus/viewStatus.component';
+import { FixedCosEstimatorCalculatorComponent } from './component/fixedCosEstimatorCalculator/fixedCosEstimatorCalculator.component';
+import { LoadCalculatorComponent } from './component/load-calculator/load-calculator.component';
+import { RegisterForBillAlertComponent } from './component/register-for-bill-alert/register-for-bill-alert.component';
+import { MomentDateModule } from '@angular/material-moment-adapter';
+import { AdminLoginComponent } from './adminLogin/adminLogin.component';
 
 @NgModule({
   declarations: [HomePageComponent, RootPagesComponent, HeaderComponent,
-    FooterComponent, LoginComponent, SignupComponent
+    FooterComponent, LoginComponent, SignupComponent,ViewBillOrPaymentComponent,
+    BillPaymentReceiptComponent,ForgotPasswordComponent,ViewStatusComponent,
+    FixedCosEstimatorCalculatorComponent,LoadCalculatorComponent,
+    RegisterForBillAlertComponent,AdminLoginComponent,
   ],
   imports: [
     CommonModule,
     ComponentModule,
+    MaterialModule,
+    MomentDateModule,
     TranslateModule.forChild(),
     RouterModule.forRoot(routes1, { relativeLinkResolution: 'legacy' }),
   ],
   exports: [
     HomePageComponent, RootPagesComponent, HeaderComponent,
-    FooterComponent, LoginComponent, SignupComponent
+    FooterComponent, LoginComponent, SignupComponent,ViewBillOrPaymentComponent,
+    BillPaymentReceiptComponent,ForgotPasswordComponent,ViewStatusComponent,
+    FixedCosEstimatorCalculatorComponent,LoadCalculatorComponent,
+    RegisterForBillAlertComponent,AdminLoginComponent,
   ]
 })
 export class RootPagesModule {}

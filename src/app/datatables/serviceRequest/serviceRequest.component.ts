@@ -1,14 +1,28 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 declare var require: any;
 const data: any = require('./serviceRequest.json');
-
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'MM/DD/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  },
+};
 @Component({
   selector: 'app-serviceRequest',
   templateUrl: './serviceRequest.component.html',
   styleUrls: ['./serviceRequest.component.scss'],
+  providers: [
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+  ]
 })
 export class ServiceRequestComponent implements OnInit{
   options!: FormGroup;
@@ -76,6 +90,11 @@ export class ServiceRequestComponent implements OnInit{
   complaint_Details = new FormControl('', [Validators.required]);
   billField: boolean = false;
   tempConnField: boolean = false;
+  subdtationModel: string = "";
+  billMonthOrYearModel: string = "";
+  complaintModel: string = "";
+  complaintTypeModel: string = "";
+  tempDiconnectionS: string = "";
   hide = true;
   updateFilter(event: any): void {
     const val = event.target.value.toLowerCase();
@@ -137,9 +156,16 @@ export class ServiceRequestComponent implements OnInit{
   changeSRType(event: any) {
     console.log(event.value)
     if(event.value === 'OTHER CUSTOMER SERVICES') {
+      this.subdtationModel ="";
+      this.billMonthOrYearModel ="";
+      this.complaintModel ="";
       this.billField = false;
       this.tempConnField = false;
       this.complaintsData = [
+        {
+          name: 'Select',
+          value: 'Select',
+        },
         {
           name: 'LOAD ENHANCEMENT',
           value: 'LOAD ENHANCEMENT',
@@ -155,16 +181,26 @@ export class ServiceRequestComponent implements OnInit{
       ];
     } else if(event.value === 'BILLING RELATED') {
       this.tempConnField = false;
+      this.subdtationModel ="";
+      this.billMonthOrYearModel ="";
+      this.complaintModel ="";
       this.complaintsData = [
         {
-          name: 'BILL REVISION',
-          value: 'BILL REVISION'
+          name: '',
+          value: '',
         },
       ];
     } else if(event.value === 'METERING RELATED') {
+      this.subdtationModel ="";
+      this.billMonthOrYearModel ="";
+      this.complaintModel ="";
       this.billField = false;
       this.tempConnField = false;
       this.complaintsData = [
+        {
+          name: 'Select',
+          value: 'Select',
+        },
         {
           name: 'SHIFTING OF METER',
           value: 'SHIFTING OF METER',
@@ -175,28 +211,52 @@ export class ServiceRequestComponent implements OnInit{
   changeSR(event: any) {
     console.log(event.value)
     if(event.value === 'LOAD ENHANCEMENT') {
+      this.subdtationModel ="";
+      this.billMonthOrYearModel ="";
+      this.complaintModel ="";
       this.billField = false;
       this.tempConnField = false;
       this.changeSubstation = [
+        {
+          name: 'Select',
+          value: 'Select',
+        },
         {
           name: 'TURNEROAD',
           value: 'TURNEROAD',
         }
       ]
-      this.router.navigateByUrl('/pages/registration');
+      localStorage.removeItem('drpValue');
+      localStorage.setItem('drpValue', 'LOAD ENHANCEMENT');
+      this.router.navigateByUrl('/newConnection');
     } else if(event.value === 'TEMPORARY DISCONNECTION') {
+      this.subdtationModel ="";
+      this.billMonthOrYearModel ="";
+      this.complaintModel ="";
       this.billField = false;
       this.tempConnField = true;
+      this.tempDiconnectionS = "";
       this.changeSubstation = [
+        {
+          name: 'Select',
+          value: 'Select',
+        },
         {
           name: 'TURNEROAD',
           value: 'TURNEROAD'
         },
       ]
     } else if(event.value === 'OTHER COMPLAINTS') {
+      this.subdtationModel ="";
+      this.billMonthOrYearModel ="";
+      this.complaintModel ="";
       this.billField = false;
       this.tempConnField = false;
       this.changeSubstation = [
+        {
+          name: 'Select',
+          value: 'Select',
+        },
         {
           name: 'KARGI',
           value: 'KARGI',
@@ -215,18 +275,32 @@ export class ServiceRequestComponent implements OnInit{
         }
       ];
     } else if(event.value === 'BILL REVISION') {
+      this.subdtationModel ="";
+      this.billMonthOrYearModel ="";
+      this.complaintModel ="";
       this.billField = true;
       this.tempConnField = false;
       this.changeSubstation = [
+        {
+          name: 'Select',
+          value: 'Select',
+        },
         {
           name: 'TURNEROAD',
           value: 'TURNEROAD'
         },
       ];
     } else if(event.value === 'SHIFTING OF METER') {
+      this.subdtationModel ="";
+      this.billMonthOrYearModel ="";
+      this.complaintModel ="";
       this.billField = false;
       this.tempConnField = false;
       this.changeSubstation = [
+        {
+          name: 'Select',
+          value: 'Select',
+        },
         {
           name: 'KARGI',
           value: 'KARGI',

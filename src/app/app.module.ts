@@ -32,6 +32,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { RootPagesModule } from './rootPages/rootPage.module';
 import { SelfServiceFAQComponent } from './pages/selfServiceFAQ/selfServiceFAQ.component';
 import { MaterialModule } from './material-module';
+import { FooterDashComponent } from './footerDash/footerDash.component';
+import { MomentDateModule } from '@angular/material-moment-adapter';
 
 export function HttpLoaderFactory(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -54,7 +56,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppBreadcrumbComponent,
     HorizontalAppHeaderComponent,
     HorizontalAppSidebarComponent,
-    SelfServiceFAQComponent
+    SelfServiceFAQComponent,
+    FooterDashComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RootPagesModule,
     RouterModule,
     ReactiveFormsModule,
+    MomentDateModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

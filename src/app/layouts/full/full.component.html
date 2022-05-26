@@ -195,14 +195,14 @@
     <!-- ============================================================== -->
     <mat-sidenav-content class="page-wrapper" [ngClass]="status ? 'minitoggle' : ''">
       <app-breadcrumb></app-breadcrumb>
-      <div class="page-container">
+      <div class="page-container" style="min-height: 70.1vh !important;">
         <div class="page-content">
           <router-outlet>
             <app-spinner></app-spinner>
           </router-outlet>
         </div>
       </div>
-      
+      <app-footerDash></app-footerDash>
     </mat-sidenav-content>
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->

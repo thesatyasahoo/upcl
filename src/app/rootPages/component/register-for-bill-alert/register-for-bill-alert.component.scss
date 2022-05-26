@@ -1,0 +1,20 @@
+.datatable,
+.datatable > div,
+.datatable.fixed-header .datatable-header .datatable-header-inner {
+  height: 100%;
+}
+@media (max-width: 576px) {
+  .cstmWidth{
+    width: 100% !important;
+  }
+}
+mat-card-header{
+  background-color: #0a66ab !important;
+}
+mat-row, mat-footer-row {
+  min-height: 35px;
+}
+mat-card{
+  min-height: 70vh;
+  box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%) !important;
+}

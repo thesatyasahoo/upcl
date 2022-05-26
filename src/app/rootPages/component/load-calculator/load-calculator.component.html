@@ -1,0 +1,949 @@
+
+    <div class="row">
+      <div class="col-lg-1 col-xxl-1 col-xl-1 col-md-1 col-sm-0 col-xs-0"></div>
+      <div class="col-lg-10 col-xxl-10 col-xl-10 col-md-10 col-sm-12 col-xs-12">
+        <mat-card>
+          <mat-card-content>
+            <div class="row">
+              <div class="col">
+                <div class="row mb-2">
+                  <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <span style="color: #0a66ab;"><sup>*</sup><span>Note:{{' For Approximate Load Calculation, A Factor Of 0.5 is Considered For Total Load Calculation.' | translate}}</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="responsive-table rounded-top border p-2">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td colspan="4">
+                      <p class="text-center p-0 m-0">{{'Guide For Load Calculation' | uppercase}}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <table class="table table-bordered">
+                        <tbody>
+                          <tr>
+                            <td style="background-color: #0a66ab" class="text-white">
+                              <span>Type Of Appliances</span>
+                            </td>
+                            <td style="background-color: #0a66ab" class="text-white">
+                              <span>Units</span>
+                            </td>
+                            <td style="background-color: #0a66ab" class="text-white">
+                              <span>X</span>
+                            </td>
+                            <td style="background-color: #0a66ab" class="text-white">
+                              <span>No. Of Appliance Do You Have ?</span>
+                            </td>
+                            <td style="background-color: #0a66ab" class="text-white">
+                              <span>=</span>
+                            </td>
+                            <td style="background-color: #0a66ab" class="text-white">
+                              <span>Load</span>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Bulb</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Ceeling Fan</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Table fan</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>TV</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Water Geyser</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Heater</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Water Heater Rod</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Refrigerator</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Washing Machine</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Water Pump</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Air Conditioner</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Electric Iron</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Mixer Big.</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Personal Computer</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Radio</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Tape Recoder</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Dhobi Iron</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Stove</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Electric Cooker</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Toaster</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Cloth Drier / Spind Drier</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Radiator</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Electric Clock</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Oven 2 Plates / 3 Plates</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4">
+                              <span>Cooking Range</span>
+                            </td>
+                            <td>
+                              <mat-form-field appearance="legacy">
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let item of units" [value]="item.value">
+                                    {{item.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>X</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                            <td class="pt-4">
+                              <span>=</span>
+                            </td>
+                            <td>
+                              <mat-form-field class="example-full-width" appearance="legacy">
+                                <!-- <mat-label>City</mat-label> -->
+                                <input matInput placeholder="">
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td class="pt-4" colspan="6">
+                              <button mat-raised-button color="primary">Add</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <table class="table table-bordered">
+                        <tbody>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td colspan="6">
+                              <div class="row">
+                                <div class="col-lg-4 col-xxl-4 col-xl-4 col-sm-0 col-md-0 col-xs-0"></div>
+                                <div class="col-lg-4 col-xxl-4 col-xl-4 col-sm-12 col-md-12 col-xs-12">
+                                  <mat-form-field class="example-full-width" appearance="legacy">
+                                    <mat-label>Total Load(KW)</mat-label>
+                                    <input matInput placeholder="Please enter input">
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-lg-4 col-xxl-4 col-xl-4 col-sm-0 col-md-0 col-xs-0"></div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                            <td colspan="6">
+                              <div class="row">
+                                <div class="col-lg-4 col-xxl-4 col-xl-4 col-sm-0 col-md-0 col-xs-0"></div>
+                                <div class="col-lg-4 col-xxl-4 col-xl-4 col-sm-12 col-md-12 col-xs-12">
+                                <div class="row">
+                                  <div class="col">
+                                    <button mat-raised-button color="primary">RESET</button>
+                                  </div>
+                                  <div class="col">
+                                    <button mat-raised-button color="primary">CALCULATE LOAD</button>
+                                  </div>
+                                </div>
+                                </div>
+                                <div class="col-lg-4 col-xxl-4 col-xl-4 col-sm-0 col-md-0 col-xs-0"></div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-lg-1 col-xxl-1 col-xl-1 col-md-1 col-sm-0 col-xs-0"></div>
+    </div>
+<div class="footer" style="background-color: #0A66AB;">
+  <div class="container-fluid w-100">
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-12">
+        <div class="wow fadeInLeft mt-3" data-wow-delay="0.1s">
+          <div style="text-align:center;">
+            <strong style="color: white;">
+              <p><a href="/wss/PrivacyPolicy.jsp" style="color: white;">Privacy Policy</a> | <a
+                  href="/wss/disclaimer.jsp" style="color: white;">Disclaimer</a> | <a
+                  href="https://www.upcl.org/contact-us/" target="__blank" style="color: white;">Contact Us</a> | <a
+                  href="/wss/FeedbackM.htm" style="color: white;">Online Services Feedback</a></p>
+            </strong>
+            <p><strong style="color: white;">©Copyright 2021- Uttarakhand Power Corporation Limited</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

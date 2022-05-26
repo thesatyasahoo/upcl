@@ -1,8 +1,19 @@
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { ReCaptchaV3Service } from 'ngx-captcha';
-
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'MM/DD/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  },
+};
 @Component({
   selector: 'app-new-connection',
   templateUrl: './new-connection.component.html',
@@ -12,6 +23,7 @@ import { ReCaptchaV3Service } from 'ngx-captcha';
       provide: STEPPER_GLOBAL_OPTIONS,
       useValue: { showError: true },
     },
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
   ],
 })
 export class NewConnectionComponent implements OnInit {
@@ -120,7 +132,7 @@ export class NewConnectionComponent implements OnInit {
   applicantDendName: string = '';
   ownerName: string = '';
   sameAddress: boolean = false;
-  tenantOrOccupier: string = 'No';
+  tenantOrOccu: string = 'No';
   existElectricityConnection: string = 'No';
   consumerName: string = '';
   contactPersonName: string = '';
@@ -128,14 +140,16 @@ export class NewConnectionComponent implements OnInit {
   nocPolutionCtrlBoard: string = 'No';
   houseOrPlot3: string = '';
   siteKey: string = "";
+  drpValue: string | any = "";
+  url: any = "../../../../assets/img/user.png" ;
   constructor(private _formBuilder: FormBuilder, private reCaptchaV3Service: ReCaptchaV3Service) {}
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
-      requestType: ['', Validators.required],
+      requestType: ["", Validators.required],
       service: ['', Validators.required],
       ofcDetail: ['', Validators.required],
-      lendmark: ['', Validators.required],
+      lendmark: [''],
       poleNo: [''],
     });
     this.secondFormGroup = this._formBuilder.group({
@@ -150,24 +164,28 @@ export class NewConnectionComponent implements OnInit {
       purpose: ['', Validators.required],
     });
     this.thirdFormGroup = this._formBuilder.group({
-      applicantName: ['', Validators.required],
-      applicantDendName: ['', Validators.required],
-      title: ['', Validators.required],
-      contractedLoad: ['', Validators.required],
-      dendOfApplicant: ['', Validators.required],
-      dendOf: ['', Validators.required],
-      ownerName: ['', Validators.required],
-      ownerTitle: ['', Validators.required],
-      houseOrPlot: ['', Validators.required],
-      streetName: ['', Validators.required],
-      colonyName: ['', Validators.required],
-      district: ['', Validators.required],
-      residancePhone: ['', Validators.required],
-      faxnumber: ['', Validators.required],
-      email: ['', Validators.required],
-      mobileNumber: ['', Validators.required],
-      pincode: ['', Validators.required],
-      pan: ['', Validators.required],
+      applicantName: [''],
+      applicantName1: [''],
+      applicantDendName: [''],
+      title: [''],
+      title1: [''],
+      title2: [''],
+      title3: [''],
+      contractedLoad: [''],
+      dendOfApplicant: [''],
+      dendOf: [''],
+      ownerName: [''],
+      ownerTitle: [''],
+      houseOrPlot: [''],
+      streetName: [''],
+      colonyName: [''],
+      district: [''],
+      residancePhone: [''],
+      faxnumber: [''],
+      email: [''],
+      mobileNumber: [''],
+      pincode: [''],
+      pan: [''],
       sameAddress: [''],
       houseOrPlot1: [''],
       streetName1: [''],
@@ -178,7 +196,7 @@ export class NewConnectionComponent implements OnInit {
       email1: [''],
       dob: [''],
       pincode1: [''],
-      tenantOrOccupier: [''],
+      tenantOrOccu: [''],
       houseOrPlot2: [''],
       streetName2: [''],
       colonyName2: [''],
@@ -198,6 +216,7 @@ export class NewConnectionComponent implements OnInit {
       contactPersonName: [''],
       contactPersonDesignation: [''],
       contactPersonResPhone: [''],
+      contactPersonResPhone1: [''],
       contactPersonResEmail: [''],
       contactPersonResWebsite: [''],
       contactPersonFaxNo: [''],
@@ -208,10 +227,12 @@ export class NewConnectionComponent implements OnInit {
       officePhone: [''],
       mobileNumber2: [''],
       faxNumber: [''],
+      streetName3: [''],
+      applicantName3: ['']
     });
     this.fourthFormGroup = this._formBuilder.group({
-      registrationOffice: ['', Validators.required],
-      recaptcha: ['', Validators.required],
+      registrationOffice: [''],
+      recaptcha: [''],
     });
     // this.reCaptchaV3Service.execute(
     //   this.siteKey,
@@ -221,9 +242,31 @@ export class NewConnectionComponent implements OnInit {
     //   },
     //   { useGlobalDomain: false },
     // );
+    this.drpValue = localStorage.getItem('drpValue');
+    console.log(this.drpValue, "this.drpValue")
+    if(this.drpValue === "LOAD ENHANCEMENT") {
+      this.firstFormGroup.patchValue({requestType: 'LOAD ENHANCEMENT'})
+    }
   }
-  handleReset() {}
-  handleExpire() {}
-  handleLoad() {}
-  handleSuccess(e: any) {}
+
+  ngOnDestroy () {
+    localStorage.removeItem('drpValue');
+  }
+
+  onSelectFile(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target?.result;
+      }
+    }
+  }
+
+  onSubmit() {
+    console.log(this.fourthFormGroup.value);
+    localStorage.removeItem('drpValue');
+  }
 }

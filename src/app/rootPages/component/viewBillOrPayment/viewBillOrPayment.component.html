@@ -1,0 +1,117 @@
+<mat-card>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-lg-2 col-xxl-2 col-xl-2 col-md-2 col-sm-0 col-xs-0"></div>
+      <div class="col-lg-8 col-xxl-8 col-xl-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="row">
+          <div class="col">
+            <div class="row mb-2">
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-left">
+                <span class="text-black">{{'Your Outstanding due amount is ₹ 791.00' | translate}}</span>
+              </div>
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-lg-end text-xxl-end text-xl-end text-sm-center">
+                <div class="row d-inline-block">
+                  <div class="col">
+                    <span class="text-black text-sm-center">{{'Your last payment made' | translate}} on 26-Jul-2021 was ₹ 500.00</span>
+                  </div>
+                  <div class="col">
+                    <a mat-button class="text-primary" target="_blank">View receipt</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="responsive-table rounded-top">
+          <!-- <div class="text-center border latestBill">
+            <span>{{'Latest Bill' | translate}}</span>
+          </div> -->
+          <table class="table table-bordered">
+            <tbody>
+              <tr style="background-color: #0a66ab;">
+                <td colspan="4">
+                  <p class="text-center text-white p-0 m-0">{{'Latest Bill Summery' | uppercase}}</p>
+                </td>
+              </tr>
+              <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                <td><b><span class="text-danger">Account Number</span></b></td>
+                <td>41801600431</td>
+                <td><b>Service Number</b></td>
+                <td>361SR03200796</td>
+              </tr>
+              <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                <td><b>Name</b></td>
+                <td>Mr.NIKHIL DEOPA</td>
+                <td><b>Category Code</b></td>
+                <td>RTS-1</td>
+              </tr>
+              <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                <td><b>Bill Date</b></td>
+                <td>18-Jan-2021</td>
+                <td><b>Due Date</b></td>
+                <td>18-Jan-2021</td>
+              </tr>
+              <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                <td><b>Current Bill Amount</b></td>
+                <td>₹ 791 /-</td>
+                <td><b>Disconnection Date</b></td>
+                <td>18-Jan-2021</td>
+              </tr>
+              <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                <td><b><span style="color: #099d54;">Online Payment Rebate</span></b></td>
+                <td><span style="color: #099d54;">₹ 0 /-</span></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                <td><b>TCS</b> (Tax calculated at source)</td>
+                <td>₹ 0 /-</td>
+                <td><b>Total Due Amount</b> (Including Previous Arrer)</td>
+                <td>₹ 791 /-</td>
+              </tr>
+              <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                <td><b>Net Payble Amount</b></td>
+                <td colspan="3"><span class="text-danger">₹ 791 /-</span></td>
+              </tr>
+              <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                <td colspan="2"><span class="text-primary">Download Bill</span></td>
+                <td colspan="2" class="text-center">
+                  <a mat-button color="primary" target="_blank">Back</a>
+                </td>
+              </tr>
+              <tr style="background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%)">
+                <td colspan="4">
+                  <ol type="1">
+                    <li style="font-size: 0.8rem;" class="text-danger">All payments made are subjected to realisation of the same in UPCL bank account.</li>
+                    <li style="font-size: 0.8rem;" class="text-danger">The applicable online payment rebate is calculated @1.25% of current bill excluding Taxes & Duties paid throughonline mode within 10 days from bill date.</li>
+                  </ol>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+        </div>
+      </div>
+      <div class="col-lg-2 col-xxl-2 col-xl-2 col-md-2 col-sm-0 col-xs-0"></div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<div class="footer" style="background-color: #0A66AB;">
+  <div class="container-fluid w-100">
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-12">
+        <div class="wow fadeInLeft mt-3" data-wow-delay="0.1s">
+          <div style="text-align:center;">
+            <strong style="color: white;">
+              <p><a href="/wss/PrivacyPolicy.jsp" style="color: white;">Privacy Policy</a> | <a
+                  href="/wss/disclaimer.jsp" style="color: white;">Disclaimer</a> | <a
+                  href="https://www.upcl.org/contact-us/" target="__blank" style="color: white;">Contact Us</a> | <a
+                  href="/wss/FeedbackM.htm" style="color: white;">Online Services Feedback</a></p>
+            </strong>
+            <p><strong style="color: white;">©Copyright 2021- Uttarakhand Power Corporation Limited</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

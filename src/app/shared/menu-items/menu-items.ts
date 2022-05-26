@@ -58,6 +58,7 @@ const MENUITEMS = [
     url: 'pages',
     children: [
       { state: 'detail', name: 'Account Info', type: 'link', subLink: '4170231026541' },
+      { state: 'viewBill', name: 'View Bill / Payment Screen', type: 'link', subLink: '4170231026541' },
       { state: 'consumptionbillHistory', name: 'Consumption and Bill History', type: 'link', subLink: '4170231026541' },
       { state: 'paymentHistory', name: 'Payment History', type: 'link', subLink: '4170231026541' },
       { state: 'complaintRegistration', name: 'Complaint Registration', type: 'link', subLink: '4170231026541' },

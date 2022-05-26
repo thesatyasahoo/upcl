@@ -1,0 +1,25 @@
+.datatable,
+.datatable > div,
+.datatable.fixed-header .datatable-header .datatable-header-inner {
+  height: 100%;
+}
+@media (max-width: 576px) {
+  .cstmWidth{
+    width: 100% !important;
+  }
+}
+mat-card{
+  box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%) !important;
+}
+mat-row, mat-footer-row {
+  min-height: 35px;
+}
+.cstmBackgroundHeight{
+  min-height: 70vh;
+}
+mat-card-header{
+  background-color: #0a66ab !important;
+}
+mat-card-content{
+  background-image: radial-gradient(circle farthest-corner at 11% 77%, rgba(88, 255, 255, 0) 7.1%, rgba(207, 230, 251, 0.63) 33.1%);
+}

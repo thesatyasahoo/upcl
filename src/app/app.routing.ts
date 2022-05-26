@@ -3,7 +3,15 @@ import { Routes } from '@angular/router';
 import { AppBlankComponent } from './layouts/blank/blank.component';
 import { FullComponent } from './layouts/full/full.component';
 import { SelfServiceFAQComponent } from './pages/selfServiceFAQ/selfServiceFAQ.component';
+import { AdminLoginComponent } from './rootPages/adminLogin/adminLogin.component';
+import { BillPaymentReceiptComponent } from './rootPages/component/billPaymentReceipt/billPaymentReceipt.component';
+import { FixedCosEstimatorCalculatorComponent } from './rootPages/component/fixedCosEstimatorCalculator/fixedCosEstimatorCalculator.component';
+import { ForgotPasswordComponent } from './rootPages/component/forgotPassword/forgotPassword.component';
+import { LoadCalculatorComponent } from './rootPages/component/load-calculator/load-calculator.component';
 import { NewConnectionComponent } from './rootPages/component/new-connection/new-connection.component';
+import { RegisterForBillAlertComponent } from './rootPages/component/register-for-bill-alert/register-for-bill-alert.component';
+import { ViewBillOrPaymentComponent } from './rootPages/component/viewBillOrPayment/viewBillOrPayment.component';
+import { ViewStatusComponent } from './rootPages/component/viewStatus/viewStatus.component';
 import { HomePageComponent } from './rootPages/home-page/home-page.component';
 import { LoginComponent } from './rootPages/login/login.component';
 import { SignupComponent } from './rootPages/signup/signup.component';
@@ -28,12 +36,44 @@ export const AppRoutes: Routes = [
         component: LoginComponent,
       },
       {
+        path: 'LoginAdmin',
+        component: AdminLoginComponent,
+      },
+      {
         path: 'signup',
         component: SignupComponent,
       },
       {
         path: 'newConnection',
         component: NewConnectionComponent,
+      },
+      {
+        path: 'viewBill',
+        component: ViewBillOrPaymentComponent,
+      },
+      {
+        path: 'billPaymentReceipt',
+        component: BillPaymentReceiptComponent,
+      },
+      {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent,
+      },
+      {
+        path: 'view-status',
+        component: ViewStatusComponent,
+      },
+      {
+        path: 'fixed-cost-estimator-calculator',
+        component: FixedCosEstimatorCalculatorComponent,
+      },
+      {
+        path: 'load-calculator',
+        component: LoadCalculatorComponent,
+      },
+      {
+        path: 'register-for-bill-alert',
+        component: RegisterForBillAlertComponent,
       },
     ]
   },

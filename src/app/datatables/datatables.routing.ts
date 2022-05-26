@@ -9,6 +9,7 @@ import { ServiceRequestComponent } from './serviceRequest/serviceRequest.compone
 import { ConsumptionbillHistoryComponent } from './consumptionbillHistory/consumptionbillHistory.component';
 import { PaymentHistoryComponent } from './paymentHistory/paymentHistory.component';
 import { ViewStatusComponent } from './viewStatus/viewStatus.component';
+
 export const DataTablesRoutes: Routes = [
   {
     path: '',

@@ -19,6 +19,7 @@ File: scss
 /******************* 
 Global Styles 
 *******************/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Oswald:wght@200&family=Playfair+Display&display=swap');
 
 .mat-menu-item {
   font-size: 0.8rem !important;
@@ -146,12 +147,85 @@ code {
   /* text-overflow: ellipsis; */
 }
 
-#mat-tab-content-0-0 > div > div > mat-table > mat-row:nth-child(n) > mat-cell > div > div > a > span.mat-button-wrapper,
-#mat-tab-content-0-0 > div > div > mat-table > mat-row:nth-child(n) > mat-cell > div > div > button > span.mat-button-wrapper,
-#mat-tab-content-0-1 > div > div > mat-table > mat-row:nth-child(n) > mat-cell > div > div > a > span.mat-button-wrapper,
-#mat-tab-content-0-1 > div > div > mat-table > mat-row:nth-child(n) > mat-cell > div > div > button > span.mat-button-wrapper,
-body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-totalconnections > mat-card > mat-card-content > div > mat-table > mat-row:nth-child(n)> mat-cell > div > div > a > span.mat-button-wrapper,
-body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-totalconnections > mat-card > mat-card-content > div > mat-table > mat-row:nth-child(n)> mat-cell > div > div > span > a > span.mat-button-wrapper{
+#mat-tab-content-0-0
+  > div
+  > div
+  > mat-table
+  > mat-row:nth-child(n)
+  > mat-cell
+  > div
+  > div
+  > a
+  > span.mat-button-wrapper,
+#mat-tab-content-0-0
+  > div
+  > div
+  > mat-table
+  > mat-row:nth-child(n)
+  > mat-cell
+  > div
+  > div
+  > button
+  > span.mat-button-wrapper,
+#mat-tab-content-0-1
+  > div
+  > div
+  > mat-table
+  > mat-row:nth-child(n)
+  > mat-cell
+  > div
+  > div
+  > a
+  > span.mat-button-wrapper,
+#mat-tab-content-0-1
+  > div
+  > div
+  > mat-table
+  > mat-row:nth-child(n)
+  > mat-cell
+  > div
+  > div
+  > button
+  > span.mat-button-wrapper,
+body
+  > app-root
+  > app-full-layout
+  > div
+  > mat-sidenav-container
+  > mat-sidenav-content
+  > div
+  > div
+  > app-totalconnections
+  > mat-card
+  > mat-card-content
+  > div
+  > mat-table
+  > mat-row:nth-child(n)
+  > mat-cell
+  > div
+  > div
+  > a
+  > span.mat-button-wrapper,
+body
+  > app-root
+  > app-full-layout
+  > div
+  > mat-sidenav-container
+  > mat-sidenav-content
+  > div
+  > div
+  > app-totalconnections
+  > mat-card
+  > mat-card-content
+  > div
+  > mat-table
+  > mat-row:nth-child(n)
+  > mat-cell
+  > div
+  > div
+  > span
+  > a
+  > span.mat-button-wrapper {
   font-size: 10px !important;
 }
 .latestBill {
@@ -165,11 +239,33 @@ body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-co
   color: rgb(12, 12, 12);
 }
 
-body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-selfservicefaq > mat-card > mat-card-content > div.row.mt-3 > div > a > span.mat-button-wrapper{
+body
+  > app-root
+  > app-full-layout
+  > div
+  > mat-sidenav-container
+  > mat-sidenav-content
+  > div
+  > div
+  > app-selfservicefaq
+  > mat-card
+  > mat-card-content
+  > div.row.mt-3
+  > div
+  > a
+  > span.mat-button-wrapper {
   white-space: break-spaces;
 }
-#cdk-accordion-child-0 > div > div{
+#cdk-accordion-child-0 > div > div {
   display: none !important;
+}
+#mat-checkbox-3 > label > span.mat-checkbox-label,
+#mat-checkbox-4 > label > span.mat-checkbox-label{
+  white-space: break-spaces !important;
+}
+body > app-root > app-blank > app-new-connection > div.container > div > div.col-lg-10.col-xl-10.col-xxl-10.col-md-12.col-sm-12.col-xs-12 > mat-card > mat-card-content > mat-stepper,
+body > app-root > app-blank > app-new-connection > div.container > div > div.col-lg-10.col-xl-10.col-xxl-10.col-md-12.col-sm-12.col-xs-12 > mat-card{
+  background-color: rgb(240, 240, 240);
 }
 @media (max-width: 600px) {
   .responsive-table .mat-row {
@@ -180,16 +276,74 @@ body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-co
 }
 
 @media (max-width: 576px) {
+  #cdk-step-label-0-0 > div.mat-step-label,
+  #cdk-step-label-0-1 > div.mat-step-label,
+  #cdk-step-label-0-2 > div.mat-step-label,
+  #cdk-step-label-0-3 > div.mat-step-label {
+    display: none !important;
+  }
+  body > app-root > app-blank > app-register-for-bill-alert > div.row > div.col-lg-4.col-xxl-4.col-xl-4.col-md-4.col-sm-12.col-xs-12 > mat-card > mat-card-content > div:nth-child(2){
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  body > app-root > app-blank > app-header > div > div:nth-child(2) > div > nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  body
+    > app-root
+    > app-blank
+    > app-viewbillorpaymentscreen
+    > mat-card
+    > mat-card-content
+    > div
+    > div.col-lg-8.col-xxl-8.col-xl-8.col-md-8.col-sm-12.col-xs-12
+    > div.row
+    > div
+    > div
+    > div:nth-child(1) {
+    text-align: center !important;
+  }
+  body
+    > app-root
+    > app-blank
+    > app-viewbillorpaymentscreen
+    > mat-card
+    > mat-card-content
+    > div
+    > div.col-lg-8.col-xxl-8.col-xl-8.col-md-8.col-sm-12.col-xs-12
+    > div.row
+    > div
+    > div
+    > div.col-xxl-6.col-xl-6.col-lg-6.col-md-12.col-sm-12.col-xs-12.text-lg-end.text-xxl-end.text-xl-end.text-sm-center
+    > div
+    > div:nth-child(n) {
+    text-align: center !important;
+  }
   #mat-expansion-panel-header-0 {
     padding: 3rem 1rem 3rem 1rem !important;
   }
-  #cdk-accordion-child-0 > div > table{
+  #cdk-accordion-child-0 > div > table {
     display: none !important;
   }
-  #cdk-accordion-child-0 > div > div{
+  #cdk-accordion-child-0 > div > div {
     display: inline-block !important;
   }
-  body > app-root > app-full-layout > div > mat-sidenav-container > mat-sidenav-content > div > div > app-selfservicefaq > mat-card > mat-card-content > div:nth-child(2) > div > mat-accordion:nth-child(n) > mat-expansion-panel{
+  body
+    > app-root
+    > app-full-layout
+    > div
+    > mat-sidenav-container
+    > mat-sidenav-content
+    > div
+    > div
+    > app-selfservicefaq
+    > mat-card
+    > mat-card-content
+    > div:nth-child(2)
+    > div
+    > mat-accordion:nth-child(n)
+    > mat-expansion-panel {
     padding: 0.5rem 0rem 0.5rem 0rem;
   }
   body
@@ -2066,6 +2220,6 @@ mat-toolbar .profile-pic {
 .text-ctmclr {
   color: #33cf57 !important;
 }
-:root{
+:root {
   --bs-body-font-size: 11px !important;
 }
