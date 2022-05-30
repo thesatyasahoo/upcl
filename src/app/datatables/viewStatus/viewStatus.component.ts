@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { PageService } from 'src/app/services/page.service';
 
 declare var require: any;
 
@@ -33,21 +34,9 @@ const Data: UserData[] = require('./viewStatus.json');
 })
 export class ViewStatusComponent {
   title: any = localStorage.getItem('tableName');
-  nameData: string[] = []
-  displayedColumns: string[] = [
-    'complaintNo',
-    'complaintDate',
-    'description',
-    'status',
-    'links',
-  ];
-  displayedColumns1: string[] = [
-    'complaintNo',
-    'complaintDate',
-    'description',
-    'status',
-    'links',
-  ];
+  nameData: string[] = [];
+  displayedColumns: string[] = ['complaintRegistrationNumber', 'complainantName', 'complaintRegisteredOn', 'complaintDetails', 'complaintStatus', 'links'];
+  displayedColumns1: string[] = ['serviceRequestRegistrationNumber', 'serviceRequestMadeBy', 'serviceRequestRegisteredOn', 'serviceRequestDetails', 'serviceRequestStatus', 'links'];
 
   dataSource: any;
   dataSource1: any;
@@ -55,74 +44,19 @@ export class ViewStatusComponent {
   @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
 
   @ViewChildren(MatSort) sort = new QueryList<MatSort>();
-  constructor(private route: Router) {
+  constructor(private route: Router, private service: PageService) {
     // Create 100 users
     // const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
-
     // Assign the data to the data source for the table to render
     // this.dataSource = new MatTableDataSource(Data);
   }
   ngOnInit(): void {
-    this.getData();
+    this.getViewStatusComplaintStatus();
+    this.getViewStatusServiceReqStatus();
     // throw new Error('Method not implemented.');
   }
 
-  getData() {
-    let filteredData: any[] = [];
-    let filteredData1: any[] = [];
-    Data.map(e => {
-      if(e.paymentStatus === 'Paid' && this.title === 'Paid Connections') {
-        filteredData.push(e);
-        filteredData1.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);  
-        this.dataSource1 = new MatTableDataSource(filteredData1);  
-      }else if(e.paymentStatus === 'Over Due' && this.title === 'Over Dues Connections') {
-        filteredData.push(e);
-        filteredData1.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);
-        this.dataSource1 = new MatTableDataSource(filteredData1);
-      }else if(this.title === 'Total Connections') {
-        filteredData.push(e);
-        filteredData1.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);
-        this.dataSource1 = new MatTableDataSource(filteredData1);
-      }else if(this.title === 'Domestic Connections' && e.connectionType === 'Domestic') {
-        filteredData.push(e);
-        filteredData1.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);
-        this.dataSource1 = new MatTableDataSource(filteredData1);
-      }else if(this.title === 'Commercial Connections' && e.connectionType === 'Commercial') {
-        filteredData.push(e);
-        filteredData1.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);
-        this.dataSource1 = new MatTableDataSource(filteredData1);
-      }else if(this.title === 'Pending Service Request' && e.paymentStatus === 'Pending SR') {
-        filteredData.push(e);
-        filteredData1.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);
-        this.dataSource1 = new MatTableDataSource(filteredData1);
-      }else if(this.title === 'Pending Complaints' && e.paymentStatus === 'Pending Complain') {
-        filteredData.push(e);
-        filteredData1.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);
-        this.dataSource1 = new MatTableDataSource(filteredData1);
-      }else{
-        filteredData.push(e);
-        filteredData1.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);
-        this.dataSource1 = new MatTableDataSource(filteredData1);
-      }
-    })
-  }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator.toArray()[0];
-    this.dataSource.sort = this.sort.toArray()[0];
-    this.dataSource1.paginator = this.paginator.toArray()[1];
-    this.dataSource1.sort = this.sort.toArray()[1];
-  }
-
-  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -140,16 +74,42 @@ export class ViewStatusComponent {
     // }
   }
   valuesIn(e: any) {
-    if(e.value === 'Paid') {
+    if (e.value === 'Paid') {
       return ' text-ctmclr';
-     } else if(e.value === 'Disconnected') {
+    } else if (e.value === 'Disconnected') {
       return ' text-danger';
-     } else if(e.value === 'Over Due') {
+    } else if (e.value === 'Over Due') {
       return ' text-warning';
-     }
+    }
   }
   onRowClick(event: any) {
     // console.log(event.row);
-    this.route.navigate([`pages/table/detail/${event.accountNumber}`])
+    this.route.navigate([`pages/table/detail/${event.accountNumber}`]);
+  }
+
+  async getViewStatusComplaintStatus() {
+    let filteredData: any[] = [];
+    return (await this.service.viewStatusComplaintStatus()).subscribe((e: any) => {
+      console.log(e)
+      e.complaintsStatus.map((r: any) => {
+        filteredData.push(r);
+      });
+      this.dataSource = new MatTableDataSource(filteredData);
+      this.dataSource.paginator = this.paginator.toArray()[0];
+      this.dataSource.sort = this.sort.toArray()[0];
+    });
+  }
+
+  async getViewStatusServiceReqStatus() {
+    let filteredData1: any[] = [];
+    return (await this.service.viewStatusServiceReqStatus()).subscribe((e: any) => {
+      console.log(e)
+      e.serviceRequestDetails.map((r: any) => {
+        filteredData1.push(r);
+      });
+      this.dataSource1 = new MatTableDataSource(filteredData1);
+      this.dataSource1.paginator = this.paginator.toArray()[1];
+      this.dataSource1.sort = this.sort.toArray()[1];
+    });
   }
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+
 import { ActivatedRoute, Router } from '@angular/router';
+import { PageService } from 'src/app/services/page.service';
 
 declare var require: any;
 const Data: any = require('./load-calculator.json');
@@ -55,50 +54,29 @@ export class LoadCalculatorComponent implements OnInit{
     'netPaybleAmount',
     'paymentStatus',
   ];
-  dataSource: MatTableDataSource<UserData> | any;
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  @ViewChild(MatSort) sort: MatSort | undefined;
-  @ViewChild(LoadCalculatorComponent, { static: true }) table: LoadCalculatorComponent = Object.create(null);
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private service: PageService) {
     setTimeout(() => {
       this.loadingIndicator = false;
     }, 1500);
     
   }
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      console.log(params) //log the entire params object
-      console.log(params['id']) //log the value of id
-      this.id = params['id'];
-      Data.map((e: any) => {
-        // console.log(e, this.id)
-        if (this.id === e.accountNumber) {
-          console.log(e)
-          this.totalData.push(e)
-        }
-      })
-      this.dataSource = new MatTableDataSource(this.totalData);
-      this.rows = this.totalData;
-      this.temp = [...this.totalData];
-    });
+    this.getCalculatorDetails()
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
   
-  valuesIn(e: any) {
-    if(e.value === 'Paid') {
-      return ' text-ctmclr';
-     } else if(e.value === 'Disconnected') {
-      return ' text-danger';
-     } else if(e.value === 'Pending') {
-      return ' text-warning';
-     }
-  }
   onRowClick(event: any) {
     console.log(event.row);
     this.router.navigate([`pages/table/detail/${event.accountNumber}`])
   }
+
+  async getCalculatorDetails() {
+    return (await this.service.loadCalculator()).subscribe((e: any) => {
+      // console.log(e)
+      this.totalData = e.loadCalculationData;
+    });
+  }
+  
 }

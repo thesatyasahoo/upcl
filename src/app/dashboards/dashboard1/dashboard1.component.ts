@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './dashboard1.component.html',
   styleUrls: ['./dashboard1.component.scss'],
 })
-export class Dashboard1Component {}
+export class Dashboard1Component {
+  
+}

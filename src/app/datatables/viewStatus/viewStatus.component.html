@@ -15,7 +15,7 @@
         <div class="responsive-table">
           <mat-table #table [dataSource]="dataSource">
             <!-- Name Column -->
-            <ng-container matColumnDef="complaintNo">
+            <ng-container matColumnDef="complaintRegistrationNumber">
               <mat-header-cell *matHeaderCellDef> {{ 'Complaint No' | translate }}.</mat-header-cell>
               <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
                 <div class="row w-100">
@@ -28,7 +28,7 @@
                       class="text-primary"
                       (click)="onRowClick(row)"
                       style="cursor: pointer"
-                      >{{ row.complaintNo }}</a
+                      >{{ row.complaintRegistrationNumber }}</a
                     >
                   </div>
                 </div>
@@ -36,7 +36,7 @@
             </ng-container>
 
             <!-- Weight Column -->
-            <ng-container matColumnDef="complaintDate">
+            <ng-container matColumnDef="complaintRegisteredOn">
               <mat-header-cell *matHeaderCellDef>
                 {{ 'Complaint Date' | translate }}.
               </mat-header-cell>
@@ -45,43 +45,56 @@
                   <div class="col d-lg-none">
                     <span class="header-label">{{ 'Complaint Date' | translate }}. :</span>
                   </div>
-                  <div class="col p-0 text-center">{{ row.complaintDate }}</div>
+                  <div class="col p-0 text-center">{{ row.complaintRegisteredOn }}</div>
                 </div>
               </mat-cell>
             </ng-container>
-            <ng-container matColumnDef="description">
+            <ng-container matColumnDef="complainantName">
+              <mat-header-cell *matHeaderCellDef>
+                {{ 'Complaint Name' | translate }}.
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Complaint Date' | translate }}. :</span>
+                  </div>
+                  <div class="col p-0 text-center">{{ row.complainantName }}</div>
+                </div>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="complaintDetails">
               <mat-header-cell *matHeaderCellDef> {{ 'Description' | translate }} </mat-header-cell>
               <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
                 <div class="row w-100">
                   <div class="col d-lg-none">
                     <span class="header-label">{{ 'Description' | translate }} :</span>
                   </div>
-                  <div class="col p-0 text-center">{{ row.description }}</div>
+                  <div class="col p-0 text-center">{{ row.complaintDetails }}</div>
                 </div>
               </mat-cell>
             </ng-container>
-            <ng-container matColumnDef="status">
+            <ng-container matColumnDef="complaintStatus">
               <mat-header-cell *matHeaderCellDef>
                 {{ 'Status' | translate }}
               </mat-header-cell>
               <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
                 <div class="row w-100">
-                  <div class="col d-lg-none">
+                  <div class="col d-sm-none">
                     <span class="header-label">{{ 'Status' | translate }} :</span>
                   </div>
                   <div class="col p-0 text-center">
                     <div class="">
                       <span
-                        class="label w-100"
+                        class="label w-100 text-primary"
                         [ngClass]="{
-                          'label-light-success': row.status === 'Paid',
-                          'label-light-warning': row.status === 'Over Due',
-                          'label-light-danger': row.status === 'Disconnected',
-                          'label-light-warning1': row.status === 'Pending SR',
-                          'label-light-warning2': row.status === 'Pending Complain'
+                          'label-light-success': row.complaintStatus === 'Paid',
+                          'label-light-warning': row.complaintStatus === 'Over Due',
+                          'label-light-danger': row.complaintStatus === 'Disconnected',
+                          'label-light-warning1': row.complaintStatus === 'Pending SR',
+                          'label-light-warning2': row.complaintStatus === 'Pending Complain'
                         }"
                         style="height: 1.5rem; width: 5.5rem !important"
-                        >{{ row.status }}</span
+                        >{{ row.complaintStatus }}</span
                       >
                     </div>
                   </div>
@@ -130,7 +143,7 @@
         <div class="responsive-table">
           <mat-table #table1 [dataSource]="dataSource1">
             <!-- Name Column -->
-            <ng-container matColumnDef="complaintNo">
+            <ng-container matColumnDef="serviceRequestRegistrationNumber">
               <mat-header-cell *matHeaderCellDef> {{ 'Service Request Number' | translate }}.</mat-header-cell>
               <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
                 <div class="row w-100">
@@ -143,15 +156,27 @@
                       class="text-primary"
                       (click)="onRowClick(row)"
                       style="cursor: pointer"
-                      >{{ row.complaintNo }}</a
+                      >{{ row.serviceRequestRegistrationNumber }}</a
                     >
                   </div>
                 </div>
               </mat-cell>
             </ng-container>
-
+            <ng-container matColumnDef="serviceRequestMadeBy">
+              <mat-header-cell *matHeaderCellDef>
+                {{ 'Complaint Name' | translate }}.
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
+                <div class="row w-100">
+                  <div class="col d-lg-none">
+                    <span class="header-label">{{ 'Complaint Name' | translate }}. :</span>
+                  </div>
+                  <div class="col p-0 text-center">{{ row.serviceRequestMadeBy }}</div>
+                </div>
+              </mat-cell>
+            </ng-container>
             <!-- Weight Column -->
-            <ng-container matColumnDef="complaintDate">
+            <ng-container matColumnDef="serviceRequestRegisteredOn">
               <mat-header-cell *matHeaderCellDef>
                 {{ 'Service Request Date' | translate }}.
               </mat-header-cell>
@@ -160,22 +185,23 @@
                   <div class="col d-lg-none">
                     <span class="header-label">{{ 'Service Request Date' | translate }}. :</span>
                   </div>
-                  <div class="col p-0 text-center">{{ row.complaintDate }}</div>
+                  <div class="col p-0 text-center">{{ row.serviceRequestRegisteredOn }}</div>
                 </div>
               </mat-cell>
             </ng-container>
-            <ng-container matColumnDef="description">
+            
+            <ng-container matColumnDef="serviceRequestDetails">
               <mat-header-cell *matHeaderCellDef> {{ 'Description' | translate }} </mat-header-cell>
               <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
                 <div class="row w-100">
                   <div class="col d-lg-none">
                     <span class="header-label">{{ 'Description' | translate }} :</span>
                   </div>
-                  <div class="col p-0 text-center">{{ row.description }}</div>
+                  <div class="col p-0 text-center">{{ row.serviceRequestDetails }}</div>
                 </div>
               </mat-cell>
             </ng-container>
-            <ng-container matColumnDef="status">
+            <ng-container matColumnDef="serviceRequestStatus">
               <mat-header-cell *matHeaderCellDef>
                 {{ 'Status' | translate }}
               </mat-header-cell>
@@ -187,16 +213,16 @@
                   <div class="col p-0 text-center">
                     <div class="">
                       <span
-                        class="label w-100"
+                        class="label w-100 text-primary"
                         [ngClass]="{
-                          'label-light-success': row.status === 'Paid',
-                          'label-light-warning': row.status === 'Over Due',
-                          'label-light-danger': row.status === 'Disconnected',
-                          'label-light-warning1': row.status === 'Pending SR',
-                          'label-light-warning2': row.status === 'Pending Complain'
+                          'label-light-success': row.serviceRequestStatus === 'Paid',
+                          'label-light-warning': row.serviceRequestStatus === 'Over Due',
+                          'label-light-danger': row.serviceRequestStatus === 'Disconnected',
+                          'label-light-warning1': row.serviceRequestStatus === 'Pending SR',
+                          'label-light-warning2': row.serviceRequestStatus === 'Pending Complain'
                         }"
                         style="height: 1.5rem; width: 5.5rem !important"
-                        >{{ row.status }}</span
+                        >{{ row.serviceRequestStatus }}</span
                       >
                     </div>
                   </div>

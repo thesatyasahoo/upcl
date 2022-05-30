@@ -26,13 +26,14 @@ import { LoadCalculatorComponent } from './component/load-calculator/load-calcul
 import { RegisterForBillAlertComponent } from './component/register-for-bill-alert/register-for-bill-alert.component';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import { AdminLoginComponent } from './adminLogin/adminLogin.component';
+import { ViewSRStatusComponent } from './component/viewSRStatus/viewSRStatus.component';
 
 @NgModule({
   declarations: [HomePageComponent, RootPagesComponent, HeaderComponent,
     FooterComponent, LoginComponent, SignupComponent,ViewBillOrPaymentComponent,
     BillPaymentReceiptComponent,ForgotPasswordComponent,ViewStatusComponent,
     FixedCosEstimatorCalculatorComponent,LoadCalculatorComponent,
-    RegisterForBillAlertComponent,AdminLoginComponent,
+    RegisterForBillAlertComponent,AdminLoginComponent,ViewSRStatusComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +48,7 @@ import { AdminLoginComponent } from './adminLogin/adminLogin.component';
     FooterComponent, LoginComponent, SignupComponent,ViewBillOrPaymentComponent,
     BillPaymentReceiptComponent,ForgotPasswordComponent,ViewStatusComponent,
     FixedCosEstimatorCalculatorComponent,LoadCalculatorComponent,
-    RegisterForBillAlertComponent,AdminLoginComponent,
+    RegisterForBillAlertComponent,AdminLoginComponent,ViewSRStatusComponent,
   ]
 })
 export class RootPagesModule {}

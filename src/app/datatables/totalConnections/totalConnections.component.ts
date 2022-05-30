@@ -3,8 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { DashboardService } from 'src/app/services/dasboard.service';
 
-declare var require: any;
+// declare var require: any;
 
 // Start For 1
 export interface UserData {
@@ -25,7 +26,7 @@ export interface UserData {
   paymentStatus: string;
   connectionType: string;
 }
-const Data: UserData[] = require('./total.json');
+// const Data: UserData[] = require('./total.json');
 @Component({
   selector: 'app-totalConnections',
   templateUrl: './totalConnections.component.html',
@@ -36,24 +37,24 @@ export class TotalConnectionsComponent {
   nameData: string[] = []
   displayedColumns: string[] = [
     'accountNumber',
-    'serviceConnNumber',
-    'name',
-    'address',
+    'serviceConnectionNumber',
+    'consumerName',
+    'consumerAddress',
     'serviceStatus',
-    'connectionType',
-    'dueDate',
-    'netPaybleAmount',
+    'category',
+    'billDueDate',
+    'netPayableAmount',
     'paymentStatus',
     "billLink"
   ];
-
+  filteredData: any[] = [];
   dataSource: any;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  constructor(private route: Router) {
+  constructor(private route: Router, private service: DashboardService) {
     // Create 100 users
     // const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
 
@@ -66,36 +67,35 @@ export class TotalConnectionsComponent {
   }
 
   getData() {
-    let filteredData: any[] = [];
-    Data.map(e => {
-      if(e.paymentStatus === 'Paid' && this.title === 'Paid Connections') {
-        filteredData.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);  
-      }else if(e.paymentStatus === 'Over Due' && this.title === 'Over Dues Connections') {
-        filteredData.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);  
+    
+    // Data.map(e => {
+      if(this.title === 'Paid Connections') {
+        this.getTotalPaidConnection()
+        // this.dataSource = new MatTableDataSource(this.filteredData);
+      }else if(this.title === 'Over Dues Connections') {
+        this.getTotalPendingConnection()
+        // this.dataSource = new MatTableDataSource(this.filteredData);  
       }else if(this.title === 'Total Connections') {
-        filteredData.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);  
-      }else if(this.title === 'Domestic Connections' && e.connectionType === 'Domestic') {
-        filteredData.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);  
-      }else if(this.title === 'Commercial Connections' && e.connectionType === 'Commercial') {
-        filteredData.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);  
-      }else if(this.title === 'Pending Service Request' && e.paymentStatus === 'Pending SR') {
-        filteredData.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);  
-      }else if(this.title === 'Pending Complaints' && e.paymentStatus === 'Pending Complain') {
-        filteredData.push(e);
-        this.dataSource = new MatTableDataSource(filteredData);  
+        this.getTotalDataConnection()
+        // this.dataSource = new MatTableDataSource(this.filteredData);  
+      }else if(this.title === 'Domestic Connections') {
+        this.getTotalDomesticConnection()
+        // this.dataSource = new MatTableDataSource(this.filteredData);  
+      }else if(this.title === 'Commercial Connections') {
+        this.getTotalCommercialConnection()
+        // this.dataSource = new MatTableDataSource(this.filteredData);  
+      }else if(this.title === 'Pending Service Request') {
+        this.getPendingServiceRequests()
+        // this.dataSource = new MatTableDataSource(this.filteredData);  
+      }else if(this.title === 'Pending Complaints') {
+        this.getPendingComplaints()
+        // this.dataSource = new MatTableDataSource(this.filteredData);  
       }
-    })
+    // })
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    
   }
 
   
@@ -120,4 +120,94 @@ export class TotalConnectionsComponent {
     // console.log(event.row);
     this.route.navigate([`pages/table/detail/${event.accountNumber}`])
   }
+
+  async getTotalDataConnection() {
+    return (await this.service.getTotalNumberOfConnection()).subscribe((e: any) => {
+      console.log(e)
+      e.accountsDetails.map((r: any) => {
+        this.filteredData.push(r);
+      })
+    this.dataSource = new MatTableDataSource(this.filteredData);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    })
+  }
+
+  async getTotalPendingConnection() {
+    return (await this.service.getTotalPendingConnection()).subscribe((e: any) => {
+      console.log(e)
+      e.accountsDetails.map((r: any) => {
+        this.filteredData.push(r);
+      })
+    this.dataSource = new MatTableDataSource(this.filteredData);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    })
+  }
+
+  async getTotalPaidConnection() {
+    return (await this.service.getTotalPaidConnection()).subscribe((e: any) => {
+      console.log(e)
+      e.accountsDetails.map((r: any) => {
+        this.filteredData.push(r);
+      })
+    this.dataSource = new MatTableDataSource(this.filteredData);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    })
+  }
+
+  async getTotalDomesticConnection() {
+    return (await this.service.getTotalDomesticConnection()).subscribe((e: any) => {
+      console.log(e)
+      e.accountsDetails.map((r: any) => {
+        this.filteredData.push(r);
+      })
+    this.dataSource = new MatTableDataSource(this.filteredData);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    })
+  }
+
+  async getTotalCommercialConnection() {
+    return (await this.service.commercialConnection()).subscribe((e: any) => {
+      console.log(e)
+      e.accountsDetails.map((r: any) => {
+        this.filteredData.push(r);
+      })
+    this.dataSource = new MatTableDataSource(this.filteredData);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    })
+  }
+
+  async getPendingComplaints() {
+    return (await this.service.getPendingComplaints()).subscribe((e: any) => {
+      console.log(e)
+      e.complaintDetails.map((r: any) => {
+        this.filteredData.push(r);
+      })
+    this.dataSource = new MatTableDataSource(this.filteredData);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    })
+  }
+
+  async getPendingServiceRequests() {
+    return (await this.service.getPendingServiceRequests()).subscribe((e: any) => {
+      console.log(e)
+      e.serviceRequestDetails.map((r: any) => {
+        this.filteredData.push(r);
+      })
+    this.dataSource = new MatTableDataSource(this.filteredData);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    })
+  }
+
+  // async getTotalDataConnection() {
+  //   return (await this.service.getTotalNumberOfConnection()).subscribe((e) => {
+  //     this.filteredData.push(e);
+  //   })
+  // }
 }

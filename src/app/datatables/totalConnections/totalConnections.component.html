@@ -19,66 +19,66 @@
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="serviceConnNumber">
+        <ng-container matColumnDef="serviceConnectionNumber">
           <mat-header-cell *matHeaderCellDef> {{'Service Acc No' | translate}}. </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">{{'Service Acc No' | translate}}. :</span></div>
-              <div class="col p-0 text-center">{{row.serviceConnNumber}}</div>
+              <div class="col p-0 text-center">{{row.serviceConnectionNumber}}</div>
             </div>
           </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="name">
+        <ng-container matColumnDef="consumerName">
           <mat-header-cell *matHeaderCellDef> {{'Name' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">{{'Name' | translate}} :</span></div>
-              <div class="col p-0 text-center">{{row.name}}</div>
+              <div class="col p-0 text-center">{{row.consumerName}}</div>
             </div>
           </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="address">
+        <ng-container matColumnDef="consumerAddress">
           <mat-header-cell *matHeaderCellDef> {{'Address' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">{{'Address' | translate}} :</span></div>
-              <div class="col p-0 text-center">{{row.address}}</div>
+              <div class="col p-0 text-center">{{row.consumerAddress}}</div>
             </div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="serviceStatus">
           <mat-header-cell *matHeaderCellDef> {{'Service Status' | translate}} </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 d-sm-none">
+          <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100 d-sm-none d-md-block">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">{{'Service Status' | translate}} :</span></div>
               <div class="col p-0 text-center">{{row.serviceStatus}}</div>
             </div>
           </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="connectionType">
+        <ng-container matColumnDef="category">
           <mat-header-cell *matHeaderCellDef> {{'Connection Type' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">{{'Connection Type' | translate}} :</span></div>
-              <div class="col p-0 text-center">{{row.connectionType}}</div>
+              <div class="col p-0 text-center">{{row.category}}</div>
             </div>
           </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="dueDate">
+        <ng-container matColumnDef="billDueDate">
           <mat-header-cell *matHeaderCellDef> {{'Due Date' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">{{'Due Date' | translate}} :</span></div>
-              <div class="col p-0 text-center">{{row.dueDate}}</div>
+              <div class="col p-0 text-center">{{row.billDueDate}}</div>
             </div>
           </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="netPaybleAmount">
+        <ng-container matColumnDef="netPayableAmount">
           <mat-header-cell *matHeaderCellDef> {{'Net Payble Amount' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row" class="bg-cstmOrange w-100">
             <div class="row w-100">
               <div class="col d-lg-none"><span class="header-label">{{'Net Payble Amount' | translate}} :</span></div>
-              <div class="col p-0 text-center">{{row.netPaybleAmount}}</div>
+              <div class="col p-0 text-center">{{row.netPayableAmount}}</div>
             </div>
           </mat-cell>
         </ng-container>

@@ -18,9 +18,9 @@
             <div class="col">
               <mat-form-field appearance="legacy">
                 <mat-label>Connection type</mat-label>
-                <mat-select>
-                  <mat-option *ngFor="let item of connectionType" [value]="item.value">
-                    {{item.viewValue}}
+                <mat-select formControlName="loadType">
+                  <mat-option *ngFor="let item of connectionType" [value]="item">
+                    {{item}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -32,15 +32,15 @@
                 <div class="col">
                   <mat-form-field appearance="legacy">
                     <mat-label>Load Desired</mat-label>
-                    <input matInput>
+                    <input matInput formControlName="loadApplied">
                   </mat-form-field>
                 </div>
                 <div class="col">
                   <mat-form-field appearance="legacy">
                     <mat-label>Unit</mat-label>
-                    <mat-select>
-                      <mat-option *ngFor="let item of units" [value]="item.value">
-                        {{item.viewValue}}
+                    <mat-select formControlName="metric">
+                      <mat-option *ngFor="let item of desiredLoadMetrice" [value]="item">
+                        {{item}}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -51,10 +51,22 @@
           <div class="row">
             <div class="col">
               <mat-form-field appearance="legacy">
+                <mat-label>Suply Voltage</mat-label>
+                <mat-select formControlName="supplyVoltage">
+                  <mat-option *ngFor="let item of supplyVoltages" [value]="item">
+                    {{item}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="legacy">
                 <mat-label>Category</mat-label>
-                <mat-select>
-                  <mat-option *ngFor="let item of category" [value]="item.value">
-                    {{item.viewValue}}
+                <mat-select formControlName="categoryId">
+                  <mat-option *ngFor="let item of category" [value]="item.categoryId">
+                    {{item.categoryName}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -64,9 +76,9 @@
             <div class="col">
               <mat-form-field appearance="legacy">
                 <mat-label>Service Line Desired</mat-label>
-                <mat-select>
-                  <mat-option *ngFor="let item of sLdesired" [value]="item.value">
-                    {{item.viewValue}}
+                <mat-select formControlName="serviceLine">
+                  <mat-option *ngFor="let item of serviceLineType" [value]="item">
+                    {{item}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -76,13 +88,13 @@
             <div class="col">
               <mat-form-field appearance="legacy">
                 <mat-label>Length Of Extension In Meters From Desired Connecting Pole</mat-label>
-                <input matInput>
+                <input matInput formControlName="lineLength">
               </mat-form-field>
             </div>
           </div>
           <div class="row mt-2">
             <div class="col text-center">
-              <button mat-raised-button color="primary">Calculate</button>
+              <button mat-raised-button color="primary" (submit)="getShowDemandCalculation()">Calculate</button>
             </div>
           </div>
         </form>

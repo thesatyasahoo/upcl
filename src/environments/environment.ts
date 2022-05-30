@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  baseApi: "https://appservices.upcl.org:8443",
+  production: false,
+  loginServiceKey: "WSS-LG-ABC-123",
+  serviceKey: "WSS-GEN-ABC-123",
+  userKey: "WSS-USR-123",
 };
 
 /*

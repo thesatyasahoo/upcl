@@ -11,6 +11,7 @@ import { LoadCalculatorComponent } from './rootPages/component/load-calculator/l
 import { NewConnectionComponent } from './rootPages/component/new-connection/new-connection.component';
 import { RegisterForBillAlertComponent } from './rootPages/component/register-for-bill-alert/register-for-bill-alert.component';
 import { ViewBillOrPaymentComponent } from './rootPages/component/viewBillOrPayment/viewBillOrPayment.component';
+import { ViewSRStatusComponent } from './rootPages/component/viewSRStatus/viewSRStatus.component';
 import { ViewStatusComponent } from './rootPages/component/viewStatus/viewStatus.component';
 import { HomePageComponent } from './rootPages/home-page/home-page.component';
 import { LoginComponent } from './rootPages/login/login.component';
@@ -62,6 +63,10 @@ export const AppRoutes: Routes = [
       {
         path: 'view-status',
         component: ViewStatusComponent,
+      },
+      {
+        path: 'view-sr-status',
+        component: ViewSRStatusComponent,
       },
       {
         path: 'fixed-cost-estimator-calculator',

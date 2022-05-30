@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PageService } from 'src/app/services/page.service';
 
 declare var require: any;
 const data: any = require('./serviceRequest.json');
@@ -49,7 +50,7 @@ export class ServiceRequestComponent implements OnInit{
   ];
 
   @ViewChild(ServiceRequestComponent, { static: true }) table: ServiceRequestComponent = Object.create(null);
-  constructor(private route: ActivatedRoute,private fb: FormBuilder, private router: Router) {
+  constructor(private route: ActivatedRoute,private fb: FormBuilder, private router: Router, private service: PageService) {
     setTimeout(() => {
       this.loadingIndicator = false;
     }, 1500);
@@ -81,6 +82,10 @@ export class ServiceRequestComponent implements OnInit{
       "tempDiconnection": [""],
       "complaint_Details": ["", Validators.required],
     })
+    // this.getServiceTypeDetails();
+    // this.getServiceDetails();
+    // this.getSubstationDetails();
+    // this.getServiceRegistration();
   }
   complaintType = new FormControl('', [Validators.required]);
   complaint = new FormControl('', [Validators.required]);
@@ -320,4 +325,28 @@ export class ServiceRequestComponent implements OnInit{
       ];
     }
   }
+
+  // async getServiceTypeDetails() {
+  //   return await (await this.service.serviceTypeDetails()).subscribe((e: any) => {
+  //     console.log(e)
+  //   })
+  // }
+
+  // async getServiceDetails() {
+  //   return await (await this.service.serviceDetails()).subscribe((e: any) => {
+  //     console.log(e)
+  //   })
+  // }
+
+  // async getSubstationDetails() {
+  //   return await (await this.service.substationDetails()).subscribe((e: any) => {
+  //     console.log(e)
+  //   })
+  // }
+
+  // async getServiceRegistration() {
+  //   return await (await this.service.serviceRegistration()).subscribe((e: any) => {
+  //     console.log(e)
+  //   })
+  // }
 }
